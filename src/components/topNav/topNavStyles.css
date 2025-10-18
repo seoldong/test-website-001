@@ -1,9 +1,17 @@
 .topNav {
+  max-width: 1500px;
+  min-width: 320px;
   width: 100%;
   height: 4rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
   display: flex;
   justify-content: space-between;
   background-color: rgb(246, 183, 87);
+  z-index: 1;
+  margin: auto;
 }
 
 .topNav-left {
@@ -37,25 +45,29 @@
 }
 
 .topNav-menu00,
-.topNav-menu01,
+.shopBtn,
 .topNav-menu02,
 .topNav-menu03,
 .topNav-menu04,
 .login,
 .chat,
 .burger-svg,
-.logo {
+.logo,
+.topNav-underside-shopBtn {
   font-size: 1rem;
   cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
 }
 
 .topNav-menu00:hover,
-.topNav-menu01:hover,
+.shopBtn:hover,
 .topNav-menu02:hover,
 .topNav-menu03:hover,
 .topNav-menu04:hover,
 .login:hover,
-.chat:hover {
+.chat:hover,
+.topNav-underside-shopBtn:hover {
   color: crimson;
 }
 
@@ -65,4 +77,89 @@
 
 .logo:hover text {
   fill: crimson !important;
+}
+
+.topNav-underSide {
+  max-width: 1500px;
+  min-width: 320px;
+  width: 100%;
+  height: 0.2rem;
+  overflow: hidden;
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 5rem;
+  padding-top: 0;
+  background-color: cornflowerblue;
+  transition: height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.topNav-underSide.active {
+  height: 10rem;
+  padding-top: 1.5rem;
+}
+
+.shop-menu {
+  width: 10rem;
+  height: 6rem;
+  position: absolute;
+  top: 3rem;
+  left: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: aquamarine;
+  cursor: pointer;
+}
+
+.shop-drinkBtn {
+  width: 100%;
+  height: 50%;
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+}
+
+.shop-packBtn {
+  width: 100%;
+  height: 50%;
+  border-radius: 0 0 0.5rem 0.5rem;
+  cursor: pointer;
+
+}
+
+.shop-drinkBtn:hover,
+.shop-packBtn:hover {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.topNav-underside-shop-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+.topNav-underside-shop-menu button {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.topNav-underside-shop-menu button {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.topNav-underside-shop-menu button:hover {
+  color: rgb(100, 100, 100);
 }

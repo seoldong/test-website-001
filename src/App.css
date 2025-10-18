@@ -1,4 +1,7 @@
 .base {
   max-width: 1500px;
   min-width: 320px;
+  height: 2000px;
+  background-color: bisque;
+  margin: auto;
 }

@@ -1,11 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./topNavStyles.css";
 import { useState } from "react";
+import { isOpenUndersidePanel } from "../../redux/slices/topnav/undersideSlice";
 
+// 
 function Burger() {
+  const dispatch = useDispatch();
   const [isClick, setIsClick] = useState(false);
 
   const onClickBurgerBtn = () => {
     setIsClick(!isClick);
+    dispatch(isOpenUndersidePanel());
     console.log("clicked buger btn");
   };
 
@@ -14,7 +19,7 @@ function Burger() {
       <button className="topNav-burger-Btn" onClick={onClickBurgerBtn}>
         <svg
           className="burger-svg"
-          width="20"
+          width="35"
           viewBox="0 0 200.00002 150.11649"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
