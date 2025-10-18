@@ -1,0 +1,68 @@
+.topNav {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(246, 183, 87);
+}
+
+.topNav-left {
+  width: 30%;
+  height: 100%;
+  background-color: darkkhaki;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.topNav-center {
+  width: 20%;
+  height: 4rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgrey;
+}
+
+.topNav-right {
+  width: 20%;
+  height: 100%;
+  background-color: rgb(14, 114, 56);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.topNav-menu00,
+.topNav-menu01,
+.topNav-menu02,
+.topNav-menu03,
+.topNav-menu04,
+.login,
+.chat,
+.burger-svg,
+.logo {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.topNav-menu00:hover,
+.topNav-menu01:hover,
+.topNav-menu02:hover,
+.topNav-menu03:hover,
+.topNav-menu04:hover,
+.login:hover,
+.chat:hover {
+  color: crimson;
+}
+
+.burger-svg:hover rect {
+  fill: crimson !important;
+}
+
+.logo:hover text {
+  fill: crimson !important;
+}

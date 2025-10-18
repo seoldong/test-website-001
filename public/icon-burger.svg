@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200.00002mm"
+   height="150.11649mm"
+   viewBox="0 0 200.00002 150.11649"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="icon-burger.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#d1d1d1"
+     bordercolor="#000000"
+     borderopacity="0.24705882"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:antialias-rendering="true"
+     inkscape:clip-to-page="false"
+     showguides="false"
+     inkscape:lockguides="false"
+     showborder="false"
+     borderlayer="false"
+     inkscape:zoom="0.50835204"
+     inkscape:cx="325.56179"
+     inkscape:cy="362.93746"
+     inkscape:window-width="2560"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     labelstyle="default" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,11.158578,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-4.999996)">
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.08709;stroke-miterlimit:11.7;paint-order:stroke fill markers"
+       id="rect1"
+       width="199.91292"
+       height="24.91291"
+       x="5.043541"
+       y="0.043545015"
+       sodipodi:type="rect"
+       ry="12.456455" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.08709;stroke-miterlimit:11.7;paint-order:stroke fill markers"
+       id="rect1-7"
+       width="199.91292"
+       height="24.91291"
+       x="5.043541"
+       y="62.601788"
+       sodipodi:type="rect"
+       ry="12.456455" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.08709;stroke-miterlimit:11.7;paint-order:stroke fill markers"
+       id="rect1-76"
+       width="199.91292"
+       height="24.91291"
+       x="5.043541"
+       y="125.16003"
+       sodipodi:type="rect"
+       ry="12.456455" />
+  </g>
+</svg>
