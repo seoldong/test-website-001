@@ -1,0 +1,105 @@
+.topContentsSlide-container {
+    width: 1500px;
+    overflow: hidden;
+    height: 1000px;
+    position: relative; /* 자식 요소 절대 위치 배치를 위해 필수 */
+}
+
+/* 이미지를 컨테이너에 가득 채우도록 설정 */
+.topContentsSlide-img {
+    width: 100%;    
+    height: 100%;   
+    object-fit: cover; 
+}
+
+/* ⭐ 슬라이드 텍스트 스타일 */
+.topContentsSlide-text {
+    position: absolute;
+    top: 250px; /* 이미지 상단으로부터의 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    z-index: 6;
+    text-align: center;
+}
+
+/* ================== 좌우 네비게이션 버튼 (신규) ================== */
+.slide-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+    line-height: 50px; /* 텍스트 수직 중앙 정렬 */
+    text-align: center;
+}
+
+.slide-nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-prev-btn {
+    left: 20px;
+}
+
+.slide-next-btn {
+    right: 20px;
+}
+
+
+/* ================== 하단 점 네비게이션 (신규) ================== */
+.slide-dots {
+    position: absolute;
+    bottom: 50px; /* 하단에서 띄우기 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 2px solid white; /* 라인으로 표시 */
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s;
+}
+
+.dot-active {
+    background-color: white; /* 현재 슬라이드는 채워진 점으로 표시 */
+}
+
+
+/* ================== 액션 버튼 (기존) ================== */
+.slide-action-btn {
+    position: absolute;
+    padding: 15px 30px;
+    background-color: rgba(255, 100, 0, 0.8);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 1.2rem;
+}
+
+.btn-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* 나머지 버튼 위치 클래스 (.btn-bottom-right, .btn-top-left)는 유지 */

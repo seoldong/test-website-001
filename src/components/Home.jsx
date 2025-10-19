@@ -10,6 +10,7 @@ import Login from "./topNav/Login"
 import Chat from "./topNav/Chat"
 import ShopUnderside from "./topNav/Shopunderside"
 import { useSelector } from "react-redux"
+import TopContents from "./topContents/topContents"
 
 // 
 function Home() {
@@ -40,7 +41,7 @@ function Home() {
                 <Review />
             </div>
             <div className="topcontents">
-
+                <TopContents />
             </div>
             <div className="items01"></div>
             <div className="items02"></div>
