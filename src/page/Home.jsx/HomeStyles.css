@@ -1,0 +1,7 @@
+.base {
+    max-width: 1800px;
+    min-width: 320px;
+    width: 1800px;
+    background-color: rgb(255, 217, 171);
+    margin: auto;
+}
