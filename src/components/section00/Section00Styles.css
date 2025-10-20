@@ -1,0 +1,100 @@
+.section00-container {
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(174, 174, 110);
+}
+
+.section00-title {
+  width: 100%;
+  height: 18%;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 0.5rem;
+}
+
+.section00-subtitle {
+  width: 100%;
+  height: 12%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 0.5rem;
+  background-color: coral;
+}
+
+.section00-itemBox {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+}
+
+.section00-item {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.section00-item:hover {
+  filter: brightness(50%);
+}
+
+.section00-itemContainer {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 4rem;
+  background-color: darkcyan;
+}
+
+.section00-itemBox {
+  width: 20rem;
+  height: 32rem;
+  padding: 1rem;
+  background-color: bisque;
+}
+
+.section00-itemImgBox {
+  width: 18rem;
+  height: 18rem;
+}
+
+.section00-item-title {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgb(153, 129, 99);
+}
+
+.section00-item-price {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: cornflowerblue;
+}
+
+.section00-item-stateBox {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+.section00-item-state {
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid black;
+}
