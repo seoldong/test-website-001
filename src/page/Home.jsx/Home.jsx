@@ -1,9 +1,11 @@
 import BrandStory from "../../components/homeSection/BrandStory";
 import BrandValue from "../../components/homeSection/BrandValue";
+import Footer from "../../components/homeSection/Footer";
 import MainSlide from "../../components/homeSection/MainSlide";
 import Package from "../../components/homeSection/Package";
 import PopularProducts from "../../components/homeSection/PopularProducts";
 import Recommended from "../../components/homeSection/Recommended";
+import Review from "../../components/homeSection/Review";
 import TopNav from "../../components/topNav";
 import "./HomeStyles.css";
 
@@ -33,7 +35,12 @@ function Home() {
       <div className="brandStory">
         <BrandStory />
       </div>
-      <div className="reviewSlide"></div>
+      <div className="review">
+        <Review />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   );
 }

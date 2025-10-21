@@ -1,0 +1,56 @@
+.footer-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.footer-company {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(193, 146, 75);
+}
+
+.footer-company-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-company-companyName {
+    font-size: 2rem;
+}
+
+.footer-connect {
+    width: 100%;
+    height: 50%;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: dimgray;
+}
+
+.footer-instargram,
+.footer-email,
+.footer-number,
+.footer-adress {
+    background-color: darkgray;
+    margin-bottom: 1rem;
+}
+
+.footer-copyright {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
