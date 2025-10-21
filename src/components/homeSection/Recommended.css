@@ -1,6 +1,6 @@
 .recommended-container {
     width: 100%;
-    height: 1000px;
+    height: 1200px;
     background-color: rgb(174, 174, 110);
 }
 
@@ -28,19 +28,30 @@
 
 .recommended-slide {
     width: 100%;
-    height: 70%;
+    height: 55%;
     display: flex;
     justify-content: center;
     align-items: start;
     position: relative;
 }
 
+.recommended-viewAllProducts {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 2rem;
+    background-color: darkgreen;
+}
+
 .recommended-slideBox {
     /* (30rem * 3)의 너비로 설정하여 3개 항목만 보이게 함 */
-    width: 90rem; 
+    width: 90rem;
     height: 40rem;
     position: relative;
-    overflow: hidden; /* 슬라이더 외부 상품을 숨김 */
+    overflow: hidden;
+    /* 슬라이더 외부 상품을 숨김 */
     background-color: rgb(59, 177, 80);
 }
 
@@ -53,8 +64,72 @@
 .recommended-productBox {
     width: 30rem;
     height: 100%;
-    flex-shrink: 0; /* item이 줄어들지 않도록 설정 */
+    flex-shrink: 0;
+    /* item이 줄어들지 않도록 설정 */
     overflow: hidden;
     border: 0.1rem solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: lightblue;
+}
+
+.recommended-productImage {
+    width: 26rem;
+    height: 26rem;
+    object-fit: cover;
+    transition: filter 0.2s ease;
+    cursor: pointer;
+}
+
+.recommended-productImage:hover {
+    filter: brightness(50%);
+}
+
+.recommended-productName {
+    background-color: aquamarine;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+.recommended-productPriceBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.recommended-productSalePrice {
+    background-color: rgb(175, 119, 227);
+    font-size: 1.3rem;
+}
+
+.recommended-productPrice {
+    background-color: rgb(33, 152, 33);
+    font-size: 1.3rem;
+    text-decoration: line-through;
+    color: lightgrey;
+}
+
+.recommended-productOnSale {
+    background-color: cornflowerblue;
+    margin-top: 2rem;
+    font-size: 1.2;
+    border: 0.1rem solid black;
+    padding: 0.5rem
+}
+
+.recommended-viewAllProducts button {
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 0.1rem solid black;
+    background-color: rgb(109, 140, 232);
+    cursor: pointer;
+}
+
+.recommended-viewAllProducts button:hover {
+    background-color: darkcyan;
 }

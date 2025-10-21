@@ -11,7 +11,7 @@ function Shop() {
   };
 
   return (
-    <>
+    <div className="shop-container">
       <button
         className="shopBtn"
         onClick={onClickShopBtn}
@@ -30,7 +30,7 @@ function Shop() {
           <button className="shop-packBtn">PACK</button>
         </div>
       }
-    </>
+    </div>
   );
 }
 

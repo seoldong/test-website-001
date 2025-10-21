@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import "./topNavStyles.css";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { isOpenUndersidePanel } from "../../redux/slices/topnav/undersideSlice";
 

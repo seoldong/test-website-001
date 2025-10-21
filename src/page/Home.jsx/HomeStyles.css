@@ -5,3 +5,9 @@
     background-color: rgb(255, 217, 171);
     margin: auto;
 }
+
+.brandStory {
+    width: 100%;
+    height: 1200px;
+    background-color: darkgray;
+}

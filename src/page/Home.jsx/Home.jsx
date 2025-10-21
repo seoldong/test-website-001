@@ -1,3 +1,5 @@
+import BrandStory from "../../components/homeSection/BrandStory";
+import BrandValue from "../../components/homeSection/BrandValue";
 import MainSlide from "../../components/homeSection/MainSlide";
 import Package from "../../components/homeSection/Package";
 import PopularProducts from "../../components/homeSection/PopularProducts";
@@ -25,7 +27,12 @@ function Home() {
       <div className="recommended">
         <Recommended />
       </div>
-      <div className="introduce02"></div>
+      <div className="brandValue">
+        <BrandValue />
+      </div>
+      <div className="brandStory">
+        <BrandStory />
+      </div>
       <div className="reviewSlide"></div>
     </div>
   );

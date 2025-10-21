@@ -9,9 +9,7 @@ const ProductSlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const itemsToShow = 3;
     const ITEM_WIDTH_REM = 30;
-
-    console.log(currentIndex);
-
+    const discount = 0.8
 
     useEffect(() => {
         const allProducts = getRecommendedJuice;
@@ -28,7 +26,7 @@ const ProductSlider = () => {
                 trackRef.current.style.transition = 'transform 0.3s ease-in-out';
                 setCurrentIndex(currentIndex + 1);
             }
-        }, 1000);
+        }, 3000);
         return () => clearInterval(interval);
     }, [currentIndex, products]);
 
@@ -53,13 +51,24 @@ const ProductSlider = () => {
                                 className="recommended-productBox"
                                 style={{ width: `${ITEM_WIDTH_REM}rem`, height: '40rem' }}
                             >
-                                {product?.productName}
+                                <img
+                                    className="recommended-productImage"
+                                    src={product.imageSrc} alt=""
+                                />
+                                <div className="recommended-productName">{product.productName}</div>
+                                <div className="recommended-productPriceBox">
+                                    <div className="recommended-productSalePrice">{product.onSale ? product.price_krw * discount : product.price_krw}</div>
+                                    <div className="recommended-productPrice">{product.onSale ? product.price_krw : ''}</div>
+                                </div>
+                                {product.onSale && <div className="recommended-productOnSale">20% SALE</div>}
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="recommended-viewAllProducts"></div>
+            <div className="recommended-viewAllProducts">
+                <button>VIEW ALL PRODUCT</button>
+            </div>
         </div>
     );
 };

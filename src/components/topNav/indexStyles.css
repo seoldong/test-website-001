@@ -57,7 +57,7 @@
 .chat,
 .burger-svg,
 .topNav-underside-shopBtn {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   cursor: pointer;
   padding: 1rem 0.5rem;
 }
@@ -79,7 +79,6 @@
 
 .logo {
   cursor: pointer;
-  padding: 1rem 0.2rem;
 }
 
 .logo:hover text {
@@ -111,6 +110,10 @@
 }
 
 .shopBtn_box {
+  position: relative;
+}
+
+.shop-container {
   position: relative;
 }
 

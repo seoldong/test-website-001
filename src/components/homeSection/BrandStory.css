@@ -1,0 +1,68 @@
+.brandStory-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.brandStory-parllax {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/etcImg/brandStory.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+}
+
+.brandStory-contents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.brandStory-story {
+    width: 42%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-right: 5rem;
+    background-color: darkcyan;
+}
+
+.brandStory-centerLine {
+    position: absolute;
+    width: 0.5rem;
+    height: 80%;
+    background-color: white;
+}
+
+.brandStory-vison {
+    width: 42%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-left: 5rem;
+    background-color: rgb(107, 190, 190);
+}
+
+.brandStory-story-title,
+.brandStory-vison-title {
+    font-size: 3rem;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    color: aliceblue;
+}
+
+.brandStory-story-description,
+.brandStory-vison-description {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    color: aliceblue;
+}
