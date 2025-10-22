@@ -1,4 +1,4 @@
-import "./MainSlide.css"
+import styles from "./MainSlide.module.css"
 import { useEffect, useState } from "react";
 import topSlidesData from "../../mockData/topSlide"
 
@@ -41,39 +41,31 @@ function MainSlide() {
     };
 
     return (
-        <div className="mainSlide-container">
+        <>
             <img
-                className='mainSlide-img'
+                className={styles.slideImg}
                 src={currentSlide.src}
                 alt={currentSlide.alt}
             />
-
-            {/* 슬라이드 텍스트 */}
-            <h1 className='mainSlide-text'>{currentSlide.slideText}</h1>
-
-            {/* ⭐ 좌우 네비게이션 버튼 */}
-            <button className='slide-nav-btn slide-prev-btn' onClick={handlePrev}>&lt;</button>
-            <button className='slide-nav-btn slide-next-btn' onClick={handleNext}>&gt;</button>
-
-            {/* ⭐ 액션 버튼 (슬라이드별 개별 버튼) */}
+            <h1 className={styles.slideText}>{currentSlide.slideText}</h1>
+            <button className={`${styles.slideBtn} ${styles.prevBtn}`} onClick={handlePrev}>&lt;</button>
+            <button className={`${styles.slideBtn} ${styles.nextBtn}`} onClick={handleNext}>&gt;</button>
             <button
-                className={`slide-action-btn ${currentSlide.button.class}`}
+                className={`${styles.actionBtn} ${currentSlide.button.class}`}
                 onClick={handleButtonClick}
             >
                 {currentSlide.button.text}
             </button>
-
-            {/* ⭐ 하단 점 네비게이션 */}
-            <div className='slide-dots'>
+            <div className={styles.dots}>
                 {slides.map((_, dotIndex) => (
                     <button
                         key={dotIndex}
-                        className={`dot ${dotIndex === index ? 'dot-active' : ''}`}
+                        className={`${styles.dot} ${dotIndex === index ? `${styles.dotActive}` : ''}`}
                         onClick={() => handleDotClick(dotIndex)}
                     />
                 ))}
             </div>
-        </div>
+        </>
     );
 }
 

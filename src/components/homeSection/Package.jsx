@@ -1,10 +1,10 @@
-import "./Package.css";
+import styles from "./Package.module.css";
 import packageImg from "../../assets/etcImg/package.jpg";
 
 //
 function Package() {
   return (
-    <div className="package-container">
+    <>
       <div className="package-left">
         <img className="package-left-img" src={packageImg} alt="" />
       </div>
@@ -15,7 +15,7 @@ function Package() {
         <div className="package-right-price">price</div>
         <button>BUY RIGHT NOW</button>
       </div>
-    </div>
+    </>
   );
 }
 

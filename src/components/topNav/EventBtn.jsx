@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Event() {
+function EventBtn() {
   const [isClick, setIsClick] = useState(false);
 
   const onClickEventBtn = () => {
@@ -9,10 +9,10 @@ function Event() {
   };
 
   return (
-    <button className="topNav-menu02" onClick={onClickEventBtn}>
+    <button className="topNav-eventBtn" onClick={onClickEventBtn}>
       EVENT
     </button>
   );
 }
 
-export default Event;
+export default EventBtn;

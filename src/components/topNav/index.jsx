@@ -1,14 +1,14 @@
-import "./indexStyles.css"
-import Burger from "./Burger";
-import About from "./About";
-import Shop from "./Shop";
-import Event from "./Event";
-import Review from "./Review";
-import Logo from "./Logo";
-import Login from "./Login";
-import Chat from "./Chat";
+import "./index.css"
+import BurgerBtn from "./BurgerBtn";
+import AboutBtn from "./AboutBtn";
+import ShopBtn from "./ShopBtn";
+import EventBtn from "./EventBtn";
+import ReviewBtn from "./ReviewBtn";
+import Logo from "./LogoBtn";
+import Login from "./LoginBtn";
+import ChatBtn from "./ChatBtn";
 import { useSelector } from "react-redux";
-import ShopUnderside from "./Shopunderside";
+import ShopBtnUnderside from "./ShopBtnUnderside";
 
 
 function TopNav() {
@@ -18,24 +18,24 @@ function TopNav() {
     return (
         <>
             <div className={`topNav-underSide ${undersidePanel && "active"}`}>
-                <About />
-                <ShopUnderside />
-                <Event />
-                <Review />
+                <AboutBtn />
+                <ShopBtnUnderside />
+                <EventBtn />
+                <ReviewBtn />
             </div>
-            <div className="topNav-left">
-                <Burger />
-                <About />
-                <Shop />
-                <Event />
-                <Review />
+            <div className="topNav-leftBox">
+                <BurgerBtn />
+                <AboutBtn />
+                <ShopBtn />
+                <EventBtn />
+                <ReviewBtn />
             </div>
-            <div className="topNav-center">
+            <div className="topNav-centerBox">
                 <Logo />
             </div>
-            <div className="topNav-right">
+            <div className="topNav-rightBox">
                 <Login />
-                <Chat />
+                <ChatBtn />
             </div>
         </>
     )

@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-function Chat() {
+function ChatBtn() {
   const [isClick, setIsClick] = useState(false);
 
   const onClickChatBtn = () => {
     setIsClick(!isClick);
-    console.log('clicked Chat btn');
+    console.log('clicked ChatBtn btn');
   };
 
   return (
-    <button className="chat" onClick={onClickChatBtn}>
+    <button className="topNav-chatBtn" onClick={onClickChatBtn}>
       CHAT
     </button>
   );
 }
 
-export default Chat;
+export default ChatBtn;

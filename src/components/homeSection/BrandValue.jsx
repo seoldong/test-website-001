@@ -5,7 +5,7 @@ import brandValue from "../../assets/etcImg/brandValue.jpg"
 function BrandValue() {
 
     return (
-        <div className="brandValue-section">
+        <>
             <div className="brandValue-content-container">
                 <div className="brandValue-text-block">
                     <h2 className="brandValue-title">WE ARE ALWAYS <br /> brandValue:</h2>
@@ -45,7 +45,7 @@ function BrandValue() {
                     className="brandValue-main-image"
                 />
             </div>
-        </div>
+        </>
     )
 }
 

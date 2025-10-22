@@ -7,39 +7,39 @@ import PopularProducts from "../../components/homeSection/PopularProducts";
 import Recommended from "../../components/homeSection/Recommended";
 import Review from "../../components/homeSection/Review";
 import TopNav from "../../components/topNav";
-import "./HomeStyles.css";
+import styles from "../Home.jsx/Home.module.css";
 
 //
 function Home() {
 
   return (
-    <div className="base">
-      <div className="topNav">
+    <div className={styles.base}>
+      <section className={styles.topNav}>
         <TopNav />
-      </div>
-      <div className="mainSlide">
+      </section>
+      <div className={styles.mainSlide}>
         <MainSlide />
       </div>
-      <div className="popularProducts">
+      <div className={styles.popularProducts}>
         <PopularProducts />
       </div>
-      <div className="package">
-        <Package />
+      <div className={styles.package}>
+        {/* <Package /> */}
       </div>
-      <div className="recommended">
-        <Recommended />
+      <div className={styles.recommended}>
+        {/* <Recommended /> */}
       </div>
-      <div className="brandValue">
-        <BrandValue />
+      <div className={styles.brandValue}>
+        {/* <BrandValue /> */}
       </div>
-      <div className="brandStory">
-        <BrandStory />
+      <div className={styles.brandStory}>
+        {/* <BrandStory /> */}
       </div>
-      <div className="review">
-        <Review />
+      <div className={styles.review}>
+        {/* <Review /> */}
       </div>
-      <div className="footer">
-        <Footer />
+      <div className={styles.footer}>
+        {/* <Footer /> */}
       </div>
     </div>
   );

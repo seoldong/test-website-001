@@ -1,4 +1,4 @@
-import "./PopularProducts.css";
+import styles from "./PopularProducts.module.css";
 import { useEffect, useState } from "react";
 import { getPopularityJuice } from "../../mockData/getData";
 
@@ -14,28 +14,28 @@ function PopularProducts() {
   }, [popularProducts.length])
 
   return (
-    <div className="popularProducts-container">
-      <div className="popularProducts-title">HELLO WORLD!! LET'S DRINK WATER!</div>
-      <div className="popularProducts-subtitle">
+    <>
+      <div className={styles.title}>HELLO WORLD!! LET'S DRINK WATER!</div>
+      <div className={styles.subtitle}>
         Try it once. It will fill your body with moisture.
       </div>
-      <div className="popularProducts-itemContainer">
+      <div className={styles.productContainer}>
         {popularProducts.map((item, index) => {
           return (
-            <div key={item.productName + index} className="popularProducts-itemBox">
-              <div className="popularProducts-itemImgBox">
-                <img className="popularProducts-item" src={item.imageSrc} />
+            <div key={item.productName + index} className={styles.productBox}>
+              <div className={styles.productImgBox}>
+                <img className={styles.productImg} src={item.imageSrc} />
               </div>
-              <div className="popularProducts-item-title">{item.productName}</div>
-              <div className="popularProducts-item-price">₩ {item.price_krw}</div>
-              <div className="popularProducts-item-stateBox">
-                <div className="popularProducts-item-state">{`BEST`}</div>
+              <div className={styles.name}>{item.productName}</div>
+              <div className={styles.price}>₩ {item.price_krw}</div>
+              <div className={styles.stateBox}>
+                <div className={styles.state}>{`BEST`}</div>
               </div>
             </div>
           );
         })}
       </div>
-    </div>
+    </>
   );
 }
 

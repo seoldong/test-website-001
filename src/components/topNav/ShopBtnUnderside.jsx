@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-function ShopUnderside() {
+// 
+function ShopBtnUnderside() {
   const [isClick, setIsClick] = useState(false);
 
   const onClickShopBtn = () => {
@@ -26,4 +27,4 @@ function ShopUnderside() {
   );
 }
 
-export default ShopUnderside;
+export default ShopBtnUnderside;

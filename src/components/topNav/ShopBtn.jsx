@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Shop() {
+function ShopBtn() {
   const [isShopEnter, setIsShopEnter] = useState(false);
   const [isMenuEnter, setIsMenuEnter] = useState(false);
   const [isClick, setIsClick] = useState(false);
@@ -11,9 +11,9 @@ function Shop() {
   };
 
   return (
-    <div className="shop-container">
+    <div className="topNav-shopBox">
       <button
-        className="shopBtn"
+        className="topNav-shopBtn"
         onClick={onClickShopBtn}
         onMouseEnter={() => setIsShopEnter(true)}
         onMouseLeave={() => setIsShopEnter(false)}
@@ -22,16 +22,16 @@ function Shop() {
       </button>
       {(isShopEnter || isMenuEnter) &&
         <div
-          className="shop-menu"
+          className="topNav-shopBtn-menu"
           onMouseEnter={() => setIsMenuEnter(true)}
           onMouseLeave={() => setIsMenuEnter(false)}
         >
-          <button className="shop-drinkBtn">DRINK</button>
-          <button className="shop-packBtn">PACK</button>
+          <button className="topNav-shopBtn-drinkBtn">DRINK</button>
+          <button className="topNav-shopBtn-packBtn">PACK</button>
         </div>
       }
     </div>
   );
 }
 
-export default Shop;
+export default ShopBtn;

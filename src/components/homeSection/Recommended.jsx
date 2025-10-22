@@ -31,7 +31,7 @@ const ProductSlider = () => {
     }, [currentIndex, products]);
 
     return (
-        <div className="recommended-container">
+        <>
             <div className="recommended-title">{`RECOMMENDED JUICES - TITLE`}</div>
             <div className="recommended-description">{`recommeded juice - description`}</div>
             <div className="recommended-slide">
@@ -69,7 +69,7 @@ const ProductSlider = () => {
             <div className="recommended-viewAllProducts">
                 <button>VIEW ALL PRODUCT</button>
             </div>
-        </div>
+        </>
     );
 };
 
