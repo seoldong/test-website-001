@@ -1,0 +1,45 @@
+.leftBox {
+  width: 50%;
+  height: 100%;
+}
+
+.rightBox {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem;
+}
+
+.leftImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rightTitle {
+  font-size: 4rem;
+}
+
+.rightSubTitle {
+  font-size: 2rem;
+  margin: 1rem 0 3rem 0;
+}
+
+.rightDescription {
+  font-size: 1.4rem;
+  line-height: 2;
+}
+
+.rightPrice {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0 4rem 0;
+}
+
+.rightBtn {
+  padding: 1rem;
+  font-size: 1.5rem;
+}

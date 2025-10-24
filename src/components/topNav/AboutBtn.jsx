@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function About() {
+function AboutBtn() {
   const [isClick, setIsClick] = useState(false);
 
   const onClickAboutBtn = () => {
@@ -8,10 +8,10 @@ function About() {
   };
 
   return (
-    <button className="topNav-menu00" onClick={onClickAboutBtn}>
+    <button className="topNav-aboutBtn" onClick={onClickAboutBtn}>
       ABOUT
     </button>
   );
 }
 
-export default About;
+export default AboutBtn;

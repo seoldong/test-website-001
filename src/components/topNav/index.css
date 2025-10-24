@@ -1,0 +1,194 @@
+.topNav-leftBox {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  gap: 2rem;
+}
+
+.topNav-centerBox {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topNav-rightBox {
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 3rem;
+}
+
+.topNav-underSide {
+  max-width: 1800px;
+  min-width: 320px;
+  width: 100%;
+  height: 0.2rem;
+  overflow: hidden;
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 5rem;
+  padding-top: 0.2rem;
+  background-color: rgb(255, 249, 249);
+  transition: height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.topNav-underSide.active {
+  height: 12rem;
+  padding-top: 1.5rem;
+}
+
+.topNav-burgerBtn {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: transparent;
+  /* 배경 투명 */
+}
+
+.topNav-burgerBar {
+  transition: fill 0.2s ease-in-out;
+}
+
+.topNav-burgerBtn:hover .topNav-burgerBar {
+  fill: #ff6347;
+}
+
+.topNav-shopBox {
+  position: relative;
+}
+
+.topNav-aboutBtn,
+.topNav-shopBtn,
+.topNav-eventBtn,
+.topNav-reviewBtn,
+.topNav-loginBtn,
+.topNav-chatBtn,
+.topNav-underside-shopBtn {
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.topNav-aboutBtn:hover,
+.topNav-shopBtn:hover,
+.topNav-eventBtn:hover,
+.topNav-reviewBtn:hover,
+.topNav-loginBtn:hover,
+.topNav-chatBtn:hover,
+.topNav-underside-shopBtn:hover {
+  color: #ff6347;
+}
+
+.topNav-shopBtn-menu {
+  width: 14rem;
+  height: 8rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.topNav-shopBtn-drinkBtn {
+  width: 100%;
+  height: 50%;
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.topNav-shopBtn-packBtn {
+  width: 100%;
+  height: 50%;
+  border-radius: 0 0 0.5rem 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.topNav-shopBtn-drinkBtn:hover,
+.topNav-shopBtn-packBtn:hover {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.topNav-logoBtn {
+  width: 10rem;
+}
+
+.topNav-logoBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+}
+
+.topNav-logo {
+  display: block;
+  background-color: transparent;
+}
+
+.topNav-logoText {
+  font-size: 26.6667px;
+  font-family: Arial;
+  letter-spacing: 2px;
+
+  text-align: center;
+  writing-mode: lr-tb;
+  direction: ltr;
+  text-anchor: middle;
+
+  fill: #000000;
+  stroke: #000000;
+  stroke-width: 0.377953;
+  stroke-miterlimit: 11.7;
+  paint-order: stroke fill markers;
+
+  transition: fill 0.3s ease;
+}
+
+.topNav-logoTspanCompany {
+  font-family: Cambria;
+}
+
+.topNav-logoTspanLogo {
+  font-family: Cambria;
+}
+
+.topNav-logoBtn:hover .topNav-logoText {
+  fill: #ff6347;
+  stroke: #ff6347;
+}
+
+.topNav-underside-shop-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.topNav-underside-shop-menu button {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.topNav-underside-shop-menu button:hover {
+  color: #ff6347;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Review() {
+function ReviewBtn() {
   const [isClick, setIsClick] = useState(false);
 
   const onClickReviewBtn = () => {
@@ -9,10 +9,10 @@ function Review() {
   };
 
   return (
-    <button className="topNav-menu03" onClick={onClickReviewBtn}>
+    <button className="topNav-reviewBtn" onClick={onClickReviewBtn}>
       REVIEW
     </button>
   );
 }
 
-export default Review;
+export default ReviewBtn;
