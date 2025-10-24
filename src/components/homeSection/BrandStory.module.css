@@ -1,10 +1,4 @@
-.brandStory-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.brandStory-parllax {
+.parllax {
     width: 100%;
     height: 100%;
     background-image: url('../../assets/etcImg/brandStory.jpg');
@@ -14,7 +8,7 @@
     filter: brightness(50%);
 }
 
-.brandStory-contents {
+.contents {
     width: 100%;
     height: 100%;
     display: flex;
@@ -25,43 +19,41 @@
     left: 0;
 }
 
-.brandStory-story {
+.story {
     width: 42%;
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     padding-right: 5rem;
-    background-color: darkcyan;
 }
 
-.brandStory-centerLine {
+.centerLine {
     position: absolute;
     width: 0.5rem;
     height: 80%;
     background-color: white;
 }
 
-.brandStory-vison {
+.vison {
     width: 42%;
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: end;
     padding-left: 5rem;
-    background-color: rgb(107, 190, 190);
 }
 
-.brandStory-story-title,
-.brandStory-vison-title {
+.storyTitle,
+.visonTitle {
     font-size: 3rem;
     text-decoration: underline;
     text-underline-offset: 0.5rem;
     color: aliceblue;
 }
 
-.brandStory-story-description,
-.brandStory-vison-description {
+.storyDescription,
+.visonDescription {
     font-size: 1.5rem;
     margin-top: 3rem;
     color: aliceblue;

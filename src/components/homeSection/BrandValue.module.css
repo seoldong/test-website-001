@@ -1,91 +1,62 @@
-.topContainer {
+.titleContainer {
   width: 100%;
   height: 40%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: beige;
 }
 
-.brandValue-text-block {
-  flex: 1;
-  min-width: 300px;
-  max-width: 800px;
-  color: #000;
+.title {
+  width: 60%;
+  height: 100%;
 }
 
-.brandValue-title {
-  font-size: 3em;
+.ImgContainer {
+  width: 100%;
+  height: 60%;
+}
+
+.firstLineTitle {
+  font-size: 3rem;
   font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
 }
 
-.brandValue-description {
-  font-size: 1.5em;
-  line-height: 1.6;
+.secondLineTitle {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-.brandValue-attributes {
-  flex: 1;
-  min-width: 280px;
-  max-width: 400px;
+.description {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-top: 2rem;
+}
+
+.valueListContainer {
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding-top: 15px;
+  align-items: end;
 }
 
-.attribute-item {
+.valueBox {
+  width: 50%;
+  margin-top: 1rem;
   display: flex;
-  justify-content: space-between;
-  /* 텍스트와 아이콘을 양 끝으로 정렬 */
   align-items: center;
-  padding-bottom: 10px;
-  /* 아래쪽 경계선과의 간격 */
-  border-bottom: 1px solid #777;
-  /* 구분선 */
+  justify-content: space-between;
+  border-bottom: 0.2rem solid black;
 }
 
-.attribute-item:last-child {
-  border-bottom: none;
-  /* 마지막 아이템에는 구분선 없음 */
+.valueName {
+  font-size: 2rem;
 }
 
-.attribute-text {
-  font-size: 1.2em;
-  font-weight: normal;
-  /* 이미지에서는 굵지 않음 */
-  color: #000;
+.valueIcon {
+  font-size: 2em;
 }
 
-.attribute-icon {
-  font-size: 1.5em;
-  /* 체크 아이콘 크기 */
-  font-weight: bold;
-  color: #000;
-}
-
-.brandValue-image-container {
+.valueImg {
   width: 100%;
-  max-width: 1500px;
-  /* 이미지의 최대 너비를 컨텐츠와 맞춤 */
-  margin-top: 40px;
-  /* 상단 컨텐츠와의 간격 */
-  border-radius: 8px;
-  /* 이미지 모서리 둥글게 */
-  overflow: hidden;
-  /* 둥근 모서리 적용을 위해 */
-}
-
-.brandValue-main-image {
-  width: 100%;
-  max-height: 600px;
-  display: block;
-  /* 이미지 하단 여백 제거 */
+  height: 60%;
   object-fit: cover;
-  /* 이미지가 잘리지 않고 컨테이너에 맞게 */
-  border-radius: 8px;
-  /* 이미지 모서리 둥글게 */
 }

@@ -35,8 +35,7 @@ useEffect(() => {
   return () => {
     window.removeEventListener('scroll', handleScroll);
   };
-}, [scrolled]); // 'scrolled'가 변경될 때만 다시 실행
-// *참고: 'handleScroll'이 내부에 있으므로 의존성 배열에서 제거됩니다.
+}, [scrolled]);
 
 
   return (
@@ -60,13 +59,13 @@ useEffect(() => {
         <BrandValue />
       </div>
       <div className={styles.brandStory}>
-        {/* <BrandStory /> */}
+        <BrandStory />
       </div>
       <div className={styles.review}>
-        {/* <Review /> */}
+        <Review />
       </div>
       <div className={styles.footer}>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );

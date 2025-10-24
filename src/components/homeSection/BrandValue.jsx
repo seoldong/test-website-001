@@ -3,53 +3,48 @@ import brandValue from "../../assets/etcImg/brandValue.jpg";
 
 //
 function BrandValue() {
-  const titleFirstLine = `WE ARE ALWAYS`;
-  const titleSecondLine = `brandValue:`;
-  const description = `We take pride in sharing our journey of excellence and commitment to our customers. We showcase our achievements, innovations, and the values that drive us forward. It's more about our dedication to quality, sustainability, and creating positive impacts in the communities we serve.`;
+
+  const titleFirstLine = `We Capture the`;
+  const titleSecondLine = `Vitality of Nature :`;
+  const description = `We insist on using only the finest ingredients to deliver the pure energy and health benefits of nature. We support our customers' healthy lifestyles with drinks that add vitality to even the smallest moments of the day, and we strive for a sustainable future.`;
 
   return (
     <>
-      <div className={styles.topContainer}>
-        <div className="brandValue-text-block">
-          <h2 className="brandValue-title">
-            {titleFirstLine}
-            <br />
-            {titleSecondLine}
-          </h2>
-          <p className="brandValue-description">{description}</p>
+      <div className={styles.titleContainer}>
+        <div className={styles.title}>
+          <div className={styles.firstLineTitle}>{titleFirstLine}</div>
+          <div className={styles.secondLineTitle}>{titleSecondLine}</div>
+          <p className={styles.description}>{description}</p>
         </div>
-
-        <div className="brandValue-attributes">
-          <div className="attribute-item">
-            <span className="attribute-text">VALUE01</span>
-            <span className="attribute-icon">✓</span>
+        <div className={styles.valueListContainer}>
+          <div className={styles.valueBox}>
+            <span className={styles.valueName}>Pure Ingredients</span>
+            <span className={styles.valueIcon}>✓</span>
           </div>
-          <div className="attribute-item">
-            <span className="attribute-text">VALUE02</span>
-            <span className="attribute-icon">✓</span>
+          <div className={styles.valueBox}>
+            <span className={styles.valueName}>Scientific Nutrition</span>
+            <span className={styles.valueIcon}>✓</span>
           </div>
-          <div className="attribute-item">
-            <span className="attribute-text">VALUE03</span>
-            <span className="attribute-icon">✓</span>
+          <div className={styles.valueBox}>
+            <span className={styles.valueName}>Sustainable Production</span>
+            <span className={styles.valueIcon}>✓</span>
           </div>
-          <div className="attribute-item">
-            <span className="attribute-text">VALUE04</span>
-            <span className="attribute-icon">✓</span>
+          <div className={styles.valueBox}>
+            <span className={styles.valueName}>Clean Taste</span>
+            <span className={styles.valueIcon}>✓</span>
           </div>
-          <div className="attribute-item">
-            <span className="attribute-text">VALUE05</span>
-            <span className="attribute-icon">✓</span>
+          <div className={styles.valueBox}>
+            <span className={styles.valueName}>Genuine Vitality</span>
+            <span className={styles.valueIcon}>✓</span>
           </div>
         </div>
       </div>
 
-      <div className="brandValue-image-container">
-        <img
-          src={brandValue}
-          alt="Fresh fruits being washed"
-          className="brandValue-main-image"
-        />
-      </div>
+      <img
+        className={styles.valueImg}
+        src={brandValue}
+        alt="Fresh fruits being washed"
+      />
     </>
   );
 }

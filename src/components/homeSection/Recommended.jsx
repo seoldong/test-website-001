@@ -121,8 +121,8 @@ const ProductSlider = () => {
 
     return (
         <>
-            <div className={styles.title}>{'추천 주스 🍊 (RECOMMENDED JUICES)'}</div>
-            <div className={styles.description}>{'활력을 불어넣는 오늘의 추천 주스를 만나보세요!'}</div>
+            <div className={styles.title}>{'Recommended Juices'}</div>
+            <div className={styles.description}>{'Discover today\'s recommended juice to revitalize your day!'}</div>
             <div className={styles.slide}>
                 <div className={styles.slideFrame}>
                     <div
@@ -148,8 +148,8 @@ const ProductSlider = () => {
                                 />
                                 <div className={styles.productName}>{product.productName}</div>
                                 <div className={styles.productPriceBox}>
-                                    <div className={styles.productSalePrice}>{`${Math.round(product.onSale ? product.price_krw * discount : product.price_krw).toLocaleString()}원`}</div>
-                                    <div className={styles.productPrice}>{product.onSale ? `${product.price_krw.toLocaleString()}원` : ''}</div>
+                                    <div className={styles.productSalePrice}>{`₩ ${Math.round(product.onSale ? product.price_krw * discount : product.price_krw).toLocaleString()}`}</div>
+                                    <div className={styles.productPrice}>{product.onSale ? `₩ ${product.price_krw.toLocaleString()}` : ''}</div>
                                 </div>
                                 {product.onSale && <div className={styles.productOnSale}>20% SALE</div>}
                             </div>
