@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LogoBtn() {
-  const [isClick, setIsClick] = useState(false);
+  const navigate = useNavigate();
 
   const onClickLogoBtn = () => {
-    setIsClick(!isClick);
-    console.log("clicked logo btn");
+    navigate("/");
   };
 
   return (

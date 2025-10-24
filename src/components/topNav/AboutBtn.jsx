@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AboutBtn() {
-  const [isClick, setIsClick] = useState(false);
-
-  const onClickAboutBtn = () => {
-    setIsClick(!isClick);
-  };
+  const navigate = useNavigate();
 
   return (
-    <button className="topNav-aboutBtn" onClick={onClickAboutBtn}>
+    <button
+      className="topNav-aboutBtn"
+      onClick={() => navigate('/About')}
+    >
       ABOUT
     </button>
   );

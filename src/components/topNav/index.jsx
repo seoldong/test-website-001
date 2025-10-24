@@ -9,11 +9,15 @@ import Login from "./LoginBtn";
 import ChatBtn from "./ChatBtn";
 import { useSelector } from "react-redux";
 import ShopBtnUnderside from "./ShopBtnUnderside";
+import { useLocation } from "react-router-dom";
 
-
+//
 function TopNav() {
 
     const undersidePanel = useSelector((state) => state.undersidePanel);
+    const location = useLocation();
+    console.log(location.pathname);
+
 
     return (
         <>

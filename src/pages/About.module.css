@@ -1,0 +1,175 @@
+.aboutPage {
+    max-width: 1600px;
+    min-width: 320px;
+    width: 1800px;
+    margin: auto;
+}
+
+.topNav {
+    max-width: 1800px;
+    min-width: 320px;
+    width: 100%;
+    height: 5em;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    margin: auto;
+    transition: 300ms;
+}
+
+.active {
+    background-color: aliceblue;
+}
+
+.brandIntroduction {
+    width: 100%;
+    height: 1200px;
+    display: grid;
+    grid-template-rows: 0.7fr 1fr 2fr;
+    padding-top: 5rem;
+    background-color: rgb(88, 253, 163);
+}
+
+.introductionTitle {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 4rem;
+    padding-bottom: 1rem;
+}
+
+.introductionDescription {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 2rem;
+    margin: auto;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.introductionImage {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../src/assets/etcImg/brandIntroduction.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.brandStory {
+    width: 100%;
+    height: 1000px;
+    display: grid;
+
+    /* 1. 컬럼 정의: 왼쪽(이미지) 1fr, 오른쪽(내용) 1fr로 가로 반반 나누기 */
+    grid-template-columns: 50% 50%;
+
+    /* 2. 행 정의: 오른쪽 영역을 위/아래로 2등분 (제목 1fr, 설명 1fr) */
+    grid-template-rows: 0.4fr 1fr;
+
+    /* 3. 영역 이름 정의: 왼쪽(image)은 2행을 합치고, 오른쪽은 title과 description으로 나눔 */
+    grid-template-areas:
+        "image title"
+        /* 첫 번째 행: image와 title */
+        "image description";
+    /* 두 번째 행: image와 description. image가 세로로 합쳐짐 */
+}
+
+.brandStoryImageBox {
+    grid-area: image;
+    padding: 3rem;
+}
+
+.brandStoryImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story {
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 3rem;
+}
+
+.description {
+    grid-area: description;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 3rem;
+}
+
+.philosophy {
+    width: 100%;
+    height: 1600px;
+    display: grid;
+    grid-template-rows: 25% 15% 15% 45%;
+    grid-template-areas:
+        "value"
+        "explain"
+        "promise"
+        "img";
+}
+
+.value {
+    grid-area: value;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 2rem 10rem;
+    text-align: center;
+}
+
+.explain {
+    grid-area: explain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 2rem 10rem;
+    text-align: center;
+}
+
+.promise {
+    grid-area: promise;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.philosophyImage {
+    grid-area: img;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../../src/assets/etcImg/philosophy.jpg");
+}
+
+.footer {
+    width: 100%;
+    height: 800px;
+    padding: 3rem;
+    background-color: moccasin
+}
+
+.ingredients {
+    width: 100%;
+    height: 1400px;
+    background-color: mediumseagreen;
+}
