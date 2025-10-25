@@ -86,8 +86,6 @@ function About() {
                                         className={styles.ingredientsSlideImg}
                                         key={src.src + index}
                                         src={src.src}
-                                    // 💡 최종 해결책 3: style 속성 전체 제거
-                                    // style={{ height: `30rem` }} 제거!
                                     />
                                 )
                             })}
