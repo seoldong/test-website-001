@@ -16,8 +16,6 @@ function TopNav() {
 
     const undersidePanel = useSelector((state) => state.undersidePanel);
     const location = useLocation();
-    console.log(location.pathname);
-
 
     return (
         <>

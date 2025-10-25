@@ -1,10 +1,11 @@
+/* About.module.css (수정 및 정리 완료) */
+
 .aboutPage {
-    max-width: 1600px;
-    min-width: 320px;
     width: 1800px;
     margin: auto;
 }
 
+/* -------------------- Top Navigation -------------------- */
 .topNav {
     max-width: 1800px;
     min-width: 320px;
@@ -25,6 +26,7 @@
     background-color: aliceblue;
 }
 
+/* -------------------- Brand Introduction -------------------- */
 .brandIntroduction {
     width: 100%;
     height: 1200px;
@@ -62,23 +64,16 @@
     background-position: center;
 }
 
+/* -------------------- Brand Story -------------------- */
 .brandStory {
     width: 100%;
     height: 1000px;
     display: grid;
-
-    /* 1. 컬럼 정의: 왼쪽(이미지) 1fr, 오른쪽(내용) 1fr로 가로 반반 나누기 */
     grid-template-columns: 50% 50%;
-
-    /* 2. 행 정의: 오른쪽 영역을 위/아래로 2등분 (제목 1fr, 설명 1fr) */
     grid-template-rows: 0.4fr 1fr;
-
-    /* 3. 영역 이름 정의: 왼쪽(image)은 2행을 합치고, 오른쪽은 title과 description으로 나눔 */
     grid-template-areas:
         "image title"
-        /* 첫 번째 행: image와 title */
         "image description";
-    /* 두 번째 행: image와 description. image가 세로로 합쳐짐 */
 }
 
 .brandStoryImageBox {
@@ -110,6 +105,7 @@
     padding: 3rem;
 }
 
+/* -------------------- Philosophy -------------------- */
 .philosophy {
     width: 100%;
     height: 1600px;
@@ -161,15 +157,109 @@
     background-image: url("../../src/assets/etcImg/philosophy.jpg");
 }
 
+/* -------------------- Ingredients (무한 슬라이드) -------------------- */
+.ingredients {
+    width: 100%;
+    height: 1400px;
+}
+
+.ingredientsTitle {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.ingredientsDescription {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-align: center;
+    padding: 1rem 10rem 0 10rem;
+}
+
+.ingredientsDescriptionList {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 10rem 0rem 10rem;
+    gap: 2rem;
+}
+
+.ingredientsDescriptionList li {
+    font-size: 2rem;
+    /* list-style: none; 제거됨 */
+}
+
+.ingredientsSlide {
+    height: 40%;
+    background-color: darkgray;
+}
+
+/* -------------------- 무한 슬라이드 핵심 CSS -------------------- */
+
+/* 1. Keyframes 정의: 트랙을 50%만큼(원본 너비) 왼쪽으로 이동 */
+@keyframes scrollLeft {
+    from {
+        /* translateZ(0) 유지 */
+        transform: translateX(0) translateZ(0);
+    }
+
+    to {
+        /* translateZ(0) 유지 */
+        transform: translateX(-50%) translateZ(0);
+    }
+}
+
+/* 2. 슬라이드 프레임 (마스크 역할) */
+.ingredientsSlideFrame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* 필수 */
+    background-color: coral;
+}
+
+/* 3. 슬라이드 트랙 (애니메이션 적용) */
+.ingredientsSlideTrack {
+    display: flex;
+    width: 200%;
+    animation: scrollLeft 10s linear infinite;
+    white-space: nowrap;
+    font-size: 0;
+
+    /* 💡 최종 해결책 1: 하드웨어 가속 명시 및 깜빡임 방지 */
+    will-change: transform;
+}
+
+/* 4. 개별 이미지 */
+.ingredientsSlideImg {
+    flex-shrink: 0;
+    width: 5%;
+
+    /* 💡 최종 해결책 2: height를 CSS에서 고정하고 인라인 스타일 제거 권장 */
+    height: 30rem;
+
+    margin: 0;
+    /* 마진이나 패딩이 없도록 확실히 보장 */
+    padding: 0;
+    font-size: initial;
+}
+
+/* -------------------- Footer -------------------- */
 .footer {
     width: 100%;
     height: 800px;
     padding: 3rem;
     background-color: moccasin
-}
-
-.ingredients {
-    width: 100%;
-    height: 1400px;
-    background-color: mediumseagreen;
 }
