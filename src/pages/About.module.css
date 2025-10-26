@@ -197,7 +197,6 @@
 
 .ingredientsDescriptionList li {
     font-size: 2rem;
-    /* list-style: none; 제거됨 */
 }
 
 .ingredientsSlide {
@@ -205,61 +204,27 @@
     background-color: darkgray;
 }
 
-/* -------------------- 무한 슬라이드 핵심 CSS -------------------- */
-
-/* 1. Keyframes 정의: 트랙을 50%만큼(원본 너비) 왼쪽으로 이동 */
-@keyframes scrollLeft {
-    from {
-        /* translateZ(0) 유지 */
-        transform: translateX(0) translateZ(0);
-    }
-
-    to {
-        /* translateZ(0) 유지 */
-        transform: translateX(-50%) translateZ(0);
-    }
-}
-
-/* 2. 슬라이드 프레임 (마스크 역할) */
 .ingredientsSlideFrame {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    /* 필수 */
-    background-color: coral;
+    overflow: hidden; /* 트랙의 범위를 벗어나는 이미지 숨김 */
+    cursor: grab; /* 드래그 가능한 커서 */
 }
 
-/* 3. 슬라이드 트랙 (애니메이션 적용) */
 .ingredientsSlideTrack {
-    display: flex;
-    width: 200%;
-    animation: scrollLeft 10s linear infinite;
-    white-space: nowrap;
-    font-size: 0;
-
-    /* 💡 최종 해결책 1: 하드웨어 가속 명시 및 깜빡임 방지 */
-    will-change: transform;
+    display: flex; /* 이미지들을 가로로 나열 */
+    white-space: nowrap; /* 자식 요소 줄바꿈 방지 */
+    /* transition: transform 0.1s ease-out; -> 자동 슬라이드에서는 transition 대신 JS를 사용합니다. 
+       드래그 기능을 위해 CSS transition은 제거하는 것이 좋습니다. */
 }
 
-/* 4. 개별 이미지 */
 .ingredientsSlideImg {
-    flex-shrink: 0;
-    width: 2.5%;
-
-    /* 💡 최종 해결책 2: height를 CSS에서 고정하고 인라인 스타일 제거 권장 */
-    /* height: 30rem; */
-
-    margin: 0;
-    /* 마진이나 패딩이 없도록 확실히 보장 */
-    padding: 0;
-    font-size: initial;
+    flex-shrink: 0; /* 이미지 크기 고정 */
+    /* width는 인라인 스타일로 설정 */
 }
 
-/* -------------------- Footer -------------------- */
 .footer {
     width: 100%;
     height: 800px;
     padding: 3rem;
-    background-color: moccasin
+    background-color: moccasin;
+    transform: translateX()
 }
