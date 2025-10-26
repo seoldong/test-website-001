@@ -201,7 +201,6 @@
 
 .ingredientsSlide {
     height: 40%;
-    background-color: darkgray;
 }
 
 .ingredientsSlideFrame {
@@ -217,8 +216,7 @@
 }
 
 .ingredientsSlideImg {
-    flex-shrink: 0; /* 이미지 크기 고정 */
-    /* width는 인라인 스타일로 설정 */
+    padding-right: 2rem;
 }
 
 .footer {
