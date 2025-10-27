@@ -23,7 +23,7 @@ const reviewObject = [
         "date": "2025-10-15",
         "product_id": "J005",
         "product_name": "Avocado Green Smoothie",
-        "imageLink": "https://images.unsplash.com/photo-1542841914-747d52a23075",
+        "imageLink": "",
         "content": "The fishy taste of avocado is almost non-existent, and it's much smoother than I expected! It's a must-have after my workout. I will definitely repurchase this again. The packaging was also neat."
     },
     {
@@ -34,7 +34,7 @@ const reviewObject = [
         "date": "2025-10-14",
         "product_id": "J001",
         "product_name": "Carrot Fresh Juice",
-        "imageLink": "https://images.unsplash.com/photo-1521798547463-54b037ed521b",
+        "imageLink": "",
         "content": "It's a cold-pressed juice, so it's fresh and excellent. However, I deducted one star because there's a very slight hint of the characteristic earthy smell of carrots."
     },
     {
@@ -45,7 +45,7 @@ const reviewObject = [
         "date": "2025-10-13",
         "product_id": "J004",
         "product_name": "Berry Oat Smoothie",
-        "imageLink": "https://images.unsplash.com/photo-1510492723023-e4d6d9263a43",
+        "imageLink": "",
         "content": "The combination of berries and oats is filling and delicious. It's the best substitute for breakfast. The quantity is generous too."
     },
     {
@@ -56,7 +56,7 @@ const reviewObject = [
         "date": "2025-10-13",
         "product_id": "J010",
         "product_name": "Kiwi Sparkling Juice",
-        "imageLink": "https://images.unsplash.com/photo-1582882297129-9e20a00e5728",
+        "imageLink": "",
         "content": "The refreshing taste of kiwi bursts through, and the carbonation is just right. It's perfect for drinking in the summer. So cool!"
     },
     {
@@ -67,7 +67,7 @@ const reviewObject = [
         "date": "2025-10-12",
         "product_id": "J007",
         "product_name": "Mango Yellow Smoothie",
-        "imageLink": "https://images.unsplash.com/photo-1550759082-f5e27a7c181f",
+        "imageLink": "",
         "content": "I had high hopes, but I was disappointed that the mango flavor was weaker than expected. Still, I trust the ingredients."
     },
     {
@@ -78,7 +78,7 @@ const reviewObject = [
         "date": "2025-10-11",
         "product_id": "J006",
         "product_name": "Cherry Rich Juice",
-        "imageLink": "https://images.unsplash.com/photo-1557997427-ef3d7e7e5d80",
+        "imageLink": "",
         "content": "I'm satisfied because it feels like the cherry is richly concentrated. I drink it consistently every day and feel energized."
     },
     {
@@ -89,7 +89,7 @@ const reviewObject = [
         "date": "2025-10-11",
         "product_id": "J003",
         "product_name": "Sugarcane Sweet Juice",
-        "imageLink": "https://images.unsplash.com/photo-1563604396000-880c54179e8a",
+        "imageLink": "",
         "content": "The sweetness is strong, which is great when I crave something sweet. I deducted one star because the delivery was one day late."
     },
     {
@@ -100,7 +100,7 @@ const reviewObject = [
         "date": "2025-10-10",
         "product_id": "J002",
         "product_name": "Tomato Red Juice",
-        "imageLink": "https://images.unsplash.com/photo-1533513360216-728b182e0d37",
+        "imageLink": "",
         "content": "It's much richer and more delicious than other tomato juices. The best for breakfast substitute! Drink it cold."
     },
     {
@@ -111,7 +111,7 @@ const reviewObject = [
         "date": "2025-10-09",
         "product_id": "J008",
         "product_name": "Green Detox Juice",
-        "imageLink": "https://images.unsplash.com/photo-1505252814886-905eb2c53a6f",
+        "imageLink": "",
         "content": "I'm surprised at how clean the taste of this detox juice is. I bought it based on a friend's recommendation and I'm satisfied."
     },
     {
@@ -122,7 +122,7 @@ const reviewObject = [
         "date": "2025-10-08",
         "product_id": "J004",
         "product_name": "Berry Oat Smoothie",
-        "imageLink": "https://images.unsplash.com/photo-1510492723023-e4d6d9263a43",
+        "imageLink": "",
         "content": "It's great for everyday drinking. However, the oat powder tends to clump slightly when mixing."
     },
     {
@@ -133,7 +133,7 @@ const reviewObject = [
         "date": "2025-10-07",
         "product_id": "J009",
         "product_name": "Papaya Tropical Juice",
-        "imageLink": "https://images.unsplash.com/photo-1560384666-3d7515b13689",
+        "imageLink": "",
         "content": "I love the exotic taste of papaya. My child prefers this over regular juice. Thank you for making a product I can safely give to my child."
     },
     {
@@ -144,7 +144,7 @@ const reviewObject = [
         "date": "2025-10-07",
         "product_id": "J005",
         "product_name": "Avocado Green Smoothie",
-        "imageLink": "https://images.unsplash.com/photo-1542841914-747d52a23075",
+        "imageLink": "",
         "content": "I like that it keeps me feeling full for a long time. It's become easier to wake up in the morning. Perfect for busy days."
     },
     {
@@ -155,7 +155,7 @@ const reviewObject = [
         "date": "2025-10-06",
         "product_id": "J001",
         "product_name": "Carrot Fresh Juice",
-        "imageLink": "https://images.unsplash.com/photo-1521798547463-54b037ed521b",
+        "imageLink": "",
         "content": "It's perfect for beginners who are just starting with cold-pressed juice. It's easy to digest and not burdensome."
     },
     {
@@ -166,7 +166,7 @@ const reviewObject = [
         "date": "2025-10-05",
         "product_id": "J002",
         "product_name": "Tomato Red Juice",
-        "imageLink": "https://images.unsplash.com/photo-1533513360216-728b182e0d37",
+        "imageLink": "",
         "content": "I always keep a stock of this in the refrigerator. I love that the authentic taste of tomato is alive. Highly recommend."
     },
     {
@@ -177,7 +177,7 @@ const reviewObject = [
         "date": "2025-10-04",
         "product_id": "J008",
         "product_name": "Green Detox Juice",
-        "imageLink": "https://images.unsplash.com/photo-1505252814886-905eb2c53a6f",
+        "imageLink": "",
         "content": "I'm not sure about the big effects yet. I think I need to consume it consistently for at least a month. The taste is acceptable."
     },
     {
@@ -188,7 +188,7 @@ const reviewObject = [
         "date": "2025-10-03",
         "product_id": "J006",
         "product_name": "Cherry Rich Juice",
-        "imageLink": "https://images.unsplash.com/photo-1557997427-ef3d7e7e5d80",
+        "imageLink": "",
         "content": "It's delicious when mixed with milk. It's also great as a meal replacement. The color is pretty too."
     },
     {
@@ -199,7 +199,7 @@ const reviewObject = [
         "date": "2025-10-02",
         "product_id": "J010",
         "product_name": "Kiwi Sparkling Juice",
-        "imageLink": "https://images.unsplash.com/photo-1582882297129-9e20a00e5728",
+        "imageLink": "",
         "content": "The sparkling is not too strong, so it goes down smoothly. The taste is rich and refreshing. Highly recommend."
     },
     {
@@ -210,7 +210,7 @@ const reviewObject = [
         "date": "2025-10-01",
         "product_id": "J007",
         "product_name": "Mango Yellow Smoothie",
-        "imageLink": "https://images.unsplash.com/photo-1550759082-f5e27a7c181f",
+        "imageLink": "",
         "content": "It's alright. However, the price is slightly higher compared to the product from another brand I used to take."
     },
     {
@@ -221,7 +221,7 @@ const reviewObject = [
         "date": "2025-09-30",
         "product_id": "J009",
         "product_name": "Papaya Tropical Juice",
-        "imageLink": "https://images.unsplash.com/photo-1560384666-3d7515b13689",
+        "imageLink": "",
         "content": "This is the cleanest-tasting tropical fruit juice! I've finally settled on this one. Please sell it in a larger capacity."
     },
     {
@@ -232,7 +232,7 @@ const reviewObject = [
         "date": "2025-09-29",
         "product_id": "J003",
         "product_name": "Sugarcane Sweet Juice",
-        "imageLink": "https://images.unsplash.com/photo-1563604396000-880c54179e8a",
+        "imageLink": "",
         "content": "I dislike artificial sweetness, but this has a clean and nutty sweetness. I've repurchased it!"
     }
 ]

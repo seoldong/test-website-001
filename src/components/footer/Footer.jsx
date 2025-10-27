@@ -23,7 +23,7 @@ function Footer() {
     }, [emailAddress]); // 이메일 주소가 변경되지 않으므로 사실상 빈 배열 가능
 
     return (
-        <div className={styles.container}>
+        <section className={styles.footer}>
             <div className={styles.company}>
                 <div className={styles.firstLineTitle}>We add vitality to your daily life, </div>
                 <div className={styles.secondLineTitle}>find balance in body and mind, and realize sustainable health."</div>
@@ -44,11 +44,10 @@ function Footer() {
                 <div className={styles.number}>+82 (0)2-1234-5678</div>
                 <div className={styles.adress}>[04321] 4F, 123, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea</div>
             </div>
-
             <div className={styles.copyright}>
                 Copyright © 2025 wellbeingJuice All rights reserved.
             </div>
-        </div>
+        </section>
     )
 }
 

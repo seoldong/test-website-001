@@ -40,6 +40,7 @@ function MainSlide() {
         }
     };
 
+    // 
     return (
         <>
             <img

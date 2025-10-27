@@ -1,4 +1,4 @@
-const modules = import.meta.glob('../assets/productImg/*.{png,jpg,jpeg}', {
+const modules = import.meta.glob('../assets/productImg-pack/*.{png,jpg,jpeg}', {
   eager: true // 파일을 즉시 로드하도록 설정 (필수)
 });
 
@@ -14,190 +14,191 @@ const productImages = Object.keys(modules).map(path => {
 });
 
 // 
-const juice = [
+const pack = [
   {
-    "productName": "Carrot Fresh Juice",
+    "productName": "Egg White Pore Tightening Pack",
     "price_krw": 3900,
-    "productId": "J001",
+    "productId": "P001",
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": true
   },
   {
-    "productName": "Tomato Red Juice",
+    "productName": "Green Tea Calming Gel Pack",
     "price_krw": 3100,
-    "productId": "J002",
+    "productId": "P002",
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
     "popularity": false
   },
   {
-    "productName": "Sugarcane Sweet Juice",
+    "productName": "Banana Nutrition Moisturizing Pack",
     "price_krw": 4200,
-    "productId": "J003",
+    "productId": "P003",
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false
+    "popularity": true
   },
   {
-    "productName": "Berry Oat Smoothie",
+    "productName": "Potato Soothing & Cooling Sheet",
     "price_krw": 5000,
-    "productId": "J004",
+    "productId": "P004",
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Avocado Green Smoothie",
+    "productName": "Aloe Vera Moisture Relief Pack",
     "price_krw": 5500,
-    "productId": "J005",
+    "productId": "P005",
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
     "popularity": false
   },
   {
-    "productName": "Cherry Rich Juice",
+    "productName": "Cucumber Fresh Hydration Mask",
     "price_krw": 4800,
-    "productId": "J006",
+    "productId": "P006",
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Mango Yellow Smoothie",
+    "productName": "Oatmeal Gentle Scrub Pack",
     "price_krw": 4500,
-    "productId": "J007",
+    "productId": "P007",
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false
+    "popularity": true
   },
   {
-    "productName": "Green Detox Juice",
+    "productName": "Yogurt Brightening Cream Mask",
     "price_krw": 4900,
-    "productId": "J008",
+    "productId": "P008",
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Papaya Tropical Juice",
+    "productName": "Honey Deep Moisturizing Pack",
     "price_krw": 3500,
-    "productId": "J009",
+    "productId": "P009",
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
     "popularity": false
   },
   {
-    "productName": "Kiwi Sparkling Juice",
+    "productName": "Lemon Vitamin Radiance Mask",
     "price_krw": 3700,
-    "productId": "J010",
+    "productId": "P010",
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Pineapple Sunshine Juice",
-    "price_krw": 4100,
-    "productId": "J011",
+    "productName": "Hyaluronic Acid Moisture Cream",
+    "price_krw": 4500,
+    "productId": "P011",
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": true
   },
   {
-    "productName": "Watermelon Hydration Juice",
-    "price_krw": 3600,
-    "productId": "J012",
+    "productName": "Centella Repair Serum",
+    "price_krw": 5200,
+    "productId": "P012",
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Peach Calm Smoothie",
-    "price_krw": 4700,
-    "productId": "J013",
+    "productName": "Green Tea Calming Toner",
+    "price_krw": 2900,
+    "productId": "P013",
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
     "popularity": false
   },
   {
-    "productName": "Purple Grape Delight",
+    "productName": "Marine Collagen Eye Patch",
+    "price_krw": 6800,
+    "productId": "P014",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "",
+    "popularity": true
+  },
+  {
+    "productName": "Charcoal Detox Cleanser",
     "price_krw": 3300,
-    "productId": "J014",
-    "onSale": true,
-    "recommended": false,
-    "imageSrc": "",
-    "popularity": false
-  },
-  {
-    "productName": "Banana Power Smoothie",
-    "price_krw": 4600,
-    "productId": "J015",
-    "onSale": false,
-    "recommended": true,
-    "imageSrc": "",
-    "popularity": true
-  },
-  {
-    "productName": "Apple Cinnamon Juice",
-    "price_krw": 4000,
-    "productId": "J016",
-    "onSale": true,
-    "recommended": true,
-    "imageSrc": "",
-    "popularity": false
-  },
-  {
-    "productName": "Coconut Water Pure",
-    "price_krw": 3000,
-    "productId": "J017",
+    "productId": "P015",
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Cranberry Zing Juice",
-    "price_krw": 4300,
-    "productId": "J018",
-    "onSale": false,
+    "productName": "Snail Mucin Brightening Essence",
+    "price_krw": 5500,
+    "productId": "P016",
+    "onSale": true,
     "recommended": true,
     "imageSrc": "",
     "popularity": false
   },
   {
-    "productName": "Lime Mint Cooler",
-    "price_krw": 3200,
-    "productId": "J019",
+    "productName": "Daily UV Defense Sunscreen",
+    "price_krw": 4100,
+    "productId": "P017",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "",
+    "popularity": true
+  },
+  {
+    "productName": "Rosehip Oil Facial Mask",
+    "price_krw": 4900,
+    "productId": "P018",
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
     "popularity": true
   },
   {
-    "productName": "Pomegranate Antioxidant Juice",
-    "price_krw": 5100,
-    "productId": "J020",
+    "productName": "Peptide Lifting Ampoule",
+    "price_krw": 7500,
+    "productId": "P019",
     "onSale": false,
+    "recommended": true,
+    "imageSrc": "",
+    "popularity": false
+  },
+  {
+    "productName": "Tea Tree Spot Corrector",
+    "price_krw": 3100,
+    "productId": "P020",
+    "onSale": true,
     "recommended": true,
     "imageSrc": "",
     "popularity": true
   }
 ]
 
-const productJuiceData = juice.map((product) => {
+const productPackData = pack.map((product) => {
+
   const foundImage = productImages.find((ImgData) => {
     return product.productId === ImgData.name;
   });
@@ -208,7 +209,8 @@ const productJuiceData = juice.map((product) => {
       imageSrc: foundImage.src
     };
   }
+
   return product;
 })
 
-export default productJuiceData;
+export default productPackData;

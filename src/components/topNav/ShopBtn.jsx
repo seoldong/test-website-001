@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ShopBtn() {
+  const navigate = useNavigate();
   const [isShopEnter, setIsShopEnter] = useState(false);
   const [isMenuEnter, setIsMenuEnter] = useState(false);
   const [isClick, setIsClick] = useState(false);
 
   const onClickShopBtn = () => {
     setIsClick(!isClick);
-    console.log('clicked shop btn');
   };
 
   return (
@@ -26,8 +27,8 @@ function ShopBtn() {
           onMouseEnter={() => setIsMenuEnter(true)}
           onMouseLeave={() => setIsMenuEnter(false)}
         >
-          <button className="topNav-shopBtn-drinkBtn">DRINK</button>
-          <button className="topNav-shopBtn-packBtn">PACK</button>
+          <button className="topNav-shopBtn-drinkBtn" onClick={() => navigate('/shop/drink')}>DRINK</button>
+          <button className="topNav-shopBtn-packBtn" onClick={() => navigate('/shop/pack')}>PACK</button>
         </div>
       }
     </div>

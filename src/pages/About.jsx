@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
 import TopNav from "../components/topNav";
 import styles from "./About.module.css";
-import Footer from "../components/homeSection/Footer";
 import { getAboutText, getAboutImages } from "../mockData/getData";
+import Footer from "../components/footer/Footer";
 
 const SCROLL_THRESHOLD = 50;
 const itemWidth = 400; //px로 해야 나머지 계산이 쉬움.
@@ -62,9 +62,7 @@ function About() {
   //
   return (
     <div className={styles.aboutPage}>
-      <section className={`${styles.topNav} ${scrolled && styles.active}`}>
-        <TopNav />
-      </section>
+      <TopNav />
       <section className={styles.brandIntroduction}>
         <div className={styles.introductionTitle}>
           {aboutText.introductionTitle}
@@ -133,9 +131,7 @@ function About() {
           </div>
         </div>
       </section>
-      <div className={styles.footer}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

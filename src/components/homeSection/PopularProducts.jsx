@@ -21,6 +21,7 @@ function PopularProducts() {
       </div>
       <div className={styles.productContainer}>
         {popularProducts.map((item, index) => {
+
           return (
             <div key={item.productName + index} className={styles.productBox}>
               <div className={styles.productImgBox}>

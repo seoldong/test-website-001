@@ -8,7 +8,8 @@ import Recommended from "../components/homeSection/Recommended";
 import BrandValue from "../components/homeSection/BrandValue";
 import BrandStory from "../components/homeSection/BrandStory";
 import Review from "../components/homeSection/Review";
-import Footer from "../components/homeSection/Footer";
+import Footer from "../components/footer/Footer";
+
 
 //
 function Home() {
@@ -40,9 +41,7 @@ function Home() {
 
   return (
     <div className={styles.base}>
-      <section className={`${styles.topNav} ${scrolled && styles.active}`}>
-        <TopNav />
-      </section>
+      <TopNav />
       <div className={styles.mainSlide}>
         <MainSlide />
       </div>
@@ -64,9 +63,7 @@ function Home() {
       <div className={styles.review}>
         <Review />
       </div>
-      <div className={styles.footer}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

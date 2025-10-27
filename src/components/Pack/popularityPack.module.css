@@ -1,0 +1,36 @@
+.popularity {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-top: 5rem;
+}
+
+.packBox {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.packImg {
+    width: 100%;
+    height: 22rem;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
+
+.packName {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.packPrice {
+    font-size: 2rem;
+    text-align: center;
+}
