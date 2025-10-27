@@ -10,7 +10,6 @@ const DURATION = 100000; // 자동 슬라이드 전체 시간 (밀리초)
 
 function About() {
   const trackRef = useRef(null);
-  const slideFrameRef = useRef(null); // 드래그 이벤트 리스너를 추가할 프레임
   const [scrolled, setScrolled] = useState(false);
   const [aboutText, setAboutText] = useState({});
   const [ingredientsImgSrc, setIngredientsImgSrc] = useState([]);
@@ -41,22 +40,23 @@ function About() {
     const LOOP_BOUNDARY = itemWidth * ingredientsImgSrc.length; //1배 트랙 길이
     const speed = totalTrackWidth / DURATION; //속도 = 거리/시간
     let startTime = performance.now(); //웹페이지 로딩 후 이 메소드가 실행되기까지의 시간
-    let currentPosition = 0;
 
     const animate = (timestamp) => {
       const elapsed = timestamp - startTime; //시작부터 현재까지 경과시간
       const currentDistance = speed * elapsed; //현재 지나온 거리, 거리=시간*속도
 
-      currentPosition = currentDistance % LOOP_BOUNDARY;
+      let currentPosition = currentDistance % LOOP_BOUNDARY;
 
-      // currentPosition = currentDistance % totalTrackWidth; //트랙에서 현재 위치 계산, 현재 시간까지 이동한 거리를 전체 길이로 나눈 나머지 값.
       const newPosition = -currentPosition;
       trackRef.current.style.transform = `translateX(${newPosition}px)`;
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
       //requiestAnimationFrame(callback(timestemp))에서 timestemp는 매개변수를 넣지 않아도 자동으로 performance.now()가 들어간다.
     };
-    const animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    let animationId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
   }, [ingredientsImgSrc]);
 
   //
@@ -106,30 +106,24 @@ function About() {
         </ul>
 
         <div className={styles.ingredientsSlide}>
-          <div
-            className={styles.ingredientsSlideFrame}
-            ref={slideFrameRef} // 드래그 이벤트 리스너를 위한 ref 추가
-          >
+          <div className={styles.ingredientsSlideFrame}>
             <div
               className={styles.ingredientsSlideTrack}
               ref={trackRef}
               // 트랙 너비를 원본 이미지 * 2 (무한 슬라이드용 복제 이미지)로 설정
               style={{
                 width: `${itemWidth * ingredientsImgSrc.length * 2}px`,
-                // transition: `transform ${transitionDuration}`,
               }}
             >
-              {/* 이미지 원본 + 복제본을 위해 배열을 두 번 매핑 */}
               {[...ingredientsImgSrc, ...ingredientsImgSrc].map(
                 (item, index) => {
                   return (
                     <img
                       className={styles.ingredientsSlideImg}
-                      key={`ingredient-${index}`} // key는 고유해야 함
+                      key={`ingredient-${index}`}
                       src={item.src}
                       style={{
                         width: `${itemWidth}px`,
-                        // transform: `translateX` 속성 제거 (JS에서 처리)
                       }}
                     />
                   );
@@ -138,7 +132,6 @@ function About() {
             </div>
           </div>
         </div>
-        
       </section>
       <div className={styles.footer}>
         <Footer />
