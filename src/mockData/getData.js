@@ -25,12 +25,30 @@ function popularityJuice(juice) {
 export const getPopularityJuice = popularityJuice(Juices);
 
 // 
+// function popularityPack(pack) {
+//     const length = 4;
+//     const popularProducts = pack.filter(product => product.popularity === true);
+//     return popularProducts.slice(0, length);
+// }
+// export const getPopularityPack = popularityPack(packs);
+
 function popularityPack(pack) {
-    const length = 4;
     const popularProducts = pack.filter(product => product.popularity === true);
-    return popularProducts.slice(0, length);
+    return popularProducts;
 }
 export const getPopularityPack = popularityPack(packs);
+
+// 
+function onSaleJuice(juice) {
+    return juice.filter(product => product.onSale === true)
+}
+export const getOnSaleJuice = onSaleJuice(Juices);
+
+// 
+function onSalePack(pack) {
+    return pack.filter(product => product.onSale === true)
+}
+export const getOnSalePack = onSalePack(packs);
 
 // 
 function recommendedJuice(juice) {
@@ -92,7 +110,25 @@ export function getAboutImages() {
 
 // 
 export const getPackFromLevel = (level, itemLength) => {
-    let itemsLevel =  Math.floor(level) * itemLength;
-    if(itemsLevel <= 0) itemsLevel = 1;
-    return packs.slice(0, itemsLevel);
+
+    let pevLev = (Math.floor(level) * itemLength) - itemLength;
+    let curLev = Math.floor(level) * itemLength;
+
+    if(pevLev <= 0) pevLev = 0;
+    if(curLev <= pevLev) curLev = 4;
+
+    return packs.slice(pevLev, curLev);
 }
+
+// 
+export function bestPack(pack) {
+  // 세 가지 조건(onSale, recommended, popularity)이 모두 true인 상품만 필터링합니다.
+  const allConditionsMetPack = pack.filter(product =>
+    product.onSale && product.recommended && product.popularity
+  );
+  return allConditionsMetPack;
+}
+
+export const getBestPack = bestPack(packs);
+
+//  

@@ -12,7 +12,6 @@
     display: grid;
     grid-template-rows: 0.7fr 1fr 2fr;
     padding-top: 5rem;
-    background-color: rgb(88, 253, 163);
 }
 
 .introductionTitle {

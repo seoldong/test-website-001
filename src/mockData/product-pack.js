@@ -22,7 +22,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 25 // 임의 추가
   },
   {
     "productName": "Green Tea Calming Gel Pack",
@@ -31,7 +32,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 10 // 임의 추가
   },
   {
     "productName": "Banana Nutrition Moisturizing Pack",
@@ -40,7 +42,8 @@ const pack = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 5 // 임의 추가
   },
   {
     "productName": "Potato Soothing & Cooling Sheet",
@@ -49,7 +52,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 30 // 임의 추가
   },
   {
     "productName": "Aloe Vera Moisture Relief Pack",
@@ -58,7 +62,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 15 // 임의 추가
   },
   {
     "productName": "Cucumber Fresh Hydration Mask",
@@ -67,7 +72,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 20 // 임의 추가
   },
   {
     "productName": "Oatmeal Gentle Scrub Pack",
@@ -76,7 +82,8 @@ const pack = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 40 // 임의 추가
   },
   {
     "productName": "Yogurt Brightening Cream Mask",
@@ -85,7 +92,8 @@ const pack = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 25 // 임의 추가
   },
   {
     "productName": "Honey Deep Moisturizing Pack",
@@ -94,7 +102,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 10 // 임의 추가
   },
   {
     "productName": "Lemon Vitamin Radiance Mask",
@@ -103,7 +112,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 35 // 임의 추가
   },
   {
     "productName": "Hyaluronic Acid Moisture Cream",
@@ -112,7 +122,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 5 // 임의 추가
   },
   {
     "productName": "Centella Repair Serum",
@@ -121,7 +132,8 @@ const pack = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 45 // 임의 추가
   },
   {
     "productName": "Green Tea Calming Toner",
@@ -130,7 +142,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 20 // 임의 추가
   },
   {
     "productName": "Marine Collagen Eye Patch",
@@ -139,7 +152,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 15 // 임의 추가
   },
   {
     "productName": "Charcoal Detox Cleanser",
@@ -148,7 +162,8 @@ const pack = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 30 // 임의 추가
   },
   {
     "productName": "Snail Mucin Brightening Essence",
@@ -157,7 +172,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 25 // 임의 추가
   },
   {
     "productName": "Daily UV Defense Sunscreen",
@@ -166,7 +182,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 40 // 임의 추가
   },
   {
     "productName": "Rosehip Oil Facial Mask",
@@ -175,7 +192,8 @@ const pack = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 50 // 임의 추가
   },
   {
     "productName": "Peptide Lifting Ampoule",
@@ -184,7 +202,8 @@ const pack = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 10 // 임의 추가
   },
   {
     "productName": "Tea Tree Spot Corrector",
@@ -193,7 +212,8 @@ const pack = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 20 // 임의 추가
   }
 ]
 

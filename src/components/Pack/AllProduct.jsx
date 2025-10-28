@@ -1,21 +1,22 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './Allproduct.module.css';
 // 이 코드는 기존 로직을 유지하면서, Intersection Observer 구현에 초점을 맞춥니다.
-import { getPackFromLevel } from '../../mockData/getData'; 
+import { getPackFromLevel } from '../../mockData/getData';
 
+// 
 function AllProduct() {
-    
+
     // 1. 상태 및 Ref 정의
     const [scrolled, setScrolled] = useState(0);
     const [products, setProducts] = useState([]);
     // 개별 packBox의 DOM 노드들을 저장할 Map을 Ref로 생성합니다.
-    const packBoxRefs = useRef(new Map()); 
+    const packBoxRefs = useRef(new Map());
     // Intersection Observer 인스턴스를 저장할 Ref입니다.
-    const observerRef = useRef(null); 
+    const observerRef = useRef(null);
 
     // --- 기존 데이터 로딩 로직 (scrolled 기반) 유지 ---
     // (첫 번째 useEffect: 스크롤 이벤트 리스너 제거)
-    // Intersection Observer 사용 시, 이 로직은 보통 필요하지 않지만, 
+    // Intersection Observer 사용 시, 이 로직은 보통 필요하지 않지만,
     // 사용자가 스크롤 위치에 따라 데이터를 로드하는 기존 로직을 유지하기 위해 그대로 둡니다.
     useEffect(() => {
         const handleScroll = () => {
@@ -25,33 +26,39 @@ function AllProduct() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }
-    }, [])
-    
-    // (두 번째 useEffect: 스크롤 위치에 따라 데이터 로드)
+    }, []);
+
+    // 
     useEffect(() => {
-        const SCROLL_THRESHOLD = 100;
-        const level = scrolled / SCROLL_THRESHOLD;
-        const callItemLength = 1;
-        const items = getPackFromLevel(level, callItemLength);
-        const productIds = products.map((product) => { return product.productId });
+        const SCROLL_THRESHOLD = 200;
+        const level = Math.floor(scrolled / SCROLL_THRESHOLD);
+        const callItemLength = 4;
+        const newItems = getPackFromLevel(level, callItemLength);
 
-        items.forEach((item) => {
-            const isExist = productIds.includes(item.productId);
-            // setProducts 호출 시 무한 루프나 불필요한 리렌더링을 방지하기 위해 로직 조정 필요
-            if (isExist) return; 
-            
-            // 기존 products 배열에 새 항목을 추가하도록 수정
-            setProducts(prevProducts => {
-                // 이미 존재하는지 다시 확인 (setState가 비동기적이기 때문에 안전 장치)
-                if (!prevProducts.some(p => p.productId === item.productId)) {
-                     // 새로운 배열을 반환해야 React가 상태 변경을 감지함
-                    return [...prevProducts, item]; 
-                }
-                return prevProducts; 
-            });
+        setProducts(prevProducts => {
+            // `prevProducts`가 배열이 아닐 경우(null, undefined, Set 등)를 대비해 Array.isArray()로 확인하고 빈 배열([])을 기본값으로 사용합니다.
+            // 이렇게 하면 .map() 호출 전에 항상 배열임을 보장합니다.
+            const safeProducts = Array.isArray(prevProducts) ? prevProducts : [];
+
+            // 1. 기존 제품 ID를 빠르게 조회하기 위해 Set을 생성합니다.
+            // 아이디만 추출 [id]
+            const existingIds = new Set(safeProducts.map(p => p.productId));
+
+            // 2. 기존 목록에 없는 새로운 항목만 필터링합니다.
+            // 새로 받은 값에 기존의 아이디가 존재하는지 확인.
+            const uniqueNewItems = newItems.filter(item => !existingIds.has(item.productId));
+
+            // 3. 중복이 제거된 새로운 항목이 있다면, 이전 상태와 합쳐서 반환합니다.
+            // 새로운 내용이 있으면 기존 내용과 같이 합쳐서 반환.
+            if (uniqueNewItems.length > 0) {
+                return [...safeProducts, ...uniqueNewItems];
+            }
+
+            // 4. 추가된 항목이 없다면 불필요한 리렌더링을 방지하기 위해 이전 상태를 그대로 반환합니다.
+            return prevProducts;
         });
-    }, [scrolled]);
 
+    }, [scrolled]);
 
     // --- Intersection Observer 구현 ---
     useEffect(() => {
@@ -59,17 +66,13 @@ function AllProduct() {
         const handleIntersect = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // console.log('✅ PackBox가 화면에 진입했습니다:', entry.target.id);
-                    // 1. active 클래스 추가
                     entry.target.classList.add(styles.active);
-                    
-                    // 2. 한 번 보이면 관찰을 중지 (옵션, 무한 스크롤 등에서는 유지)
                     // observer.unobserve(entry.target); 
-                } else {
-                    // console.log('❌ PackBox가 화면에서 벗어났습니다:', entry.target.id);
-                    // 화면에서 벗어났을 때 클래스를 제거하고 싶다면:
-                    // entry.target.classList.remove(styles.active); 
                 }
+                // else {
+                // 화면에서 벗어났을 때 클래스를 제거하고 싶다면:
+                // entry.target.classList.remove(styles.active); 
+                // }
             });
         };
 
@@ -79,7 +82,8 @@ function AllProduct() {
             rootMargin: '0px',
             threshold: 0.1 // 요소가 10% 이상 보일 때
         });
-        
+
+        // 옵저버를 Ref에 저장(* 대상을 설정하는게 아님)
         observerRef.current = observer;
 
         // 컴포넌트 언마운트 시 클린업
@@ -93,10 +97,10 @@ function AllProduct() {
     // products 목록이 업데이트될 때마다 새로운 요소들을 옵저버에 등록/갱신
     useEffect(() => {
         if (!observerRef.current) return;
-        
+
         // 이전에 관찰하던 모든 요소를 중지 (갱신을 위해)
-        observerRef.current.disconnect(); 
-        
+        observerRef.current.disconnect();
+
         // 새로 생성된 모든 packBox를 관찰하도록 등록
         packBoxRefs.current.forEach(node => {
             if (node) {
@@ -108,31 +112,69 @@ function AllProduct() {
     // --- 렌더링 부분 ---
     return (
         <section className={styles.allProducts} >
-            {products.map((pack, index) => {
+            <div className={styles.hook}>The complete rest nature offers.</div>
+            <div className={styles.productContainer}>
+                {products.map((pack, index) => {
 
-                return (
-                    <div
-                        // Ref를 콜백 함수 형태로 사용하여 각 DOM 노드를 Map에 저장합니다.
-                        ref={(node) => {
-                            if (node) {
-                                packBoxRefs.current.set(pack.productId, node);
-                            } else {
-                                // 요소가 사라질 때 Map에서 제거 (클린업)
-                                packBoxRefs.current.delete(pack.productId);
-                            }
-                        }}
-                        className={styles.packBox}
-                        key={pack.productId} // key는 고유 ID를 사용하는 것이 가장 좋습니다.
-                        id={`pack-box-${pack.productId}`} // 디버깅을 위한 ID
-                    >
-                        <img className={styles.image} src={pack.imageSrc} />
-                        <div className={styles.name}>{pack.productName}</div>
-                        <div className={styles.price}>{pack.price_krw}</div>
-                    </div>
-                )
-            })}
-        </section>
+                    return (
+                        <div
+                            // Ref를 콜백 함수 형태로 사용하여 각 DOM 노드를 Map에 저장합니다.
+                            ref={(node) => {
+                                if (node) {
+                                    // Map에 키(id)와 값(node) 추가
+                                    packBoxRefs.current.set(pack.productId, node);
+                                } else {
+                                    // 요소가 사라질 때 Map에서 제거 (클린업)
+                                    // map.delete(key) 맵에서 키 제거
+                                    packBoxRefs.current.delete(pack.productId);
+                                }
+                            }}
+                            className={styles.packBox}
+                            key={pack.productId} // key는 고유 ID를 사용하는 것이 가장 좋습니다.
+                            id={`pack-box-${pack.productId}`} // 디버깅을 위한 ID
+                        >
+                            <img className={styles.image} src={pack.imageSrc} />
+                            <div className={styles.name}>{pack.productName}</div>
+                            <PriceState pack={pack} />
+                            {pack.popularity ? <div className={styles.popularity}>popularity</div> : ""}
+                        </div>
+                    )
+                })}
+            </div>
+        </section >
     )
 }
 
 export default AllProduct;
+
+// 
+function PriceState({ pack }) {
+
+    const discount = (pack.price_krw * pack.discountRate / 100);
+
+    const saleElemetnt = () => {
+        return (
+            <>
+                <div className={styles.saleBox} >
+                    <p className={styles.discountPrice}>{`${pack.price_krw - discount}`}</p>
+                    <p className={styles.nomalPrice}>{pack.price_krw}</p>
+                </div>
+                <div className={styles.discountState}>{pack.discountRate}% off</div>
+            </>
+        )
+    }
+
+    const normalElement = () => {
+        return (
+            <div className={styles.priceBox} >
+                <p>{pack.price_krw}</p>
+            </div>
+        )
+    }
+
+    return (
+        <div>
+            {pack.onSale ? saleElemetnt() : normalElement()}
+        </div>
+    )
+}

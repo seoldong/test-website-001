@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
 import TopNav from '../components/topNav';
 import styles from './Pack.module.css'
 import PackSlide from '../components/Pack/PackSlide';
-import PopularityPack from '../components/Pack/popularityPack';
+import BestPack from '../components/Pack/BestPack';
 import Footer from '../components/footer/Footer';
 import AllProduct from '../components/Pack/AllProduct';
 
@@ -14,7 +13,7 @@ function PacK() {
         <div className={styles.packPage}>
             <TopNav />
             <PackSlide />
-            <PopularityPack />
+            <BestPack />
             <AllProduct />
             <Footer />
         </div>
