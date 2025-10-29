@@ -1,6 +1,8 @@
+import styles from "./index.module.css"
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { isOpenUndersidePanel } from "../../redux/slices/topnav/undersideSlice";
+
 
 // 
 function BurgerBtn() {
@@ -10,20 +12,19 @@ function BurgerBtn() {
   const onClickBurgerBtn = () => {
     setIsClick(!isClick);
     dispatch(isOpenUndersidePanel());
-    console.log("clicked buger btn");
   };
 
   return (
-    <button className="topNav-burgerBtn" onClick={onClickBurgerBtn}>
+    <button className={styles.burgerBtn} onClick={onClickBurgerBtn}>
       <svg
-        className="topNav-burgerSvg"
+        className={styles.burgerSvg}
         viewBox="0 0 200.00002 150.11649"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g transform="translate(-4.999996)">
           <rect
-            className="topNav-burgerBar"
+            className={styles.burgerBar}
             id="rect1"
             width="199.91292"
             height="24.91291"
@@ -32,7 +33,7 @@ function BurgerBtn() {
             ry="12.456455"
           />
           <rect
-            className="topNav-burgerBar"
+            className={styles.burgerBar}
             id="rect1-7"
             width="199.91292"
             height="24.91291"
@@ -41,7 +42,7 @@ function BurgerBtn() {
             ry="12.456455"
           />
           <rect
-            className="topNav-burgerBar"
+            className={styles.burgerBar}
             id="rect1-76"
             width="199.91292"
             height="24.91291"

@@ -20,8 +20,8 @@ function ShopBtnUnderside() {
       <div
         className="topNav-underside-shop-menu"
       >
-        <button>DRINK</button>
-        <button>PACK</button>
+        <button>DRINK 123</button>
+        <button>PACK 123</button>
       </div>
     </div>
   );

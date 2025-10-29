@@ -1,3 +1,4 @@
+import styles from './index.module.css'
 import { useState } from "react";
 
 function ChatBtn() {
@@ -9,7 +10,7 @@ function ChatBtn() {
   };
 
   return (
-    <button className="topNav-chatBtn" onClick={onClickChatBtn}>
+    <button className={styles.chatBtn} onClick={onClickChatBtn}>
       CHAT
     </button>
   );

@@ -109,6 +109,17 @@ export function getAboutImages() {
 }
 
 // 
+export const getJuiceFromLevel = (level, itemLength) => {
+
+    let pevLev = (Math.floor(level) * itemLength) - itemLength;
+    let curLev = Math.floor(level) * itemLength;
+
+    if(pevLev <= 0) pevLev = 0;
+    if(curLev <= pevLev) curLev = 4;
+
+    return Juices.slice(pevLev, curLev);
+}
+
 export const getPackFromLevel = (level, itemLength) => {
 
     let pevLev = (Math.floor(level) * itemLength) - itemLength;
@@ -121,6 +132,17 @@ export const getPackFromLevel = (level, itemLength) => {
 }
 
 // 
+export function bestJuice(Juice) {
+  // 세 가지 조건(onSale, recommended, popularity)이 모두 true인 상품만 필터링합니다.
+  const allConditionsMetPack = Juice.filter(product =>
+    product.onSale && product.recommended && product.popularity
+  );
+  return allConditionsMetPack;
+}
+
+export const getBestJuice = bestJuice(Juices);
+
+// 
 export function bestPack(pack) {
   // 세 가지 조건(onSale, recommended, popularity)이 모두 true인 상품만 필터링합니다.
   const allConditionsMetPack = pack.filter(product =>
@@ -131,4 +153,3 @@ export function bestPack(pack) {
 
 export const getBestPack = bestPack(packs);
 
-//  

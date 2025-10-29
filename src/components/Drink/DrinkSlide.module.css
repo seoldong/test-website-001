@@ -1,0 +1,11 @@
+.drinkSlide {
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    background-color: darkgrey;
+}
+
+.drinkImg {
+    width: 100%;
+    object-position: 0px -400px;
+}

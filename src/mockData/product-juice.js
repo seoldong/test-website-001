@@ -22,7 +22,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 9
   },
   {
     "productName": "Tomato Red Juice",
@@ -31,7 +32,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 11
   },
   {
     "productName": "Sugarcane Sweet Juice",
@@ -40,7 +42,8 @@ const juice = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 10
   },
   {
     "productName": "Berry Oat Smoothie",
@@ -49,7 +52,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 13
   },
   {
     "productName": "Avocado Green Smoothie",
@@ -58,7 +62,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": true,
+    "discountRate": 5
   },
   {
     "productName": "Cherry Rich Juice",
@@ -67,7 +72,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 15
   },
   {
     "productName": "Mango Yellow Smoothie",
@@ -76,7 +82,8 @@ const juice = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 11
   },
   {
     "productName": "Green Detox Juice",
@@ -85,7 +92,8 @@ const juice = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 8
   },
   {
     "productName": "Papaya Tropical Juice",
@@ -94,7 +102,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": true,
+    "discountRate": 16
   },
   {
     "productName": "Kiwi Sparkling Juice",
@@ -103,7 +112,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 19
   },
   {
     "productName": "Pineapple Sunshine Juice",
@@ -112,7 +122,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 12
   },
   {
     "productName": "Watermelon Hydration Juice",
@@ -121,7 +132,8 @@ const juice = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 9
   },
   {
     "productName": "Peach Calm Smoothie",
@@ -130,7 +142,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 18
   },
   {
     "productName": "Purple Grape Delight",
@@ -139,7 +152,8 @@ const juice = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 18
   },
   {
     "productName": "Banana Power Smoothie",
@@ -148,7 +162,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 9
   },
   {
     "productName": "Apple Cinnamon Juice",
@@ -157,7 +172,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 5
   },
   {
     "productName": "Coconut Water Pure",
@@ -166,7 +182,8 @@ const juice = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 7
   },
   {
     "productName": "Cranberry Zing Juice",
@@ -175,7 +192,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false
+    "popularity": false,
+    "discountRate": 8
   },
   {
     "productName": "Lime Mint Cooler",
@@ -184,7 +202,8 @@ const juice = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 10
   },
   {
     "productName": "Pomegranate Antioxidant Juice",
@@ -193,7 +212,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true
+    "popularity": true,
+    "discountRate": 11
   }
 ]
 

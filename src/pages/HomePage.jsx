@@ -1,4 +1,4 @@
-import styles from "./Home.module.css";
+import styles from "./HomePage.module.css";
 import { useEffect, useState } from "react";
 import TopNav from "../components/topNav/index";
 import MainSlide from "../components/homeSection/MainSlide";
@@ -12,7 +12,7 @@ import Footer from "../components/footer/Footer";
 
 
 //
-function Home() {
+function HomePage() {
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -68,4 +68,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

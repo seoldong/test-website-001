@@ -1,8 +1,9 @@
+import styles from "./index.module.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+// 
 function ShopBtn() {
-  const navigate = useNavigate();
   const [isShopEnter, setIsShopEnter] = useState(false);
   const [isMenuEnter, setIsMenuEnter] = useState(false);
   const [isClick, setIsClick] = useState(false);
@@ -12,9 +13,9 @@ function ShopBtn() {
   };
 
   return (
-    <div className="topNav-shopBox">
+    <div className={styles.shopBox}>
       <button
-        className="topNav-shopBtn"
+        className={styles.shopBtn}
         onClick={onClickShopBtn}
         onMouseEnter={() => setIsShopEnter(true)}
         onMouseLeave={() => setIsShopEnter(false)}
@@ -22,14 +23,14 @@ function ShopBtn() {
         SHOP
       </button>
       {(isShopEnter || isMenuEnter) &&
-        <div
-          className="topNav-shopBtn-menu"
-          onMouseEnter={() => setIsMenuEnter(true)}
-          onMouseLeave={() => setIsMenuEnter(false)}
-        >
-          <button className="topNav-shopBtn-drinkBtn" onClick={() => navigate('/shop/drink')}>DRINK</button>
-          <button className="topNav-shopBtn-packBtn" onClick={() => navigate('/shop/pack')}>PACK</button>
-        </div>
+      <div
+        className={styles.shopMenu}
+        onMouseEnter={() => setIsMenuEnter(true)}
+        onMouseLeave={() => setIsMenuEnter(false)}
+      >
+        <Link className={styles.drinkBtn} to={'/shop/drink'}>DRINK</Link>
+        <Link className={styles.packBtn} to={'/shop/pack'}>PACK</Link>
+      </div>
       }
     </div>
   );

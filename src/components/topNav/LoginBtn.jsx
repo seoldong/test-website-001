@@ -1,3 +1,4 @@
+import styles from "./index.module.css";
 import { useState } from "react";
 
 function LoginBtn() {
@@ -9,7 +10,7 @@ function LoginBtn() {
   };
 
   return (
-    <button className="topNav-loginBtn" onClick={onClickLoginBtn}>
+    <button className={styles.loginBtn} onClick={onClickLoginBtn}>
       LOGIN
     </button>
   );

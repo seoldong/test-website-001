@@ -1,12 +1,12 @@
 import TopNav from '../components/topNav';
-import styles from './Pack.module.css'
+import styles from './PacKPage.module.css'
 import PackSlide from '../components/Pack/PackSlide';
 import BestPack from '../components/Pack/BestPack';
 import Footer from '../components/footer/Footer';
 import AllProduct from '../components/Pack/AllProduct';
 
 // 
-function PacK() {
+function PacKPage() {
 
     //
     return (
@@ -20,4 +20,4 @@ function PacK() {
     )
 }
 
-export default PacK;
+export default PacKPage;

@@ -1,0 +1,334 @@
+.nav {
+  max-width: 1800px;
+  min-width: 320px;
+  width: 100%;
+  height: 5em;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  margin: auto;
+  transition: 300ms;
+}
+
+.underSide {
+  max-width: 1800px;
+  min-width: 320px;
+  width: 100%;
+  height: 0.2rem;
+  overflow: hidden;
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 5rem;
+  padding-top: 0.2rem;
+  background-color: rgb(255, 249, 249);
+  transition: height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.underSide.active {
+  height: 12rem;
+  padding-top: 1.5rem;
+}
+
+.active {
+  background-color: aliceblue;
+}
+
+.leftBox {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  gap: 2rem;
+}
+
+.topNav-centerBox {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightBox {
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 3rem;
+}
+
+.burgerBtn {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: transparent;
+  /* 배경 투명 */
+}
+
+.burgerBar {
+  transition: fill 0.2s ease-in-out;
+}
+
+.topNav-burgerBtn:hover .burgerBar {
+  fill: #ff6347;
+}
+
+.shopBox {
+  position: relative;
+}
+
+.aboutBtn,
+.shopBtn,
+.eventBtn,
+.reviewBtn,
+.topNav-loginBtn,
+.centerBox,
+.chatBtn,
+.loginBtn,
+.topNav-underside-shopBtn {
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.aboutBtn:hover,
+.shopBtn:hover,
+.eventBtn:hover,
+.reviewBtn:hover,
+.topNav-loginBtn:hover,
+.topNavCenterBox:hover,
+.chatBtn:hover,
+.loginBtn:hover,
+.topNav-underside-shopBtn:hover {
+  color: #ff6347;
+}
+
+.shopMenu {
+  width: 14rem;
+  height: 8rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.drinkBtn {
+  width: 100%;
+  height: 50%;
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  background-color: aliceblue;
+}
+
+.packBtn {
+  width: 100%;
+  height: 50%;
+  border-radius: 0 0 0.5rem 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  background-color: aliceblue;
+}
+
+.drinkBtn:hover,
+.packBtn:hover {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.logoBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  width: 10rem;
+}
+
+.logo {
+  display: block;
+  background-color: transparent;
+}
+
+.logoText {
+  font-size: 26.6667px;
+  font-family: Arial;
+  letter-spacing: 2px;
+
+  text-align: center;
+  writing-mode: lr-tb;
+  direction: ltr;
+  text-anchor: middle;
+
+  fill: #000000;
+  stroke: #000000;
+  stroke-width: 0.377953;
+  stroke-miterlimit: 11.7;
+  paint-order: stroke fill markers;
+
+  transition: fill 0.3s ease;
+}
+
+.logoTspanCompany {
+  font-family: Cambria;
+}
+
+.logoTspanLogo {
+  font-family: Cambria;
+}
+
+.logoBtn:hover .logoText {
+  fill: #ff6347;
+  stroke: #ff6347;
+}
+
+.topNav-underside-shop-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.topNav-underside-shop-menu button {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.topNav-underside-shop-menu button:hover {
+  color: #ff6347;
+}
+
+/*  */
+.contents {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/etcImg/event.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventMain {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.eventTitle {
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6rem;
+  padding: 2rem;
+  background-color: white
+}
+
+.eventSubTitle {
+  width: 100rem;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: white
+}
+
+.eventDecription {
+  width: 100rem;
+  font-size: 3rem;
+}
+
+.eventDetails {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 4rem;
+}
+
+.event01Box,
+.event02Box {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  background-color: white;
+}
+
+.event01Box img,
+.event02Box img {
+  width: 30rem;
+  height: 20rem;
+  object-fit: cover;
+  margin-bottom: 3rem;
+}
+
+
+.event01Title,
+.event02Title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.event01Description,
+.event02Description {
+  font-size: 2rem;
+  text-align: center;
+  padding: 0 3rem;
+}
+
+.eventInfo {
+  width: 100%;
+  height: 20%;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.eventInfo div {
+  margin-bottom: 1rem;
+}

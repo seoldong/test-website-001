@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
 import TopNav from "../components/topNav";
-import styles from "./About.module.css";
+import styles from "./AboutPage.module.css";
 import { getAboutText, getAboutImages } from "../mockData/getData";
 import Footer from "../components/footer/Footer";
 
@@ -8,7 +8,7 @@ const SCROLL_THRESHOLD = 50;
 const itemWidth = 400; //px로 해야 나머지 계산이 쉬움.
 const DURATION = 100000; // 자동 슬라이드 전체 시간 (밀리초)
 
-function About() {
+function AboutPage() {
   const trackRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [aboutText, setAboutText] = useState({});
@@ -42,22 +42,24 @@ function About() {
     let startTime = performance.now(); //웹페이지 로딩 후 이 메소드가 실행되기까지의 시간
 
     const animate = (timestamp) => {
-      const elapsed = timestamp - startTime; //시작부터 현재까지 경과시간
-      const currentDistance = speed * elapsed; //현재 지나온 거리, 거리=시간*속도
+      if (trackRef.current) {
+        const elapsed = timestamp - startTime; //시작부터 현재까지 경과시간
+        const currentDistance = speed * elapsed; //현재 지나온 거리, 거리=시간*속도
 
-      let currentPosition = currentDistance % LOOP_BOUNDARY;
+        let currentPosition = currentDistance % LOOP_BOUNDARY;
 
-      const newPosition = -currentPosition;
-      trackRef.current.style.transform = `translateX(${newPosition}px)`;
-      animationId = requestAnimationFrame(animate);
-      //requiestAnimationFrame(callback(timestemp))에서 timestemp는 매개변수를 넣지 않아도 자동으로 performance.now()가 들어간다.
+        const newPosition = -currentPosition;
+        trackRef.current.style.transform = `translateX(${newPosition}px)`;
+        animationId = requestAnimationFrame(animate);
+        //requiestAnimationFrame(callback(timestemp))에서 timestemp는 매개변수를 넣지 않아도 자동으로 performance.now()가 들어간다.
+      }
     };
     let animationId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [ingredientsImgSrc]);
+  }, [ingredientsImgSrc.length]);
 
   //
   return (
@@ -136,4 +138,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutPage;
