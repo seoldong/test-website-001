@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from ".//Review.module.css"
 import { getAllReview } from "../../mockData/getData";
+import { Link } from "react-router-dom";
 
 // 'date' 문자열을 Date 객체로 변환하여 비교하는 헬퍼 함수
 const compareDates = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -132,7 +133,7 @@ function Review() {
                         const stars = Array.from({ length: maxRating });
 
                         return (
-                            <div className={styles.box} key={review.id} >
+                            <Link className={styles.box} key={review.id} to={`/product/${review.product_id}`}>
                                 <img className={styles.image} src={review.imageLink} alt={review.product_name} />
                                 <div className={styles.content}>{review.content}</div>
                                 <div className={styles.ratingBox}>
@@ -149,7 +150,7 @@ function Review() {
                                         })}
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>

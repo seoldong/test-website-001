@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./BestPack.module.css";
-import { getBestPack } from "../../mockData/getData";
+import { getBestMaskPacks } from "../../mockData/getData";
 
 
 function BestPack() {
@@ -8,7 +8,7 @@ function BestPack() {
     const [best, setBest] = useState([]);
 
     useEffect(() => {
-        setBest(getBestPack)
+        setBest(getBestMaskPacks)
     }, [])
 
     return (

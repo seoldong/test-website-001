@@ -42,17 +42,15 @@ function TopNav() {
     return (
         <section className={`${styles.nav} ${scrolled && styles.active}`}>
             <div className={`${styles.underSide} ${undersidePanel && styles.active}`}>
-                <Link to={'/About'}><button className={styles.topNavAaboutBtn}>ABOUT</button></Link>
+                <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
                 <ShopBtnUnderside />
                 <button className={styles.eventBtn} >EVENT</button>
-                <Link to={'/Review'}><button className={styles.reviewBtn}>REVIEW</button></Link>
             </div>
-            <div className={`${styles.leftBox}`}>
+            <div className={styles.leftBox}>
                 <BurgerBtn />
                 <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
                 <ShopBtn />
                 <EventBtn />
-                <Link to={'/Review'}><button className={styles.reviewBtn}>REVIEW</button></Link>
             </div>
             <div className={styles.centerBox}>
                 <Logo />

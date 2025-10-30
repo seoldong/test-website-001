@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import styles from "./Recommended.module.css";
 import { getRecommendedJuice } from "../../mockData/getData";
+import { Link } from "react-router-dom";
 
 //
 const ProductSlider = () => {
@@ -134,11 +135,12 @@ const ProductSlider = () => {
                             // transition은 useEffect에서 제어
                         }}
                     >
-                        {products.map((product, index) => (
-                            <div
+                        {products.map((product, index) => {
+                            return <Link
                                 key={index}
                                 className={styles.productBox}
                                 style={{ width: `${ITEM_WIDTH_REM}rem`, height: '40rem' }}
+                                to={`/product/${product.productId}`}
                             >
                                 {/* 상품 콘텐츠 (기존과 동일) */}
                                 <img
@@ -152,8 +154,8 @@ const ProductSlider = () => {
                                     <div className={styles.productPrice}>{product.onSale ? `₩ ${product.price_krw.toLocaleString()}` : ''}</div>
                                 </div>
                                 {product.onSale && <div className={styles.productOnSale}>20% SALE</div>}
-                            </div>
-                        ))}
+                            </Link>
+                        })}
                     </div>
                 </div>
 

@@ -37,6 +37,7 @@
   cursor: pointer;
   padding-top: 1rem;
   filter: brightness(85%);
+  transition: filter 0.3s ease;
 }
 
 .productBox:hover {

@@ -1,27 +1,17 @@
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import styles from "./index.module.css";
 
 // 
 function ShopBtnUnderside() {
-  const [isClick, setIsClick] = useState(false);
-
-  const onClickShopBtn = () => {
-    setIsClick(!isClick);
-    console.log('clicked underside shop btn');
-  };
 
   return (
-    <div className="topNav-underside-shop">
-      <button
-        className="topNav-underside-shopBtn"
-        onClick={onClickShopBtn}
-      >
+    <div className={styles.undersideShop}>
+      <button className={styles.undersideShopBtn}>
         SHOP
       </button>
-      <div
-        className="topNav-underside-shop-menu"
-      >
-        <button>DRINK 123</button>
-        <button>PACK 123</button>
+      <div className={styles.undersideShopMenu} >
+        <Link className={styles.undersideDrinkBtn} to={'/shop/drink'}>DRINK</Link>
+        <Link className={styles.undersidePackBtn} to={'/shop/maskpack'}>MASK PACK</Link>
       </div>
     </div>
   );

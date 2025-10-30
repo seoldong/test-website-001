@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.css"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { isOpenModal } from "../../redux/slices/modal/modalState";
 
 // 

@@ -1,5 +1,5 @@
 import Juices from "../mockData/product-juice";
-import packs from "../mockData/product-pack";
+import maskPacks from "./product-maskPack";
 import reviewData from "../mockData/review"
 import {
     introductionTitle,
@@ -17,28 +17,6 @@ import {
 } from "../mockData/aboutPageText"
 
 // 
-function popularityJuice(juice) {
-    const length = 4;
-    const popularProducts = juice.filter(product => product.popularity === true);
-    return popularProducts.slice(0, length);
-}
-export const getPopularityJuice = popularityJuice(Juices);
-
-// 
-// function popularityPack(pack) {
-//     const length = 4;
-//     const popularProducts = pack.filter(product => product.popularity === true);
-//     return popularProducts.slice(0, length);
-// }
-// export const getPopularityPack = popularityPack(packs);
-
-function popularityPack(pack) {
-    const popularProducts = pack.filter(product => product.popularity === true);
-    return popularProducts;
-}
-export const getPopularityPack = popularityPack(packs);
-
-// 
 function onSaleJuice(juice) {
     return juice.filter(product => product.onSale === true)
 }
@@ -48,7 +26,7 @@ export const getOnSaleJuice = onSaleJuice(Juices);
 function onSalePack(pack) {
     return pack.filter(product => product.onSale === true)
 }
-export const getOnSalePack = onSalePack(packs);
+export const getOnSalePack = onSalePack(maskPacks);
 
 // 
 function recommendedJuice(juice) {
@@ -60,7 +38,7 @@ export const getRecommendedJuice = recommendedJuice(Juices);
 function recommendedPack(pack) {
     return pack.filter(product => product.recommended === true)
 }
-export const getRecommendedPack = recommendedPack(packs);
+export const getRecommendedPack = recommendedPack(maskPacks);
 
 //
 export function getAllReview() {
@@ -114,8 +92,8 @@ export const getJuiceFromLevel = (level, itemLength) => {
     let pevLev = (Math.floor(level) * itemLength) - itemLength;
     let curLev = Math.floor(level) * itemLength;
 
-    if(pevLev <= 0) pevLev = 0;
-    if(curLev <= pevLev) curLev = 4;
+    if (pevLev <= 0) pevLev = 0;
+    if (curLev <= pevLev) curLev = 4;
 
     return Juices.slice(pevLev, curLev);
 }
@@ -125,31 +103,61 @@ export const getPackFromLevel = (level, itemLength) => {
     let pevLev = (Math.floor(level) * itemLength) - itemLength;
     let curLev = Math.floor(level) * itemLength;
 
-    if(pevLev <= 0) pevLev = 0;
-    if(curLev <= pevLev) curLev = 4;
+    if (pevLev <= 0) pevLev = 0;
+    if (curLev <= pevLev) curLev = 4;
 
-    return packs.slice(pevLev, curLev);
+    return maskPacks.slice(pevLev, curLev);
 }
 
 // 
-export function bestJuice(Juice) {
-  // 세 가지 조건(onSale, recommended, popularity)이 모두 true인 상품만 필터링합니다.
-  const allConditionsMetPack = Juice.filter(product =>
-    product.onSale && product.recommended && product.popularity
-  );
-  return allConditionsMetPack;
+export const popularityJuice = (juiceData) => {
+    const topNum = 5;
+    const sortedData = [...juiceData];
+    sortedData.sort((a, b) => b.salesCount - a.salesCount);
+    return sortedData.slice(0, topNum);
 }
-
-export const getBestJuice = bestJuice(Juices);
 
 // 
-export function bestPack(pack) {
-  // 세 가지 조건(onSale, recommended, popularity)이 모두 true인 상품만 필터링합니다.
-  const allConditionsMetPack = pack.filter(product =>
-    product.onSale && product.recommended && product.popularity
-  );
-  return allConditionsMetPack;
+export const popularityPacks = (packData) => {
+    const topNum = 5;
+    const sortedData = [...packData];
+    sortedData.sort((a, b) => b.salesCount - a.salesCount);
+    return sortedData.slice(0, topNum);
+};
+
+// 
+function bestJuice(juiceData) {
+    const allConditionsMetPack = juiceData.filter(product =>
+        product.onSale && product.recommended
+    );
+    return allConditionsMetPack;
+}
+export const getBestJuice = bestJuice(popularityJuice(Juices));
+
+// 
+function bestMaskPack(maskPackData) {
+    const allConditionsMetPack = maskPackData.filter(product =>
+        product.onSale && product.recommended
+    );
+    return allConditionsMetPack;
+}
+export const getBestMaskPacks = bestMaskPack(popularityPacks(maskPacks));
+
+// 
+function bestProduct(juiceData, maskPackData) {
+    const bestItem = [];
+
+    const topNum = 2;
+    const sortedJuice = [...juiceData];
+    const sortedMaskPack = [...maskPackData];
+    
+    sortedJuice.sort((a, b) => b.salesCount - a.salesCount);
+    sortedMaskPack.sort((a, b) => b.salesCount - a.salesCount);
+
+    bestItem.push(...sortedJuice.slice(0, topNum));
+    bestItem.push(...sortedMaskPack.slice(0, topNum));
+
+    return bestItem;
 }
 
-export const getBestPack = bestPack(packs);
-
+export const getBestProduct = bestProduct(getBestJuice, getBestMaskPacks);

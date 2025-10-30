@@ -2,7 +2,7 @@ import styles from "./HomePage.module.css";
 import { useEffect, useState } from "react";
 import TopNav from "../components/topNav/index";
 import MainSlide from "../components/homeSection/MainSlide";
-import PopularProducts from "../components/homeSection/PopularProducts";
+import BestProducts from "../components/homeSection/BestProducts";
 import Package from "../components/homeSection/Package";
 import Recommended from "../components/homeSection/Recommended";
 import BrandValue from "../components/homeSection/BrandValue";
@@ -45,8 +45,8 @@ function HomePage() {
       <div className={styles.mainSlide}>
         <MainSlide />
       </div>
-      <div className={styles.popularProducts}>
-        <PopularProducts />
+      <div className={styles.bestProducts}>
+        <BestProducts />
       </div>
       <div className={styles.package}>
         <Package />

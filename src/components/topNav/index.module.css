@@ -50,7 +50,7 @@
   gap: 2rem;
 }
 
-.topNav-centerBox {
+.centerBox {
   height: 100%;
   position: absolute;
   left: 50%;
@@ -96,8 +96,7 @@
 .topNav-loginBtn,
 .centerBox,
 .chatBtn,
-.loginBtn,
-.topNav-underside-shopBtn {
+.loginBtn {
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
   cursor: pointer;
@@ -111,9 +110,14 @@
 .topNav-loginBtn:hover,
 .topNavCenterBox:hover,
 .chatBtn:hover,
-.loginBtn:hover,
-.topNav-underside-shopBtn:hover {
+.loginBtn:hover {
   color: #ff6347;
+}
+
+.undersideShopBtn {
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  background-color: transparent;
 }
 
 .shopMenu {
@@ -208,12 +212,12 @@
   stroke: #ff6347;
 }
 
-.topNav-underside-shop-menu {
+.undersideShopMenu {
   display: flex;
   flex-direction: column;
 }
 
-.topNav-underside-shop-menu button {
+.undersideShopMenu button {
   padding: 0.5rem;
   font-size: 1.2rem;
   margin-top: 0.5rem;
@@ -221,7 +225,7 @@
   background-color: transparent;
 }
 
-.topNav-underside-shop-menu button:hover {
+.undersideShopMenu button:hover {
   color: #ff6347;
 }
 
@@ -331,4 +335,28 @@
 
 .eventInfo div {
   margin-bottom: 1rem;
+}
+
+.undersideDrinkBtn,
+.undersidePackBtn {
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.undersideDrinkBtn:hover,
+.undersidePackBtn:hover {
+  color: #ff6347;
+}
+
+.undersideShop {
+  display: flex;
+  flex-direction: column;
 }

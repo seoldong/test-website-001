@@ -2,6 +2,7 @@ import styles from "./MainSlide.module.css"
 import { useEffect, useState } from "react";
 import topSlidesData from "../../mockData/topSlide"
 
+// 
 function MainSlide() {
     const [slides] = useState(topSlidesData);
     const [index, setIndex] = useState(0);

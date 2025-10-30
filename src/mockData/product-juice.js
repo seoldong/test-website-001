@@ -8,7 +8,6 @@ const productImages = Object.keys(modules).map(path => {
 
   return {
     name: fileName.split('.')[0],
-    // id: Number(fileName.split('.')[0]),
     src: modules[path].default
   };
 });
@@ -19,11 +18,11 @@ const juice = [
     "productName": "Carrot Fresh Juice",
     "price_krw": 3900,
     "productId": "J001",
-    "onSale": false,
+    "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 9
+    "discountRate": 9,
+    "salesCount": 856 
   },
   {
     "productName": "Tomato Red Juice",
@@ -32,8 +31,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 11
+    "discountRate": 11,
+    "salesCount": 421 
   },
   {
     "productName": "Sugarcane Sweet Juice",
@@ -42,8 +41,8 @@ const juice = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 10
+    "discountRate": 10,
+    "salesCount": 593 
   },
   {
     "productName": "Berry Oat Smoothie",
@@ -52,8 +51,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 13
+    "discountRate": 13,
+    "salesCount": 910 
   },
   {
     "productName": "Avocado Green Smoothie",
@@ -62,8 +61,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 5
+    "discountRate": 5,
+    "salesCount": 745 
   },
   {
     "productName": "Cherry Rich Juice",
@@ -72,8 +71,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 15
+    "discountRate": 15,
+    "salesCount": 387 
   },
   {
     "productName": "Mango Yellow Smoothie",
@@ -82,8 +81,8 @@ const juice = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 11
+    "discountRate": 11,
+    "salesCount": 632 
   },
   {
     "productName": "Green Detox Juice",
@@ -92,8 +91,8 @@ const juice = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 8
+    "discountRate": 8,
+    "salesCount": 204 
   },
   {
     "productName": "Papaya Tropical Juice",
@@ -102,8 +101,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 16
+    "discountRate": 16,
+    "salesCount": 771 
   },
   {
     "productName": "Kiwi Sparkling Juice",
@@ -112,8 +111,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 19
+    "discountRate": 19,
+    "salesCount": 498 
   },
   {
     "productName": "Pineapple Sunshine Juice",
@@ -122,18 +121,18 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 12
+    "discountRate": 12,
+    "salesCount": 135 
   },
   {
     "productName": "Watermelon Hydration Juice",
     "price_krw": 3600,
     "productId": "J012",
     "onSale": true,
-    "recommended": false,
+    "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 9
+    "discountRate": 9,
+    "salesCount": 982 
   },
   {
     "productName": "Peach Calm Smoothie",
@@ -142,8 +141,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 18
+    "discountRate": 18,
+    "salesCount": 319 
   },
   {
     "productName": "Purple Grape Delight",
@@ -152,8 +151,8 @@ const juice = [
     "onSale": true,
     "recommended": false,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 18
+    "discountRate": 18,
+    "salesCount": 655 
   },
   {
     "productName": "Banana Power Smoothie",
@@ -162,8 +161,8 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 9
+    "discountRate": 9,
+    "salesCount": 523 
   },
   {
     "productName": "Apple Cinnamon Juice",
@@ -172,8 +171,8 @@ const juice = [
     "onSale": true,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 5
+    "discountRate": 5,
+    "salesCount": 178 
   },
   {
     "productName": "Coconut Water Pure",
@@ -182,8 +181,8 @@ const juice = [
     "onSale": false,
     "recommended": false,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 7
+    "discountRate": 7,
+    "salesCount": 799 
   },
   {
     "productName": "Cranberry Zing Juice",
@@ -192,18 +191,18 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": false,
-    "discountRate": 8
+    "discountRate": 8,
+    "salesCount": 261 
   },
   {
     "productName": "Lime Mint Cooler",
     "price_krw": 3200,
     "productId": "J019",
     "onSale": true,
-    "recommended": false,
+    "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 10
+    "discountRate": 10,
+    "salesCount": 944 
   },
   {
     "productName": "Pomegranate Antioxidant Juice",
@@ -212,10 +211,10 @@ const juice = [
     "onSale": false,
     "recommended": true,
     "imageSrc": "",
-    "popularity": true,
-    "discountRate": 11
+    "discountRate": 11,
+    "salesCount": 680 
   }
-]
+];
 
 const productJuiceData = juice.map((product) => {
   const foundImage = productImages.find((ImgData) => {

@@ -6,17 +6,11 @@ import { Link } from "react-router-dom";
 function ShopBtn() {
   const [isShopEnter, setIsShopEnter] = useState(false);
   const [isMenuEnter, setIsMenuEnter] = useState(false);
-  const [isClick, setIsClick] = useState(false);
-
-  const onClickShopBtn = () => {
-    setIsClick(!isClick);
-  };
 
   return (
     <div className={styles.shopBox}>
       <button
         className={styles.shopBtn}
-        onClick={onClickShopBtn}
         onMouseEnter={() => setIsShopEnter(true)}
         onMouseLeave={() => setIsShopEnter(false)}
       >
@@ -29,7 +23,7 @@ function ShopBtn() {
         onMouseLeave={() => setIsMenuEnter(false)}
       >
         <Link className={styles.drinkBtn} to={'/shop/drink'}>DRINK</Link>
-        <Link className={styles.packBtn} to={'/shop/pack'}>PACK</Link>
+        <Link className={styles.packBtn} to={'/shop/maskpack'}>MASK PACK</Link>
       </div>
       }
     </div>
