@@ -22,7 +22,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 9,
-    "salesCount": 856 
+    "salesCount": 856,
+    "description": "Freshly squeezed carrot juice, rich in Vitamin A, supporting healthy vision and skin." 
   },
   {
     "productName": "Tomato Red Juice",
@@ -32,7 +33,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 11,
-    "salesCount": 421 
+    "salesCount": 421,
+    "description": "Packed with lycopene from ripe red tomatoes, this juice is perfect for boosting vitality."
   },
   {
     "productName": "Sugarcane Sweet Juice",
@@ -42,7 +44,8 @@ const juice = [
     "recommended": false,
     "imageSrc": "",
     "discountRate": 10,
-    "salesCount": 593 
+    "salesCount": 593,
+    "description": "Nature's candy! A refreshing and cool sugarcane juice to lift your spirits."
   },
   {
     "productName": "Berry Oat Smoothie",
@@ -52,7 +55,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 13,
-    "salesCount": 910 
+    "salesCount": 910,
+    "description": "A blend of various berries and oats, providing high satiety and nutrition in a hearty smoothie."
   },
   {
     "productName": "Avocado Green Smoothie",
@@ -62,7 +66,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 5,
-    "salesCount": 745 
+    "salesCount": 745,
+    "description": "Made with creamy avocado and fresh green vegetables for a nutty, healthy green smoothie."
   },
   {
     "productName": "Cherry Rich Juice",
@@ -72,7 +77,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 15,
-    "salesCount": 387 
+    "salesCount": 387,
+    "description": "A rich juice capturing the deep flavor and aroma of cherries. Perfect for a luxurious treat."
   },
   {
     "productName": "Mango Yellow Smoothie",
@@ -82,7 +88,8 @@ const juice = [
     "recommended": false,
     "imageSrc": "",
     "discountRate": 11,
-    "salesCount": 632 
+    "salesCount": 632,
+    "description": "A sweet and smooth yellow smoothie, generously made with tropical mango."
   },
   {
     "productName": "Green Detox Juice",
@@ -92,7 +99,8 @@ const juice = [
     "recommended": false,
     "imageSrc": "",
     "discountRate": 8,
-    "salesCount": 204 
+    "salesCount": 204,
+    "description": "A cleansing detox juice blended with various green vegetables and fruits to lighten your body."
   },
   {
     "productName": "Papaya Tropical Juice",
@@ -102,7 +110,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 16,
-    "salesCount": 771 
+    "salesCount": 771,
+    "description": "An exotic juice featuring the unique taste of papaya, known for its smooth and refreshing flavor."
   },
   {
     "productName": "Kiwi Sparkling Juice",
@@ -112,7 +121,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 19,
-    "salesCount": 498 
+    "salesCount": 498,
+    "description": "A refreshing sparkling juice where the tangy taste of kiwi meets maximum carbonation."
   },
   {
     "productName": "Pineapple Sunshine Juice",
@@ -122,7 +132,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 12,
-    "salesCount": 135 
+    "salesCount": 135,
+    "description": "Squeezed from sun-drenched pineapples, offering a perfect harmony of sweetness and zest."
   },
   {
     "productName": "Watermelon Hydration Juice",
@@ -132,7 +143,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 9,
-    "salesCount": 982 
+    "salesCount": 982,
+    "description": "The ultimate hydrator! A cool, pure watermelon juice, perfect for quenching your thirst."
   },
   {
     "productName": "Peach Calm Smoothie",
@@ -142,7 +154,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 18,
-    "salesCount": 319 
+    "salesCount": 319,
+    "description": "A sweet smoothie combining soft peaches and milk, bringing calmness and delight."
   },
   {
     "productName": "Purple Grape Delight",
@@ -152,7 +165,8 @@ const juice = [
     "recommended": false,
     "imageSrc": "",
     "discountRate": 18,
-    "salesCount": 655 
+    "salesCount": 655,
+    "description": "Enjoy the rich flavor and aroma of dark purple grapes in this delightful juice."
   },
   {
     "productName": "Banana Power Smoothie",
@@ -162,7 +176,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 9,
-    "salesCount": 523 
+    "salesCount": 523,
+    "description": "Packed with banana energy and nutrition, a power smoothie perfect for pre or post-workout fuel."
   },
   {
     "productName": "Apple Cinnamon Juice",
@@ -172,7 +187,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 5,
-    "salesCount": 178 
+    "salesCount": 178,
+    "description": "The harmonious blend of apple and cinnamon creates a comforting and warm-tasting juice."
   },
   {
     "productName": "Coconut Water Pure",
@@ -182,7 +198,8 @@ const juice = [
     "recommended": false,
     "imageSrc": "",
     "discountRate": 7,
-    "salesCount": 799 
+    "salesCount": 799,
+    "description": "Pure coconut water, excellent for mineral and hydration replenishment."
   },
   {
     "productName": "Cranberry Zing Juice",
@@ -192,7 +209,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 8,
-    "salesCount": 261 
+    "salesCount": 261,
+    "description": "The tart and lively taste ('Zing') of cranberry adds a burst of freshness and vitality."
   },
   {
     "productName": "Lime Mint Cooler",
@@ -202,7 +220,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 10,
-    "salesCount": 944 
+    "salesCount": 944,
+    "description": "A refreshing cooler with the perfect blend of lime and mint, guaranteed to beat the heat."
   },
   {
     "productName": "Pomegranate Antioxidant Juice",
@@ -212,7 +231,8 @@ const juice = [
     "recommended": true,
     "imageSrc": "",
     "discountRate": 11,
-    "salesCount": 680 
+    "salesCount": 680,
+    "description": "A premium juice rich in antioxidants from pomegranates, supporting overall wellness."
   }
 ];
 

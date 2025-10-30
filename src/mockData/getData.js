@@ -150,7 +150,7 @@ function bestProduct(juiceData, maskPackData) {
     const topNum = 2;
     const sortedJuice = [...juiceData];
     const sortedMaskPack = [...maskPackData];
-    
+
     sortedJuice.sort((a, b) => b.salesCount - a.salesCount);
     sortedMaskPack.sort((a, b) => b.salesCount - a.salesCount);
 
@@ -161,3 +161,19 @@ function bestProduct(juiceData, maskPackData) {
 }
 
 export const getBestProduct = bestProduct(getBestJuice, getBestMaskPacks);
+
+// 
+export function searchProduct(productId) {
+
+    const getFirstText = productId.split('')[0];
+
+    if (getFirstText === 'J') {
+        const findJuiceData = Juices.find(product => product.productId === productId);
+        return findJuiceData;
+    } else if (getFirstText === 'M') {
+        const findPackData = maskPacks.find(product => product.productId === productId);
+        return findPackData;
+    }
+
+    return null;
+}

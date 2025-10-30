@@ -1,6 +1,339 @@
 .ProductPage {
     width: 1800px;
     margin: auto;
-    background-color: beige;
 }
 
+.breadcrumbsBox {
+    width: 100%;
+    height: 15rem;
+    padding-top: 5rem;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    padding: 0 0 1rem 3rem;
+}
+
+.breadcrumbs {
+    display: flex;
+    font-size: 2rem;
+    gap: 2rem;
+}
+
+.breadcrumbs div {
+    display: inline;
+}
+
+.breadcrumbs p::after {
+    content: ' ⟩';
+}
+
+.breadcrumbs p:last-child::after {
+    content: '';
+}
+
+.productInfoBox {
+    width: 100%;
+    height: 1200px;
+    display: grid;
+    /* 1. 열 정의: 50% / 50% */
+    grid-template-columns: 50% 50%;
+    /* 2. 행 정의: 10% 40% 10% 10% 15% 15% (총 6개 행) */
+    grid-template-rows: 20% 25% 15% 10% 15% 15%;
+
+    /* 🌟 오류 수정: grid-template-areas로 변경 🌟 */
+    grid-template-areas:
+        "infoImg title"
+        "infoImg description"
+        "infoImg purchaseInfo"
+        "infoImg orderQuantity"
+        "imgThumnail orderPrice"
+        "imgThumnail orderMenu";
+    padding: 2rem;
+}
+
+.infoImg {
+    width: 100%;
+    height: 100%;
+    padding-right: 2rem;
+    grid-area: infoImg;
+    object-fit: cover;
+}
+
+.tumbnailBox {
+    grid-area: imgThumnail;
+    padding-right: 2rem;
+}
+
+.title {
+    grid-area: title;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    grid-area: description;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.purchaseInfo {
+    grid-area: purchaseInfo;
+    padding: 0 2rem;
+}
+
+.purchaseInfo div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.orderQuantity {
+    grid-area: orderQuantity;
+    padding: 0 2rem 2rem 2rem;
+    border-bottom: 0.1rem solid black
+}
+
+.orderPrice {
+    grid-area: orderPrice;
+}
+
+.orderMenu {
+    grid-area: orderMenu;
+}
+
+.orderBox {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+        "menuName menuName"
+        "orderQuantity orderPrice";
+}
+
+.orderTitle {
+    grid-area: menuName;
+    font-size: 1.5rem;
+}
+
+.quantityBox {
+    grid-area: orderQuantity;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.quantityBox button {
+    width: 6rem;
+    height: 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.quantityBox button:hover {
+    background-color: darkgray;
+    color: aliceblue
+}
+
+.quantity {
+    padding: 0.5rem;
+}
+
+.priceBox {
+    grid-area: orderPrice;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 1.5rem;
+}
+
+.orderPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.totalPriceText {
+    font-size: 1.5rem;
+}
+
+.totalPrice {
+    font-size: 2rem;
+}
+
+.orderMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.orderMenu button {
+    width: 14rem;
+    height: 6rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.orderMenu button:hover {
+    background-color: darkgray;
+    color: aliceblue;
+}
+
+/*  */
+
+.pageMenu {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: cornflowerblue;
+}
+
+.pageMenu button {
+    width: 20%;
+    height: 100%;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.pageMenu button:hover {
+    background-color: darkgray;
+    color: aliceblue;
+}
+
+
+
+
+
+
+
+
+
+.productDetails {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../assets/etcImg/product-detail.jpg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3rem;
+    position: relative;
+    transition: all 1s ease-in-out;
+    overflow: hidden;
+}
+
+.detailTitle {
+    font-size: 5rem;
+    font-weight: bold;
+    padding: 2rem;
+    background-color: rgba(228, 217, 64, 0.5);
+    margin: 500px 0 5rem 0;
+}
+
+.detailsDescription {
+    font-size: 3rem;
+    padding: 2rem;
+    background-color: rgba(228, 217, 64, 0.5);
+    margin-bottom: 5rem;
+    line-height: 4rem
+}
+
+.description pre {
+    font-family: inherit;
+    /* 부모 요소의 글꼴 상속 */
+    white-space: pre-wrap;
+    /* 긴 줄이 있을 때 자동 줄 바꿈 허용 */
+}
+
+.expandPageBox {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.expandPageBtn {
+    font-size: 2rem;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.expandPageBtn:hover {
+    background-color: darkgray;
+    color: aliceblue;
+}
+
+.active {
+    height: 2000px;
+    transition: all 1s ease-in-out;
+}
+
+/*  */
+
+.qna {
+    width: 100%;
+    height: 800px;
+    padding: 3rem;
+}
+
+.qnaTitle {
+    font-size: 3rem;
+    border-bottom: 0.1rem solid black;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.questionBox {
+    width: 100%;
+    height: 6rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 7rem;
+    border-bottom: 0.1rem solid darkgray;
+    color: rgb(105, 105, 105);
+    cursor: pointer;
+}
+
+.questionBox:hover {
+    background-color: darkgray;
+    color:aliceblue;
+}
+
+.answerBox {
+    width: 80%;
+    height: 6rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    color: black;
+}
