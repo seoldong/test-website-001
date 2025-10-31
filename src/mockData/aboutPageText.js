@@ -18,7 +18,7 @@ const description_first = "NO Pesticides, YES Natural Cycles : We grow our produ
 const description_second = "The Secret to Taste and Nutrition : The wide temperature variations naturally compel our ingredients to concentrate their sugars and active components. The result is a deep, authentic flavor that is purely natural.";
 const description_third = "Farm-to-Cup : We process the harvest immediately to minimize nutrient loss, capturing the vibrant vitality of the farm directly in your cup.";
 
-export {
+const aboutTextData = {
     introductionTitle,
     introductionDescription,
     brandStoryTitle,
@@ -32,3 +32,5 @@ export {
     description_second,
     description_third
 }
+
+export default aboutTextData;

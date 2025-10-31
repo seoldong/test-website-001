@@ -1,7 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
 import styles from './AllDrink.module.css';
+
+import { useEffect, useState, useRef } from 'react';
 // 이 코드는 기존 로직을 유지하면서, Intersection Observer 구현에 초점을 맞춥니다.
-import { getJuiceFromLevel } from '../../mockData/getData';
+import { getDrinkFromLevel } from '../../mockData/getData';
+import { Link } from 'react-router-dom';
 
 // 
 function AllDrink() {
@@ -33,7 +35,7 @@ function AllDrink() {
         const SCROLL_THRESHOLD = 200;
         const level = Math.floor(scrolled / SCROLL_THRESHOLD);
         const callItemLength = 4;
-        const newItems = getJuiceFromLevel(level, callItemLength);
+        const newItems = getDrinkFromLevel(level, callItemLength);
 
         setProducts(prevProducts => {
             // `prevProducts`가 배열이 아닐 경우(null, undefined, Set 등)를 대비해 Array.isArray()로 확인하고 빈 배열([])을 기본값으로 사용합니다.
@@ -114,30 +116,31 @@ function AllDrink() {
         <section className={styles.allProducts} >
             <div className={styles.hook}>Experience the fresh vitality that fills you from within.</div>
             <div className={styles.productContainer}>
-                {products.map((pack, index) => {
+                {products.map((drink, index) => {
 
                     return (
-                        <div
+                        <Link
                             // Ref를 콜백 함수 형태로 사용하여 각 DOM 노드를 Map에 저장합니다.
                             ref={(node) => {
                                 if (node) {
                                     // Map에 키(id)와 값(node) 추가
-                                    drinkBoxRefs.current.set(pack.productId, node);
+                                    drinkBoxRefs.current.set(drink.productId, node);
                                 } else {
                                     // 요소가 사라질 때 Map에서 제거 (클린업)
                                     // map.delete(key) 맵에서 키 제거
-                                    drinkBoxRefs.current.delete(pack.productId);
+                                    drinkBoxRefs.current.delete(drink.productId);
                                 }
                             }}
-                            className={styles.packBox}
-                            key={pack.productId} // key는 고유 ID를 사용하는 것이 가장 좋습니다.
-                            id={`pack-box-${pack.productId}`} // 디버깅을 위한 ID
+                            className={styles.drinkBox}
+                            key={drink.productId} // key는 고유 ID를 사용하는 것이 가장 좋습니다.
+                            id={`drink-box-${drink.productId}`} // 디버깅을 위한 ID
+                            to={`/product/${drink.productId}`}
                         >
-                            <img className={styles.image} src={pack.imageSrc} />
-                            <div className={styles.name}>{pack.productName}</div>
-                            <PriceState pack={pack} />
-                            {pack.popularity ? <div className={styles.popularity}>popularity</div> : ""}
-                        </div>
+                            <img className={styles.image} src={drink.imageSrc} />
+                            <div className={styles.name}>{drink.productName}</div>
+                            <PriceState drink={drink} />
+                            {drink.popularity ? <div className={styles.popularity}>popularity</div> : ""}
+                        </Link>
                     )
                 })}
             </div>
@@ -148,18 +151,18 @@ function AllDrink() {
 export default AllDrink;
 
 // 
-function PriceState({ pack }) {
+function PriceState({ drink }) {
 
-    const discount = (pack.price_krw * pack.discountRate / 100);
+    const discount = (drink.price_krw * drink.discountRate / 100);
 
     const saleElemetnt = () => {
         return (
             <>
                 <div className={styles.saleBox} >
-                    <p className={styles.discountPrice}>{`${pack.price_krw - discount}`}</p>
-                    <p className={styles.nomalPrice}>{pack.price_krw}</p>
+                    <p className={styles.discountPrice}>{`${drink.price_krw - discount}`}</p>
+                    <p className={styles.nomalPrice}>{drink.price_krw}</p>
                 </div>
-                <div className={styles.discountState}>{pack.discountRate}% off</div>
+                <div className={styles.discountState}>{drink.discountRate}% off</div>
             </>
         )
     }
@@ -167,14 +170,14 @@ function PriceState({ pack }) {
     const normalElement = () => {
         return (
             <div className={styles.priceBox} >
-                <p>{pack.price_krw}</p>
+                <p>{drink.price_krw}</p>
             </div>
         )
     }
 
     return (
         <div>
-            {pack.onSale ? saleElemetnt() : normalElement()}
+            {drink.onSale ? saleElemetnt() : normalElement()}
         </div>
     )
 }

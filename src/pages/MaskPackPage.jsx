@@ -1,11 +1,10 @@
 import styles from './MaskPacKPage.module.css'
 
 import TopNav from '../components/topNav';
-import Footer from '../components/footer/Footer';
-
-import PackSlide from '../components/maskpack/PackSlide';
-import BestPack from '../components/maskpack/BestPack';
-import AllProduct from '../components/maskpack/AllProduct';
+import MaskPackSlide from '../components/maskpackSection/MaskPackSlide';
+import BestMaskPack from '../components/maskPackSection/BestMaskPack';
+import AllProduct from '../components/maskPackSection/AllProduct';
+import Footer from '../components/footerSection/Footer';
 
 // 
 function MaskPacKPage() {
@@ -14,8 +13,8 @@ function MaskPacKPage() {
     return (
         <div className={styles.maskPackPage}>
             <TopNav />
-            <PackSlide />
-            <BestPack />
+            <MaskPackSlide />
+            <BestMaskPack />
             <AllProduct />
             <Footer />
         </div>

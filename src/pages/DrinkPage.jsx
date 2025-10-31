@@ -1,9 +1,10 @@
-import TopNav from '../components/topNav';
 import styles from './DrinkPage.module.css'
-import DrinkSlide from '../components/Drink/DrinkSlide';
-import BestDrink from '../components/Drink/BestDrink';
-import Footer from '../components/footer/Footer';
-import AllDrink from '../components/Drink/AllDrink';
+
+import TopNav from '../components/topNav';
+import DrinkSlide from '../components/DrinkSection/DrinkSlide';
+import BestDrink from '../components/DrinkSection/BestDrink';
+import Footer from '../components/footerSection/Footer';
+import AllDrink from '../components/DrinkSection/AllDrink';
 
 // 
 function DrinkPage() {

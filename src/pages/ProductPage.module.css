@@ -321,7 +321,7 @@
 
 .questionBox:hover {
     background-color: darkgray;
-    color:aliceblue;
+    color: aliceblue;
 }
 
 .answerBox {
@@ -336,4 +336,48 @@
     display: flex;
     align-items: center;
     color: black;
+}
+
+/*  */
+.productReviewBox {
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.reveiw {
+    width: 100%;
+    height: 30rem;
+}
+
+.reveiwTop {
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+
+.userPhoto {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    padding: 2rem;
+}
+
+.userReview {
+    width: 70%;
+    height: 100%;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.reviewBottom {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 2rem;
+    gap: 3rem;
+    padding-right: 2rem;
+    background-color: dimgray;
+    color: aliceblue;
 }

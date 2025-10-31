@@ -1,93 +1,49 @@
-import Juices from "../mockData/product-juice";
-import maskPacks from "./product-maskPack";
-import reviewData from "../mockData/review"
-import {
-    introductionTitle,
-    introductionDescription,
-    brandStoryTitle,
-    brandStoryDescription,
-    value,
-    explain,
-    promise,
-    ingredientsTitle,
-    ingredientsDescription,
-    description_first,
-    description_second,
-    description_third
-} from "../mockData/aboutPageText"
+import drinkData from "./product-drink";
+import maskPackData from "./product-maskPack";
+import aboutTextData from "../mockData/aboutPageText"
+import { processedDrinkReviews, processedMaskPackReviews } from "../mockData/review";
+import productDrinkData from "./product-drink";
+import productMaskPackData from "./product-maskPack";
+import topSlidesData from "./topSlide";
 
 // 
-function onSaleJuice(juice) {
-    return juice.filter(product => product.onSale === true)
+function onSaleDrink(drink) {
+    return drink.filter(product => product.onSale === true)
 }
-export const getOnSaleJuice = onSaleJuice(Juices);
-
-// 
-function onSalePack(pack) {
-    return pack.filter(product => product.onSale === true)
+function onSaleMaskPack(maskpack) {
+    return maskpack.filter(product => product.onSale === true)
 }
-export const getOnSalePack = onSalePack(maskPacks);
-
-// 
-function recommendedJuice(juice) {
-    return juice.filter(product => product.recommended === true)
+function recommendedDrink(drink) {
+    return drink.filter(product => product.recommended === true)
 }
-export const getRecommendedJuice = recommendedJuice(Juices);
-
-// 
-function recommendedPack(pack) {
+function recommendedMaskPack(pack) {
     return pack.filter(product => product.recommended === true)
 }
-export const getRecommendedPack = recommendedPack(maskPacks);
-
-//
-export function getAllReview() {
-    const reviews = reviewData;
-    return reviews
+function aboutText() {
+    return aboutTextData
 }
-
-// 
-export function getAboutText() {
-    const aboutText = {
-        introductionTitle,
-        introductionDescription,
-        brandStoryTitle,
-        brandStoryDescription,
-        value,
-        explain,
-        promise,
-        ingredientsTitle,
-        ingredientsDescription,
-        description_first,
-        description_second,
-        description_third,
-    }
-    return aboutText
+function allReview() {
+    const allReviews = [...processedDrinkReviews, ...processedMaskPackReviews];
+    return allReviews;
 }
+function aboutImages() {
+    const modules = import.meta.glob('../assets/ingredients/*.{png,jpg,jpeg}', {
+        eager: true // 파일을 즉시 로드하도록 설정 (필수)
+    });
 
-// 
-const modules = import.meta.glob('../assets/ingredients/*.{png,jpg,jpeg}', {
-    eager: true // 파일을 즉시 로드하도록 설정 (필수)
-});
+    const ingredientsImages = Object.keys(modules).map(path => {
+        // path에서 파일 이름만 추출 (예: 'apple.jpg')
+        const fileName = path.split('/').pop();
 
-const ingredientsImages = Object.keys(modules).map(path => {
-    // path에서 파일 이름만 추출 (예: 'apple.jpg')
-    const fileName = path.split('/').pop();
-
-    return {
-        name: fileName.split('.')[0],
-        // id: Number(fileName.split('.')[0]), 
-        src: modules[path].default
-    };
-});
-
-export function getAboutImages() {
-    const aboutImages = ingredientsImages;
-    return aboutImages;
+        return {
+            name: fileName.split('.')[0],
+            // id: Number(fileName.split('.')[0]), 
+            src: modules[path].default
+        };
+    });
+    return ingredientsImages;
 }
-
-// 
-export const getJuiceFromLevel = (level, itemLength) => {
+const getDrinkFromLevel = (level, itemLength) => {
 
     let pevLev = (Math.floor(level) * itemLength) - itemLength;
     let curLev = Math.floor(level) * itemLength;
@@ -95,10 +51,9 @@ export const getJuiceFromLevel = (level, itemLength) => {
     if (pevLev <= 0) pevLev = 0;
     if (curLev <= pevLev) curLev = 4;
 
-    return Juices.slice(pevLev, curLev);
+    return drinkData.slice(pevLev, curLev);
 }
-
-export const getPackFromLevel = (level, itemLength) => {
+const getMaskPackFromLevel = (level, itemLength) => {
 
     let pevLev = (Math.floor(level) * itemLength) - itemLength;
     let curLev = Math.floor(level) * itemLength;
@@ -106,74 +61,102 @@ export const getPackFromLevel = (level, itemLength) => {
     if (pevLev <= 0) pevLev = 0;
     if (curLev <= pevLev) curLev = 4;
 
-    return maskPacks.slice(pevLev, curLev);
+    return maskPackData.slice(pevLev, curLev);
 }
-
-// 
-export const popularityJuice = (juiceData) => {
+const popularityDrink = (drinkData) => {
     const topNum = 5;
-    const sortedData = [...juiceData];
+    const sortedData = [...drinkData];
     sortedData.sort((a, b) => b.salesCount - a.salesCount);
     return sortedData.slice(0, topNum);
 }
-
-// 
-export const popularityPacks = (packData) => {
+const popularityMaskPacks = (maskPackData) => {
     const topNum = 5;
-    const sortedData = [...packData];
+    const sortedData = [...maskPackData];
     sortedData.sort((a, b) => b.salesCount - a.salesCount);
     return sortedData.slice(0, topNum);
 };
-
-// 
-function bestJuice(juiceData) {
-    const allConditionsMetPack = juiceData.filter(product =>
+function bestDrink(drinkData) {
+    const allConditionsMetDrink = drinkData.filter(product =>
         product.onSale && product.recommended
     );
-    return allConditionsMetPack;
+    return allConditionsMetDrink;
 }
-export const getBestJuice = bestJuice(popularityJuice(Juices));
-
-// 
 function bestMaskPack(maskPackData) {
     const allConditionsMetPack = maskPackData.filter(product =>
         product.onSale && product.recommended
     );
     return allConditionsMetPack;
 }
-export const getBestMaskPacks = bestMaskPack(popularityPacks(maskPacks));
-
-// 
-function bestProduct(juiceData, maskPackData) {
+function bestProduct(drinkData, maskPackData) {
     const bestItem = [];
 
     const topNum = 2;
-    const sortedJuice = [...juiceData];
+    const sortedDrink = [...drinkData];
     const sortedMaskPack = [...maskPackData];
 
-    sortedJuice.sort((a, b) => b.salesCount - a.salesCount);
+    sortedDrink.sort((a, b) => b.salesCount - a.salesCount);
     sortedMaskPack.sort((a, b) => b.salesCount - a.salesCount);
 
-    bestItem.push(...sortedJuice.slice(0, topNum));
+    bestItem.push(...sortedDrink.slice(0, topNum));
     bestItem.push(...sortedMaskPack.slice(0, topNum));
 
     return bestItem;
 }
-
-export const getBestProduct = bestProduct(getBestJuice, getBestMaskPacks);
-
-// 
-export function searchProduct(productId) {
-
+function searchProduct(productId) {
+    const getFirstText = productId.split('')[0];
+    if (getFirstText === 'J') {
+        const findDrinkData = drinkData.find(product => product.productId === productId);
+        return findDrinkData;
+    } else if (getFirstText === 'M') {
+        const findPackData = maskPackData.find(product => product.productId === productId);
+        return findPackData;
+    } else {
+        return null;
+    }
+}
+function searchReview(productId) {
     const getFirstText = productId.split('')[0];
 
     if (getFirstText === 'J') {
-        const findJuiceData = Juices.find(product => product.productId === productId);
-        return findJuiceData;
+        const findDrinkData = processedDrinkReviews.filter(product => product.productId === productId);
+        return findDrinkData;
     } else if (getFirstText === 'M') {
-        const findPackData = maskPacks.find(product => product.productId === productId);
+        const findPackData = processedMaskPackReviews.filter(product => product.productId === productId);
         return findPackData;
+    } else {
+        return null;
     }
-
-    return null;
 }
+
+// drink
+export const getOnSaleDrink = onSaleDrink(drinkData);
+export const getRecommendedDrink = recommendedDrink(drinkData);
+export const getDrinkReviews = processedDrinkReviews;
+export const getPopularityDrink = popularityDrink(drinkData);
+export const getBestDrink = bestDrink(getPopularityDrink);
+export const getAllDrinkData = productDrinkData;
+export { getDrinkFromLevel }
+
+// maskpack
+export const getOnSaleMaskPack = onSaleMaskPack(maskPackData);
+export const getRecommendedMaskPack = recommendedMaskPack(maskPackData);
+export const getMaskPackReviews = processedMaskPackReviews;
+export const getPopularityMaskPacks = popularityMaskPacks(maskPackData);
+export const getBestMaskPacks = bestMaskPack(getPopularityMaskPacks);
+export const getAllMaskPackData = productMaskPackData;
+export { getMaskPackFromLevel }
+
+// drink + maskpack
+export const getAllReviews = allReview();
+export const getBestProduct = bestProduct(getBestDrink, getBestMaskPacks);
+
+// other
+export const getAboutText = aboutText();
+export const getAboutImages = aboutImages();
+export const getSlideData = topSlidesData;
+export { searchProduct, searchReview }
+
+
+
+
+

@@ -1,4 +1,4 @@
-.bestPack {
+.bestmaskPack {
     width: 100%;
     height: 1000px;
     margin-bottom: 20rem;
@@ -17,7 +17,7 @@
     background-color: rgb(147, 211, 166);
 }
 
-.bestPackBox {
+.bestMaskPackBox {
     width: 100%;
     height: 100%;
     display: flex;
@@ -26,7 +26,7 @@
     padding-top: 5rem 0;
 }
 
-.packBox {
+.maskPackBox {
     width: 25%;
     height: 100%;
     display: flex;
@@ -37,19 +37,19 @@
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.packBox:hover {
+.maskPackBox:hover {
     transform: scale(1.1);
     box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.5);
 }
 
-.packImg {
+.maskPackImg {
     width: 100%;
     height: 22rem;
     object-fit: cover;
     padding: 2rem;
 }
 
-.packName {
+.maskPackName {
     height: 10rem;
     font-size: 2rem;
     text-align: center;
@@ -64,12 +64,12 @@
     gap: 3rem;
 }
 
-.offPackPrice {
+.offMaskPackPrice {
     font-size: 2rem;
     text-align: center;
 }
 
-.packPrice {
+.maskPackPrice {
     font-size: 2rem;
     text-align: center;
     opacity: 0.5;

@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
 import styles from ".//Review.module.css"
-import { getAllReview } from "../../mockData/getData";
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+
+import { getAllReview } from "../../mockData/getData";
 
 // 'date' 문자열을 Date 객체로 변환하여 비교하는 헬퍼 함수
 const compareDates = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 // 
-function productReview() {
+function ProductReview() {
     // 원본 데이터를 저장하고 정렬된 데이터를 보여줄 상태
     const [originalReviews, setOriginalReviews] = useState([]);
     const [reviews, setReviews] = useState([]);
@@ -172,4 +175,4 @@ function productReview() {
     )
 }
 
-export default productReview;
+export default ProductReview;

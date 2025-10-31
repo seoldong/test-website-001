@@ -1,32 +1,28 @@
-import { useEffect, useState } from "react";
 import styles from ".//Review.module.css"
-import { getAllReview } from "../../mockData/getData";
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import { getAllReviews } from "../../mockData/getData";
 
 // 'date' 문자열을 Date 객체로 변환하여 비교하는 헬퍼 함수
 const compareDates = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 // 
 function Review() {
-    // 원본 데이터를 저장하고 정렬된 데이터를 보여줄 상태
-    const [originalReviews, setOriginalReviews] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [activeFilter, setActiveFilter] = useState('Newest'); // 현재 활성화된 필터 상태
 
     // 
     useEffect(() => {
-        const reviewData = getAllReview();
-        // 1. 원본 데이터 저장
-        setOriginalReviews(reviewData);
-        // 2. 초기 정렬: '최신순' (날짜 내림차순)으로 초기 목록 설정
-        // 일반적으로 최신순이 기본 정렬이므로 초기 로딩 시 적용
-        const sortedData = [...reviewData].sort((a, b) => compareDates(b, a));
+        const sortedData = getAllReviews.sort((a, b) => compareDates(b, a));
         setReviews(sortedData);
     }, [])
 
+    // 
     const onPageItemLength = 8;
-    const boardPage = Math.ceil(reviews.length / onPageItemLength);
+    const boardPage = Math.ceil(getAllReviews.length / onPageItemLength);
     const boardPageBtnArr = [];
     for (let i = 1; i <= boardPage; i++) {
         boardPageBtnArr.push(i);

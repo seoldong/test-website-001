@@ -1,7 +1,10 @@
-import { useEffect, useState, useRef } from 'react';
 import styles from './Allproduct.module.css';
+
+import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+import { getMaskPackFromLevel } from '../../mockData/getData';
 // 이 코드는 기존 로직을 유지하면서, Intersection Observer 구현에 초점을 맞춥니다.
-import { getPackFromLevel } from '../../mockData/getData';
 
 // 
 function AllProduct() {
@@ -10,7 +13,7 @@ function AllProduct() {
     const [scrolled, setScrolled] = useState(0);
     const [products, setProducts] = useState([]);
     // 개별 packBox의 DOM 노드들을 저장할 Map을 Ref로 생성합니다.
-    const packBoxRefs = useRef(new Map());
+    const maskPackBoxRefs = useRef(new Map());
     // Intersection Observer 인스턴스를 저장할 Ref입니다.
     const observerRef = useRef(null);
 
@@ -33,7 +36,7 @@ function AllProduct() {
         const SCROLL_THRESHOLD = 200;
         const level = Math.floor(scrolled / SCROLL_THRESHOLD);
         const callItemLength = 4;
-        const newItems = getPackFromLevel(level, callItemLength);
+        const newItems = getMaskPackFromLevel(level, callItemLength);
 
         setProducts(prevProducts => {
             // `prevProducts`가 배열이 아닐 경우(null, undefined, Set 등)를 대비해 Array.isArray()로 확인하고 빈 배열([])을 기본값으로 사용합니다.
@@ -102,7 +105,7 @@ function AllProduct() {
         observerRef.current.disconnect();
 
         // 새로 생성된 모든 packBox를 관찰하도록 등록
-        packBoxRefs.current.forEach(node => {
+        maskPackBoxRefs.current.forEach(node => {
             if (node) {
                 observerRef.current.observe(node);
             }
@@ -114,30 +117,31 @@ function AllProduct() {
         <section className={styles.allProducts} >
             <div className={styles.hook}>The complete rest nature offers.</div>
             <div className={styles.productContainer}>
-                {products.map((pack, index) => {
+                {products.map((maskPack, index) => {
 
                     return (
-                        <div
+                        <Link
                             // Ref를 콜백 함수 형태로 사용하여 각 DOM 노드를 Map에 저장합니다.
                             ref={(node) => {
                                 if (node) {
                                     // Map에 키(id)와 값(node) 추가
-                                    packBoxRefs.current.set(pack.productId, node);
+                                    maskPackBoxRefs.current.set(maskPack.productId, node);
                                 } else {
                                     // 요소가 사라질 때 Map에서 제거 (클린업)
                                     // map.delete(key) 맵에서 키 제거
-                                    packBoxRefs.current.delete(pack.productId);
+                                    maskPackBoxRefs.current.delete(maskPack.productId);
                                 }
                             }}
-                            className={styles.packBox}
-                            key={pack.productId} // key는 고유 ID를 사용하는 것이 가장 좋습니다.
-                            id={`pack-box-${pack.productId}`} // 디버깅을 위한 ID
+                            className={styles.maskPackBox}
+                            key={maskPack.productId} // key는 고유 ID를 사용하는 것이 가장 좋습니다.
+                            id={`maskPack-box-${maskPack.productId}`} // 디버깅을 위한 ID
+                            to={`/product/${maskPack.productId}`}
                         >
-                            <img className={styles.image} src={pack.imageSrc} />
-                            <div className={styles.name}>{pack.productName}</div>
-                            <PriceState pack={pack} />
-                            {pack.popularity ? <div className={styles.popularity}>popularity</div> : ""}
-                        </div>
+                            <img className={styles.image} src={maskPack.imageSrc} />
+                            <div className={styles.name}>{maskPack.productName}</div>
+                            <PriceState maskPack={maskPack} />
+                            {maskPack.popularity ? <div className={styles.popularity}>popularity</div> : ""}
+                        </Link>
                     )
                 })}
             </div>
@@ -148,18 +152,18 @@ function AllProduct() {
 export default AllProduct;
 
 // 
-function PriceState({ pack }) {
+function PriceState({ maskPack }) {
 
-    const discount = (pack.price_krw * pack.discountRate / 100);
+    const discount = (maskPack.price_krw * maskPack.discountRate / 100);
 
     const saleElemetnt = () => {
         return (
             <>
                 <div className={styles.saleBox} >
-                    <p className={styles.discountPrice}>{`${pack.price_krw - discount}`}</p>
-                    <p className={styles.nomalPrice}>{pack.price_krw}</p>
+                    <p className={styles.discountPrice}>{`${maskPack.price_krw - discount}`}</p>
+                    <p className={styles.nomalPrice}>{maskPack.price_krw}</p>
                 </div>
-                <div className={styles.discountState}>{pack.discountRate}% off</div>
+                <div className={styles.discountState}>{maskPack.discountRate}% off</div>
             </>
         )
     }
@@ -167,14 +171,14 @@ function PriceState({ pack }) {
     const normalElement = () => {
         return (
             <div className={styles.priceBox} >
-                <p>{pack.price_krw}</p>
+                <p>{maskPack.price_krw}</p>
             </div>
         )
     }
 
     return (
         <div>
-            {pack.onSale ? saleElemetnt() : normalElement()}
+            {maskPack.onSale ? saleElemetnt() : normalElement()}
         </div>
     )
 }

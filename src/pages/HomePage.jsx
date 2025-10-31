@@ -8,7 +8,7 @@ import Recommended from "../components/homeSection/Recommended";
 import BrandValue from "../components/homeSection/BrandValue";
 import BrandStory from "../components/homeSection/BrandStory";
 import Review from "../components/homeSection/Review";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footerSection/Footer"
 
 
 //

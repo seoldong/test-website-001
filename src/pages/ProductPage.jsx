@@ -1,18 +1,15 @@
 import { useLocation, useParams } from 'react-router-dom';
 import TopNav from '../components/topNav';
 import styles from './ProductPage.module.css'
-import Footer from '../components/footer/Footer';
+import Footer from '../components/footerSection/Footer';
 import { useEffect, useMemo, useState } from 'react';
-import { searchProduct } from '../mockData/getData';
+import { searchProduct, searchReview } from '../mockData/getData';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderMinus, orderPlus } from '../redux/slices/order/order';
 
 function ProductPage() {
-
-    const location = useLocation();
     const { id } = useParams();
-    const pathnames = location.pathname.split('/').filter(x => x);
-    pathnames.pop();
+
     const productOrder = useSelector((state) => state.productOrder);
     const [productData, setProductData] = useState(null);
     const [pageView, setPageView] = useState('details');
@@ -38,17 +35,8 @@ function ProductPage() {
     return (
         <section className={styles.ProductPage}>
             <TopNav />
-            <div className={styles.breadcrumbsBox}>
-                <div className={styles.breadcrumbs}>
-                    <p>Home</p>
-                    {pathnames.map((path, index) => {
-                        return (
-                            <p key={path + index}>{path}</p>
-                        )
-                    })}
-                    <p>{productData.productName}</p>
-                </div>
-            </div>
+            <Breadcrumbs productData={productData} />
+
             <div className={styles.productInfoBox}>
                 <img className={styles.infoImg} src={productData.imageSrc} />
                 <div className={styles.tumbnailBox}>
@@ -82,6 +70,7 @@ function ProductPage() {
                     <button className={styles.Wishlist}>Wishlist</button>
                 </div>
             </div>
+
             <div className={styles.pageMenu}>
                 <button className={styles.detailsBtn} onClick={() => setPageView('details')} >details</button>
                 <button className={styles.reviewBtn} onClick={() => setPageView('review')}>review</button>
@@ -89,11 +78,9 @@ function ProductPage() {
             </div>
 
             {pageView === 'details' && <Details />}
-            {pageView === 'review' && <Review />}
+            {pageView === 'review' && <ProductReview productData={productData} />}
             {pageView === 'qna' && <QuestionAndAnswer />}
 
-            <div className={styles.review}>
-            </div>
             <Footer />
         </section>
     )
@@ -102,6 +89,26 @@ function ProductPage() {
 export default ProductPage;
 
 // 
+function Breadcrumbs({ productData }) {
+    const location = useLocation();
+    const pathnames = location.pathname.split('/').filter(x => x);
+    pathnames.pop();
+
+    return <div className={styles.breadcrumbsBox}>
+        <div className={styles.breadcrumbs}>
+            <p>Home</p>
+            {pathnames.map((path, index) => {
+                return (
+                    <p key={path + index}>{path}</p>
+                )
+            })}
+            <p>{productData.productName}</p>
+        </div>
+    </div>
+}
+
+// 
+
 function OrderQuantity({ productData }) {
 
     const dispatch = useDispatch();
@@ -166,13 +173,58 @@ Please wait a moment while the full product details are being fetched.`
     )
 }
 
-function Review() {
+function ProductReview({ productData }) {
 
+    // 
+    const [reviewData, setReviewData] = useState([]);
 
+    // 
+    useEffect(() => {
+        const productReviews = searchReview(productData.productId);
+        setReviewData(productReviews);
+    }, [productData.productId])
 
+    const getStarRating = (rating) => {
+        // Math.round를 사용하여 소수점 평점을 가장 가까운 정수로 반올림합니다.
+        const roundedRating = Math.round(rating);
+
+        // ★: 채워진 별 (색상 코드: #FFD700)
+        // ☆: 빈 별 (색상 코드: #ccc)
+        switch (roundedRating) {
+            case 1:
+                return '★☆☆☆☆';
+            case 2:
+                return '★★☆☆☆';
+            case 3:
+                return '★★★☆☆';
+            case 4:
+                return '★★★★☆';
+            case 5:
+                return '★★★★★';
+            default:
+                // 0점이나 유효하지 않은 값이 들어왔을 경우
+                return '☆☆☆☆☆';
+        }
+    }
+
+    // 
     return (
-        <section>
-
+        <section className={styles.productReviewBox} >
+            {reviewData.map((review, index) => {
+                return (
+                    <div className={styles.reveiw} key={review.productId + index}>
+                        <div className={styles.reveiwTop}>
+                            <img className={styles.userPhoto} src={review.imageLink} />
+                            <div className={styles.userReview}>{review.content}</div>
+                        </div>
+                        <div className={styles.reviewBottom}>
+                            <div className={styles.date}>{review.date}</div>
+                            <div className={styles.name}>{review.userName}</div>
+                            <div className={styles.rating}>{getStarRating(review.rating)}</div>
+                        </div>
+                    </div>
+                )
+            })}
         </section>
     )
 }

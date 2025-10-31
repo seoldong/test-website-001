@@ -1,7 +1,9 @@
-import { useEffect, useState, useRef } from "react";
 import styles from "./Recommended.module.css";
-import { getRecommendedJuice } from "../../mockData/getData";
+
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { getRecommendedDrink } from "../../mockData/getData";
+
 
 //
 const ProductSlider = () => {
@@ -16,8 +18,8 @@ const ProductSlider = () => {
 
     // 상품 목록 초기화 (무한 슬라이드를 위한 복제 포함)
     useEffect(() => {
-        const allProducts = getRecommendedJuice;
-        setProducts([...allProducts, ...allProducts.slice(0, itemsToShow)]);
+        const allDrinks = getRecommendedDrink;
+        setProducts([...allDrinks, ...allDrinks.slice(0, itemsToShow)]);
     }, []);
 
     // 💡 자동 슬라이드 로직 분리 및 재시작 함수

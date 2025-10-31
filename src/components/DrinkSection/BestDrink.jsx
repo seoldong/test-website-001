@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
 import styles from "./BestDrink.module.css";
-import { getBestJuice } from "../../mockData/getData";
 
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
+import { getBestDrink } from "../../mockData/getData";
+
+// 
 function BestDrink() {
 
     const [best, setBest] = useState([]);
 
     useEffect(() => {
-        setBest(getBestJuice);
+        setBest(getBestDrink);
     }, [])
 
     return (
@@ -18,9 +21,10 @@ function BestDrink() {
                 {best.map((drink, index) => {
                     const discount = (drink.price_krw * drink.discountRate / 100);
                     return (
-                        <div
+                        <Link
                             className={styles.drinkBox}
                             key={drink.productId + index}
+                            to={`/product/${drink.productId}`}
                         >
                             <div>
                                 <img className={styles.drinkImg} src={drink.imageSrc} />
@@ -41,7 +45,7 @@ function BestDrink() {
                                 <div className={styles.popularityBox}><p>popularity</p><p>✓</p></div>
                                 <div className={styles.recommendedBox}><p>recommended</p><p>✓</p></div>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>

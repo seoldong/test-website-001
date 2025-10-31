@@ -20,10 +20,10 @@
     align-items: center;
     justify-content: center;
     color: aliceblue;
-    background-color: rgb(147, 211, 166);
+    background-color: rgb(200, 211, 147);
 }
 
-.packBox {
+.drinkBox {
     width: 25%;
     height: 56rem;
     margin-top: 5rem;
@@ -33,7 +33,7 @@
     transition: opacity 1s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.packBox:hover {
+.drinkBox:hover {
     transform: scale(1.1);
     box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.5);
 }

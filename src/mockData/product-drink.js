@@ -1,8 +1,8 @@
-const modules = import.meta.glob('../assets/productImg/*.{png,jpg,jpeg}', {
+const modules = import.meta.glob('../assets/productImg-drink/*.{png,jpg,jpeg}', {
   eager: true // 파일을 즉시 로드하도록 설정 (필수)
 });
 
-const productImages = Object.keys(modules).map(path => {
+const drinkImages = Object.keys(modules).map(path => {
   // path에서 파일 이름만 추출 (예: 'apple.jpg')
   const fileName = path.split('/').pop();
 
@@ -13,7 +13,7 @@ const productImages = Object.keys(modules).map(path => {
 });
 
 // 
-const juice = [
+const drink = [
   {
     "productName": "Carrot Fresh Juice",
     "price_krw": 3900,
@@ -236,8 +236,9 @@ const juice = [
   }
 ];
 
-const productJuiceData = juice.map((product) => {
-  const foundImage = productImages.find((ImgData) => {
+// 
+const productDrinkData = drink.map((product) => {
+  const foundImage = drinkImages.find((ImgData) => {
     return product.productId === ImgData.name;
   });
 
@@ -250,4 +251,4 @@ const productJuiceData = juice.map((product) => {
   return product;
 })
 
-export default productJuiceData;
+export default productDrinkData;

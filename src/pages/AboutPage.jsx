@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
-import TopNav from "../components/topNav";
 import styles from "./AboutPage.module.css";
+
+import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
+
+import TopNav from "../components/topNav";
 import { getAboutText, getAboutImages } from "../mockData/getData";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footerSection/Footer";
 
 const SCROLL_THRESHOLD = 50;
 const itemWidth = 400; //px로 해야 나머지 계산이 쉬움.
@@ -28,8 +30,8 @@ function AboutPage() {
 
   //텍스트와 이미지 가져오기
   useEffect(() => {
-    setAboutText(getAboutText());
-    setIngredientsImgSrc(getAboutImages());
+    setAboutText(getAboutText);
+    setIngredientsImgSrc(getAboutImages);
   }, []);
 
   // 자동 무한 슬라이드
