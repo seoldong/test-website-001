@@ -1,0 +1,146 @@
+[
+    {
+        "meta": {
+            "id": "event01"
+        },
+        "main": {
+            "title": "[Well-being Farm]",
+            "subTitle": "Spring Healing: Green Tea Picking & Traditional Tea Making Experience",
+            "description": "Activity: Join the farm expert to pick the most precious and tender \"one bud and two leaves\"(일심삼엽) of young green tea shoots. A time of healing to purify your mind and body amidst the sounds of nature."
+        },
+        "info": {
+            "startDate": "2026-05-10",
+            "endDate": "2026-05-10",
+            "startTime": "10:30",
+            "endTime": "13:30",
+            "location": "Freshness Well-being Green Tea Farm (123 Nokcha-ro, Yongin-si, Gyeonggi-do)",
+            "fee": "₩35,000 per person (Includes tea materials & refreshments)",
+            "preparation": "Comfortable clothing, Hat (for sun protection)",
+            "link": "/event/greentea-picking-20260510"
+        },
+        "image": {
+            "backgroundImgSrc": "",
+            "mainImgSrc": "/img/event/event01.jpg"
+        }
+    },
+    {
+        "meta": {
+            "id": "event02"
+        },
+        "main": {
+            "title": "[Mindful Movement]",
+            "subTitle": "Forest Bathing & Mindful Yoga: Healing in Nature",
+            "description": "Activity: Experience a slow, deep mindful walk (forest bathing) followed by a gentle yoga and meditation session. Connect your breath with nature for stress relief and inner peace."
+        },
+        "info": {
+            "startDate": "2026-06-07",
+            "endDate": "2026-06-07",
+            "startTime": "09:00",
+            "endTime": "12:00",
+            "location": "Seoulsup Park Healing Zone (Gathering Point: Park Information Center)",
+            "fee": "₩28,000 per person (Includes yoga mat rental & herbal tea)",
+            "preparation": "Water bottle, comfortable outdoor wear, personal towel (optional)",
+            "link": "/event/forest-yoga-20260607"
+        },
+        "image": {
+            "backgroundImgSrc": "",
+            "mainImgSrc": "/img/event/event02.jpg"
+        }
+    },
+    {
+        "meta": {
+            "id": "event03"
+        },
+        "main": {
+            "title": "[Healthy Cooking]",
+            "subTitle": "Seasonal Vegan Baking Class: Making Grain-free Cookies",
+            "description": "Activity: Hands-on cooking class focusing on healthy, plant-based desserts. Learn to bake delicious, grain-free cookies and treats using seasonal, locally sourced ingredients."
+        },
+        "info": {
+            "startDate": "2026-08-15",
+            "endDate": "2026-08-15",
+            "startTime": "15:00",
+            "endTime": "17:30",
+            "location": "The Good Food Kitchen (789 Cooking-daero, Gangnam-gu, Seoul)",
+            "fee": "₩45,000 per person (Includes ingredients, recipe, and take-home dessert)",
+            "preparation": "Apron (optional)",
+            "link": "/event/vegan-baking-20260815"
+        },
+        "image": {
+            "backgroundImgSrc": "",
+            "mainImgSrc": "/img/event/event03.jpg"
+        }
+    },
+    {
+        "meta": {
+            "id": "event04"
+        },
+        "main": {
+            "title": "[Digital Detox]",
+            "subTitle": "Star Gazing & Deep Relaxation Meditation",
+            "description": "Activity: Join a guided deep relaxation (Savasana-style) meditation session under the night sky. Learn techniques to quiet the mind and fully appreciate the natural beauty of the stars."
+        },
+        "info": {
+            "startDate": "2026-09-20",
+            "endDate": "2026-09-20",
+            "startTime": "19:30",
+            "endTime": "21:00",
+            "location": "Gapyeong Nature Recreation Forest (Designated open area)",
+            "fee": "₩15,000 per person (Includes hot blanket and eye mask)",
+            "preparation": "Warm blanket or shawl, comfortable reclining chair (optional)",
+            "link": "/event/stargazing-meditation-20260920"
+        },
+        "image": {
+            "backgroundImgSrc": "",
+            "mainImgSrc": "/img/event/event04.jpg"
+        }
+    },
+    {
+        "meta": {
+            "id": "event05"
+        },
+        "main": {
+            "title": "[Art Therapy]",
+            "subTitle": "Mandala Drawing Workshop: Finding Inner Peace Through Patterns",
+            "description": "Activity: A guided art therapy session focused on creating intricate Mandala patterns. This focused activity promotes concentration, reduces anxiety, and encourages self-reflection."
+        },
+        "info": {
+            "startDate": "2026-10-12",
+            "endDate": "2026-10-12",
+            "startTime": "14:00",
+            "endTime": "16:00",
+            "location": "Gallery Art Space (B1, Healing Center, Jongno-gu, Seoul)",
+            "fee": "₩30,000 per person (Includes all art materials and frame)",
+            "preparation": "Comfortable clothes, open mind",
+            "link": "/event/mandala-art-20261012"
+        },
+        "image": {
+            "backgroundImgSrc": "",
+            "mainImgSrc": "/img/event/event05.jpg"
+        }
+    },
+    {
+        "meta": {
+            "id": "event06"
+        },
+        "main": {
+            "title": "[Aroma Blending]",
+            "subTitle": "Personalized Aromatherapy: Custom Essential Oil Blending Workshop",
+            "description": "Activity: Learn the basics of aromatherapy and blend your own custom essential oil roller or room spray. Utilize the power of scent to manage stress and promote relaxation."
+        },
+        "info": {
+            "startDate": "2026-11-05",
+            "endDate": "2026-11-05",
+            "startTime": "19:00",
+            "endTime": "20:30",
+            "location": "Scent of Healing Studio (456 Harmony-gil, Mapo-gu, Seoul)",
+            "fee": "₩35,000 per person (Includes all materials and take-home custom blend)",
+            "preparation": "Note-taking supplies (optional)",
+            "link": "/event/aroma-blending-20261105"
+        },
+        "image": {
+            "backgroundImgSrc": "",
+            "mainImgSrc": "/img/event/event06.jpg"
+        }
+    }
+]

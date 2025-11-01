@@ -15,8 +15,6 @@
 }
 
 .underSide {
-  max-width: 1800px;
-  min-width: 320px;
   width: 100%;
   height: 0.2rem;
   overflow: hidden;
@@ -34,7 +32,7 @@
 }
 
 .underSide.active {
-  height: 12rem;
+  height: 14rem;
   padding-top: 1.5rem;
 }
 
@@ -98,7 +96,6 @@
 .reviewBtn,
 .topNav-loginBtn,
 .centerBox,
-.chatBtn,
 .loginBtn {
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
@@ -112,7 +109,6 @@
 .reviewBtn:hover,
 .topNav-loginBtn:hover,
 .topNavCenterBox:hover,
-.chatBtn:hover,
 .loginBtn:hover {
   color: #ff6347;
 }
@@ -121,6 +117,8 @@
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
   background-color: transparent;
+  border-bottom: 0.1rem solid black;
+  margin-bottom: 1rem;
 }
 
 .shopMenu {
@@ -220,6 +218,8 @@
   display: flex;
   flex-direction: column;
 }
+
+
 
 .undersideShopMenu button {
   padding: 0.5rem;
@@ -342,9 +342,9 @@
 }
 
 .undersideDrinkBtn,
-.undersidePackBtn {
+.undersideMaskPackBtn {
   font-size: 1.5rem;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0 1rem 0;
   cursor: pointer;
   display: flex;
   align-items: center;

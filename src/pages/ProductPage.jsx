@@ -33,7 +33,7 @@ function ProductPage() {
     }
 
     return (
-        <section className={styles.ProductPage}>
+        <main className={styles.ProductPage}>
             <TopNav />
             <Breadcrumbs productData={productData} />
 
@@ -82,7 +82,7 @@ function ProductPage() {
             {pageView === 'qna' && <QuestionAndAnswer />}
 
             <Footer />
-        </section>
+        </main>
     )
 }
 

@@ -1,11 +1,10 @@
 import styles from ".//Review.module.css"
 
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useMemo } from "react"; // useMemo 추가
 
 import { getAllReviews } from "../../mockData/getData";
+import { Link } from "react-router-dom";
 
-// 'date' 문자열을 Date 객체로 변환하여 비교하는 헬퍼 함수
 const compareDates = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 // 
@@ -14,22 +13,41 @@ function Review() {
     const [currentPage, setCurrentPage] = useState(1);
     const [activeFilter, setActiveFilter] = useState('Newest'); // 현재 활성화된 필터 상태
 
-    // 
     useEffect(() => {
-        const sortedData = getAllReviews.sort((a, b) => compareDates(b, a));
+        const initialData = [...getAllReviews];
+        const sortedData = initialData.sort((a, b) => compareDates(b, a));
         setReviews(sortedData);
     }, [])
 
     // 
     const onPageItemLength = 8;
-    const boardPage = Math.ceil(getAllReviews.length / onPageItemLength);
-    const boardPageBtnArr = [];
-    for (let i = 1; i <= boardPage; i++) {
-        boardPageBtnArr.push(i);
-    }
+    const totalItems = reviews.length;
+    const boardPage = Math.max(1, Math.ceil(totalItems / onPageItemLength));
 
+    const getPaginationButtons = useMemo(() => {
+        const maxButtons = 5;
+        const buttonArray = [];
+
+        const startPage = Math.floor((currentPage - 1) / maxButtons) * maxButtons + 1;
+        const endPage = Math.min(startPage + maxButtons - 1, boardPage);
+
+        for (let i = startPage; i <= endPage; i++) {
+            buttonArray.push(i);
+        }
+        return { buttonArray, startPage, endPage };
+    }, [currentPage, boardPage]);
+
+    // 
     const onClickBoardPageBtn = (pageNum) => {
         setCurrentPage(pageNum)
+    }
+
+    const onClickMoveFirstPage = () => {
+        setCurrentPage(1);
+    }
+
+    const onClickMoveLastPage = () => {
+        setCurrentPage(boardPage);
     }
 
     const onClickMoveLeftPageBtn = () => {
@@ -53,19 +71,15 @@ function Review() {
 
         switch (sortType) {
             case 'Newest':
-                // 최신순: 날짜 내림차순 (가장 최근 날짜가 먼저 오도록)
                 sortedArray.sort((a, b) => compareDates(b, a));
                 break;
             case 'Oldest':
-                // 과거순: 날짜 오름차순 (가장 오래된 날짜가 먼저 오도록)
                 sortedArray.sort((a, b) => compareDates(a, b));
                 break;
             case 'Highest Rating':
-                // 높은 별점순: 별점 내림차순
                 sortedArray.sort((a, b) => b.rating - a.rating);
                 break;
             case 'Lowest Rating':
-                // 낮은 별점순: 별점 오름차순
                 sortedArray.sort((a, b) => a.rating - b.rating);
                 break;
             default:
@@ -86,6 +100,8 @@ function Review() {
     const startIndex = (currentPage - 1) * onPageItemLength;
     const currentReviews = reviews.slice(startIndex, startIndex + onPageItemLength);
 
+    // useMemo의 결과를 구조 분해 할당
+    const { buttonArray, startPage, endPage } = getPaginationButtons;
 
     // 
     return (
@@ -120,16 +136,19 @@ function Review() {
             <div className={styles.listContainer}>
                 <div className={styles.list}>
                     {/* currentReviews를 사용하여 현재 페이지 리뷰만 표시 */}
-                    {currentReviews.map((review, index) => {
-                        // 페이지네이션 로직을 slice로 처리했으므로, 여기서는 index 체크가 필요 없습니다.
-                        // (단, 고유 key가 필요한데, review.id가 고유하다고 가정하고 index 대신 사용)
-
+                    {currentReviews.map((review) => {
+                        const id = review.productId;
                         const rating = review.rating;
                         const maxRating = 5;
                         const stars = Array.from({ length: maxRating });
 
                         return (
-                            <Link className={styles.box} key={review.id} to={`/product/${review.product_id}`}>
+                            // Link 태그로 변경 가능
+                            <Link
+                                className={styles.box}
+                                key={review.id}
+                                to={'/product/' + id}
+                            >
                                 <img className={styles.image} src={review.imageLink} alt={review.product_name} />
                                 <div className={styles.content}>{review.content}</div>
                                 <div className={styles.ratingBox}>
@@ -139,7 +158,11 @@ function Review() {
                                             const starNumber = index + 1;
 
                                             return (
-                                                <span key={index}>
+                                                <span
+                                                    key={index}
+                                                    // 활성화된 별점에 따라 색상 변경 가능하도록 스타일 추가
+                                                    className={starNumber <= rating ? styles.filledStar : styles.emptyStar}
+                                                >
                                                     {starNumber <= rating ? '★' : '☆'}
                                                 </span>
                                             );
@@ -150,18 +173,37 @@ function Review() {
                         )
                     })}
                 </div>
+
+                {/* 💡 수정된 페이지네이션 버튼 영역 */}
                 <div className={styles.board}>
-                    <button onClick={() => onClickMoveLeftPageBtn()}>◀</button>
-                    {boardPageBtnArr.map((pageBtn, index) => {
+                    {/* 💡 가장 처음 페이지 이동 버튼 */}
+                    <button onClick={onClickMoveFirstPage} disabled={currentPage === 1}>«</button>
+
+                    {/* ◀ 이전 페이지 버튼 */}
+                    <button onClick={onClickMoveLeftPageBtn} disabled={currentPage === 1}>◀</button>
+
+                    {/* 💡 이전 5개 페이지로 이동하는 ... 버튼 */}
+                    {startPage > 1 && <button onClick={() => onClickBoardPageBtn(startPage - 1)}>...</button>}
+
+                    {/* 페이지 버튼 렌더링 */}
+                    {buttonArray.map((pageBtn) => {
                         return <button
-                            key={pageBtn + index}
+                            key={pageBtn}
                             onClick={() => onClickBoardPageBtn(pageBtn)}
                             className={pageBtn === currentPage ? styles.activePage : ''}
                         >
                             {pageBtn}
                         </button>
                     })}
-                    <button onClick={() => onClickMoveRightPageBtn()}>▶</button>
+
+                    {/* 💡 다음 5개 페이지로 이동하는 ... 버튼 */}
+                    {endPage < boardPage && <button onClick={() => onClickBoardPageBtn(endPage + 1)}>...</button>}
+
+                    {/* ▶ 다음 페이지 버튼 */}
+                    <button onClick={onClickMoveRightPageBtn} disabled={currentPage === boardPage}>▶</button>
+
+                    {/* 💡 가장 끝 페이지 이동 버튼 */}
+                    <button onClick={onClickMoveLastPage} disabled={currentPage === boardPage}>»</button>
                 </div>
             </div>
         </>
