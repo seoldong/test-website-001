@@ -1,23 +1,70 @@
-import styles from ".//Review.module.css"
-
+import styles from "./Review.module.css"
+// 
 import { useEffect, useState, useMemo } from "react"; // useMemo 추가
-
-import { getAllReviews } from "../../mockData/getData";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// 
+import { getAllDrinkReviews } from "../../redux/slices/review/drinkRivews"
+import { getAllMaskPackReviews } from "../../redux/slices/review/maskPackRivews";
 
 const compareDates = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 // 
 function Review() {
+    const dispatch = useDispatch();
+    const drinkReviews = useSelector((state) => state.drinkReviews);
+    const maskPackReviews = useSelector((state) => state.maskPackReviews);
+    // 
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [activeFilter, setActiveFilter] = useState('Newest'); // 현재 활성화된 필터 상태
 
+    // drink, maskpack 전부 받기
     useEffect(() => {
-        const initialData = [...getAllReviews];
-        const sortedData = initialData.sort((a, b) => compareDates(b, a));
-        setReviews(sortedData);
-    }, [])
+        const fetchProduct = async () => {
+            setLoading(true);
+            setError(null);
+            const drinkReviewPath = '/data/review/review-drink.json';
+            const maskpackReviewPath = '/data/review/review-maskPack.json';
+
+            try {
+                const [drinkResponse, maskpackResponse] = await Promise.all([
+                    fetch(drinkReviewPath),
+                    fetch(maskpackReviewPath)
+                ]);
+                if (!drinkResponse.ok || !maskpackResponse.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const [drinks, maskpacks] = await Promise.all([
+                    drinkResponse.json(),
+                    maskpackResponse.json()
+                ]);
+
+                dispatch(getAllDrinkReviews(drinks));
+                dispatch(getAllMaskPackReviews(maskpacks));
+
+            } catch (error) {
+                setError('Failed to fetch data: ' + error.message);
+                console.error("Fetching data failed", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchProduct();
+    }, [dispatch])
+
+    // 
+    const sortInitReviews = useMemo(() => {
+        const allReviews = [...drinkReviews, ...maskPackReviews];
+        const sortedReviews = allReviews.sort((a, b) => compareDates(b, a));
+        return sortedReviews;
+    }, [drinkReviews, maskPackReviews]);
+
+    useEffect(() => {
+        setReviews(sortInitReviews);
+    }, [sortInitReviews]);
 
     // 
     const onPageItemLength = 8;
@@ -103,9 +150,12 @@ function Review() {
     // useMemo의 결과를 구조 분해 할당
     const { buttonArray, startPage, endPage } = getPaginationButtons;
 
+    if (loading) return <div className={styles.bestProducts}>Loading...</div>;
+    if (error) return <div className={styles.bestProducts}>Error: {error}</div>;
+
     // 
     return (
-        <>
+        <section className={styles.review}>
             <div className={styles.title}>REVIEW OF OUR CUSTOMERS</div>
             <div className={styles.listFilterBox}>
                 <button
@@ -135,15 +185,13 @@ function Review() {
             </div>
             <div className={styles.listContainer}>
                 <div className={styles.list}>
-                    {/* currentReviews를 사용하여 현재 페이지 리뷰만 표시 */}
                     {currentReviews.map((review) => {
                         const id = review.productId;
                         const rating = review.rating;
                         const maxRating = 5;
                         const stars = Array.from({ length: maxRating });
-
+                        // 
                         return (
-                            // Link 태그로 변경 가능
                             <Link
                                 className={styles.box}
                                 key={review.id}
@@ -160,7 +208,6 @@ function Review() {
                                             return (
                                                 <span
                                                     key={index}
-                                                    // 활성화된 별점에 따라 색상 변경 가능하도록 스타일 추가
                                                     className={starNumber <= rating ? styles.filledStar : styles.emptyStar}
                                                 >
                                                     {starNumber <= rating ? '★' : '☆'}
@@ -174,18 +221,10 @@ function Review() {
                     })}
                 </div>
 
-                {/* 💡 수정된 페이지네이션 버튼 영역 */}
                 <div className={styles.board}>
-                    {/* 💡 가장 처음 페이지 이동 버튼 */}
                     <button onClick={onClickMoveFirstPage} disabled={currentPage === 1}>«</button>
-
-                    {/* ◀ 이전 페이지 버튼 */}
                     <button onClick={onClickMoveLeftPageBtn} disabled={currentPage === 1}>◀</button>
-
-                    {/* 💡 이전 5개 페이지로 이동하는 ... 버튼 */}
                     {startPage > 1 && <button onClick={() => onClickBoardPageBtn(startPage - 1)}>...</button>}
-
-                    {/* 페이지 버튼 렌더링 */}
                     {buttonArray.map((pageBtn) => {
                         return <button
                             key={pageBtn}
@@ -195,18 +234,12 @@ function Review() {
                             {pageBtn}
                         </button>
                     })}
-
-                    {/* 💡 다음 5개 페이지로 이동하는 ... 버튼 */}
                     {endPage < boardPage && <button onClick={() => onClickBoardPageBtn(endPage + 1)}>...</button>}
-
-                    {/* ▶ 다음 페이지 버튼 */}
                     <button onClick={onClickMoveRightPageBtn} disabled={currentPage === boardPage}>▶</button>
-
-                    {/* 💡 가장 끝 페이지 이동 버튼 */}
                     <button onClick={onClickMoveLastPage} disabled={currentPage === boardPage}>»</button>
                 </div>
             </div>
-        </>
+        </section>
     )
 }
 

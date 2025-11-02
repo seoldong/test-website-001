@@ -1,0 +1,222 @@
+[
+  {
+    "productName": "Carrot Fresh Juice",
+    "priceKrw": 3900,
+    "productId": "D001",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D001.jpg",
+    "discountRate": 9,
+    "salesCount": 856,
+    "description": "Freshly squeezed carrot juice, rich in Vitamin A, supporting healthy vision and skin."
+  },
+  {
+    "productName": "Tomato Red Juice",
+    "priceKrw": 3100,
+    "productId": "D002",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D002.jpg",
+    "discountRate": 11,
+    "salesCount": 421,
+    "description": "Packed with lycopene from ripe red tomatoes, this juice is perfect for boosting vitality."
+  },
+  {
+    "productName": "Sugarcane Sweet Juice",
+    "priceKrw": 4200,
+    "productId": "D003",
+    "onSale": false,
+    "recommended": false,
+    "imageSrc": "/img/product/drink/D003.jpg",
+    "discountRate": 10,
+    "salesCount": 593,
+    "description": "Nature's candy! A refreshing and cool sugarcane juice to lift your spirits."
+  },
+  {
+    "productName": "Berry Oat Smoothie",
+    "priceKrw": 5000,
+    "productId": "D004",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D004.jpg",
+    "discountRate": 13,
+    "salesCount": 910,
+    "description": "A blend of various berries and oats, providing high satiety and nutrition in a hearty smoothie."
+  },
+  {
+    "productName": "Avocado Green Smoothie",
+    "priceKrw": 5500,
+    "productId": "D005",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D005.jpg",
+    "discountRate": 5,
+    "salesCount": 745,
+    "description": "Made with creamy avocado and fresh green vegetables for a nutty, healthy green smoothie."
+  },
+  {
+    "productName": "Cherry Rich Juice",
+    "priceKrw": 4800,
+    "productId": "D006",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D006.jpg",
+    "discountRate": 15,
+    "salesCount": 387,
+    "description": "A rich juice capturing the deep flavor and aroma of cherries. Perfect for a luxurious treat."
+  },
+  {
+    "productName": "Mango Yellow Smoothie",
+    "priceKrw": 4500,
+    "productId": "D007",
+    "onSale": true,
+    "recommended": false,
+    "imageSrc": "/img/product/drink/D007.jpg",
+    "discountRate": 11,
+    "salesCount": 632,
+    "description": "A sweet and smooth yellow smoothie, generously made with tropical mango."
+  },
+  {
+    "productName": "Green Detox Juice",
+    "priceKrw": 4900,
+    "productId": "D008",
+    "onSale": false,
+    "recommended": false,
+    "imageSrc": "/img/product/drink/D008.jpg",
+    "discountRate": 8,
+    "salesCount": 204,
+    "description": "A cleansing detox juice blended with various green vegetables and fruits to lighten your body."
+  },
+  {
+    "productName": "Papaya Tropical Juice",
+    "priceKrw": 3500,
+    "productId": "D009",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D009.jpg",
+    "discountRate": 16,
+    "salesCount": 771,
+    "description": "An exotic juice featuring the unique taste of papaya, known for its smooth and refreshing flavor."
+  },
+  {
+    "productName": "Kiwi Sparkling Juice",
+    "priceKrw": 3700,
+    "productId": "D010",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D010.jpg",
+    "discountRate": 19,
+    "salesCount": 498,
+    "description": "A refreshing sparkling juice where the tangy taste of kiwi meets maximum carbonation."
+  },
+  {
+    "productName": "Pineapple Sunshine Juice",
+    "priceKrw": 4100,
+    "productId": "D011",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D011.jpg",
+    "discountRate": 12,
+    "salesCount": 135,
+    "description": "Squeezed from sun-drenched pineapples, offering a perfect harmony of sweetness and zest."
+  },
+  {
+    "productName": "Watermelon Hydration Juice",
+    "priceKrw": 3600,
+    "productId": "D012",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D012.jpg",
+    "discountRate": 9,
+    "salesCount": 982,
+    "description": "The ultimate hydrator! A cool, pure watermelon juice, perfect for quenching your thirst."
+  },
+  {
+    "productName": "Peach Calm Smoothie",
+    "priceKrw": 4700,
+    "productId": "D013",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D013.png",
+    "discountRate": 18,
+    "salesCount": 319,
+    "description": "A sweet smoothie combining soft peaches and milk, bringing calmness and delight."
+  },
+  {
+    "productName": "Purple Grape Delight",
+    "priceKrw": 3300,
+    "productId": "D014",
+    "onSale": true,
+    "recommended": false,
+    "imageSrc": "/img/product/drink/D014.png",
+    "discountRate": 18,
+    "salesCount": 655,
+    "description": "Enjoy the rich flavor and aroma of dark purple grapes in this delightful juice."
+  },
+  {
+    "productName": "Banana Power Smoothie",
+    "priceKrw": 4600,
+    "productId": "D015",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D015.jpg",
+    "discountRate": 9,
+    "salesCount": 523,
+    "description": "Packed with banana energy and nutrition, a power smoothie perfect for pre or post-workout fuel."
+  },
+  {
+    "productName": "Apple Cinnamon Juice",
+    "priceKrw": 4000,
+    "productId": "D016",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D016.jpg",
+    "discountRate": 5,
+    "salesCount": 178,
+    "description": "The harmonious blend of apple and cinnamon creates a comforting and warm-tasting juice."
+  },
+  {
+    "productName": "Coconut Water Pure",
+    "priceKrw": 3000,
+    "productId": "D017",
+    "onSale": false,
+    "recommended": false,
+    "imageSrc": "/img/product/drink/D017.png",
+    "discountRate": 7,
+    "salesCount": 799,
+    "description": "Pure coconut water, excellent for mineral and hydration replenishment."
+  },
+  {
+    "productName": "Cranberry Zing Juice",
+    "priceKrw": 4300,
+    "productId": "D018",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D018.png",
+    "discountRate": 8,
+    "salesCount": 261,
+    "description": "The tart and lively taste ('Zing') of cranberry adds a burst of freshness and vitality."
+  },
+  {
+    "productName": "Lime Mint Cooler",
+    "priceKrw": 3200,
+    "productId": "D019",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D019.png",
+    "discountRate": 10,
+    "salesCount": 944,
+    "description": "A refreshing cooler with the perfect blend of lime and mint, guaranteed to beat the heat."
+  },
+  {
+    "productName": "Pomegranate Antioxidant Juice",
+    "priceKrw": 5100,
+    "productId": "D020",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D020.png",
+    "discountRate": 11,
+    "salesCount": 680,
+    "description": "A premium juice rich in antioxidants from pomegranates, supporting overall wellness."
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "src": "/img/page/home/img01.jpg",
+    "alt": "Slide 1: First Health Drink Product",
+    "slideText": "Discover Our Best-Selling Health Drink.",
+    "button": {
+      "text": "Shop Now",
+      "class": "btn-center",
+      "link": "/product/1"
+    }
+  },
+  {
+    "src": "/img/page/home/img02.jpg",
+    "alt": "Slide 2: Seasonal Event/Promotion",
+    "slideText": "Boost Your Immunity: Special Offer Inside!",
+    "button": {
+      "text": "Join Event!",
+      "class": "btn-center",
+      "link": "/event/2"
+    }
+  },
+  {
+    "src": "/img/page/home/img03.jpg",
+    "alt": "Slide 3: Brand Story/Mission",
+    "slideText": "Our Commitment to Your Wellness Journey.",
+    "button": {
+      "text": "Read Our Story",
+      "class": "btn-center",
+      "link": "/about"
+    }
+  },
+  {
+    "src": "/img/page/home/img04.jpg",
+    "alt": "Slide 4: Limited Time Sale",
+    "slideText": "Final Call: Up to 20% Off All Drinks.",
+    "button": {
+      "text": "View All Sales",
+      "class": "btn-center",
+      "link": "/sale"
+    }
+  }
+]

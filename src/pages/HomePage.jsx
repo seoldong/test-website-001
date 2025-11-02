@@ -1,23 +1,20 @@
-import styles from "./HomePage.module.css";
 import { useEffect, useState } from "react";
 import TopNav from "../components/topNav/index";
 import MainSlide from "../components/homeSection/MainSlide";
 import BestProducts from "../components/homeSection/BestProducts";
-import Package from "../components/homeSection/Package";
+import Subscription from "../components/homeSection/Subscription";
 import Recommended from "../components/homeSection/Recommended";
 import BrandValue from "../components/homeSection/BrandValue";
 import BrandStory from "../components/homeSection/BrandStory";
-import Review from "../components/homeSection/Review";
+import Review from "../components/homeSection/Review"
 import Footer from "../components/footerSection/Footer"
-
 
 //
 function HomePage() {
-
   const [scrolled, setScrolled] = useState(false);
-
   const SCROLL_THRESHOLD = 50;
 
+  // 
   useEffect(() => {
     // 함수를 useEffect 내부에서 정의
     const handleScroll = () => {
@@ -30,7 +27,6 @@ function HomePage() {
         setScrolled(isScrolled);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -38,31 +34,23 @@ function HomePage() {
     };
   }, [scrolled]);
 
+  const styles = {
+    maxWidth: '1800px',
+    minWidth: '320px',
+    width: '1800px',
+    margin: 'auto',
+  }
 
   return (
-    <div className={styles.base}>
+    <div style={styles}>
       <TopNav />
-      <div className={styles.mainSlide}>
-        <MainSlide />
-      </div>
-      <div className={styles.bestProducts}>
-        <BestProducts />
-      </div>
-      <div className={styles.package}>
-        <Package />
-      </div>
-      <div className={styles.recommended}>
-        <Recommended />
-      </div>
-      <div className={styles.brandValue}>
-        <BrandValue />
-      </div>
-      <div className={styles.brandStory}>
-        <BrandStory />
-      </div>
-      <div className={styles.review}>
-        <Review />
-      </div>
+      <MainSlide />
+      <BestProducts />
+      <Subscription />
+      <Recommended />
+      <BrandValue />
+      <BrandStory />
+      <Review />
       <Footer />
     </div>
   );

@@ -1,22 +1,23 @@
-import styles from "./BestDrink.module.css";
+import styles from "./ShopBestProduct.module.css";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-import { getBestDrink } from "../../mockData/getData";
 
 // 
-function BestDrink() {
+function ShopBestProduct() {
 
-    const [best, setBest] = useState([]);
+    const { category } = useParams();
+
+    const [bestProducts, setBestProducts] = useState([]);
 
     useEffect(() => {
-        setBest(getBestDrink);
+        // setBest(getBestDrink);
     }, [])
 
     return (
         <section className={styles.bestDrink} >
-            <div className={styles.hook}>The healthy habit chosen by many.</div>
+            {/* <div className={styles.hook}>The healthy habit chosen by many.</div>
             <div className={styles.bestDrinkBox}>
                 {best.map((drink, index) => {
                     const discount = (drink.price_krw * drink.discountRate / 100);
@@ -48,9 +49,9 @@ function BestDrink() {
                         </Link>
                     )
                 })}
-            </div>
+            </div> */}
         </section>
     )
 }
 
-export default BestDrink;
+export default ShopBestProduct;

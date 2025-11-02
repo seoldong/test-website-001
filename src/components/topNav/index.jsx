@@ -1,20 +1,19 @@
 import styles from "./index.module.css"
+// 
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+// 
 import BurgerBtn from "./BurgerBtn";
 import ShopBtn from "./ShopBtn";
 import Logo from "./LogoBtn";
 import Login from "./LoginBtn";
-import { useSelector } from "react-redux";
 import ShopBtnUnderside from "./ShopBtnUnderside";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-
-
-
-// 
-const SCROLL_THRESHOLD = 50;
 
 //
 function TopNav() {
+    const undersidePanel = useSelector((state) => state.undersidePanel);
+
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -28,7 +27,7 @@ function TopNav() {
         };
     }, [scrolled]);
 
-    const undersidePanel = useSelector((state) => state.undersidePanel);
+    const SCROLL_THRESHOLD = 50;
 
     return (
         <section className={`${styles.nav} ${scrolled && styles.active}`}>

@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "customerId": 48721,
+    "userName": "Kim E**n",
+    "rating": 5,
+    "date": "2025-10-15",
+    "productId": "D005",
+    "productName": "Avocado Green Smoothie",
+    "imageLink": "/img/review/drink/48721.jpg",
+    "content": "The fishy taste of avocado is almost non-existent, and it's much smoother than I expected! It's a must-have after my workout. I will definitely repurchase this again. The packaging was also neat."
+  },
+  {
+    "id": 2,
+    "customerId": 92358,
+    "userName": "Park Y**g",
+    "rating": 4,
+    "date": "2025-10-14",
+    "productId": "D001",
+    "productName": "Carrot Fresh Juice",
+    "imageLink": "/img/review/drink/92358.jpg",
+    "content": "It's a cold-pressed juice, so it's fresh and excellent. However, I deducted one star because there's a very slight hint of the characteristic earthy smell of carrots."
+  },
+  {
+    "id": 3,
+    "customerId": 15099,
+    "userName": "Lee J**u",
+    "rating": 5,
+    "date": "2025-10-13",
+    "productId": "D004",
+    "productName": "Berry Oat Smoothie",
+    "imageLink": "/img/review/drink/15099.jpg",
+    "content": "The combination of berries and oats is filling and delicious. It's the best substitute for breakfast. The quantity is generous too."
+  },
+  {
+    "id": 4,
+    "customerId": 77643,
+    "userName": "Choi M**n",
+    "rating": 5,
+    "date": "2025-10-13",
+    "productId": "D010",
+    "productName": "Kiwi Sparkling Juice",
+    "imageLink": "/img/review/drink/77643.jpg",
+    "content": "The refreshing taste of kiwi bursts through, and the carbonation is just right. It's perfect for drinking in the summer. So cool!"
+  },
+  {
+    "id": 5,
+    "customerId": 33102,
+    "userName": "Jung H**i",
+    "rating": 3,
+    "date": "2025-10-12",
+    "productId": "D007",
+    "productName": "Mango Yellow Smoothie",
+    "imageLink": "/img/review/drink/33102.jpg",
+    "content": "I had high hopes, but I was disappointed that the mango flavor was weaker than expected. Still, I trust the ingredients."
+  },
+  {
+    "id": 6,
+    "customerId": 61287,
+    "userName": "Yoon H**o",
+    "rating": 5,
+    "date": "2025-10-11",
+    "productId": "D006",
+    "productName": "Cherry Rich Juice",
+    "imageLink": "/img/review/drink/61287.jpg",
+    "content": "I'm satisfied because it feels like the cherry is richly concentrated. I drink it consistently every day and feel energized."
+  },
+  {
+    "id": 7,
+    "customerId": 40562,
+    "userName": "Seo J**n",
+    "rating": 4,
+    "date": "2025-10-11",
+    "productId": "D003",
+    "productName": "Sugarcane Sweet Juice",
+    "imageLink": "/img/review/drink/40562.jpg",
+    "content": "The sweetness is strong, which is great when I crave something sweet. I deducted one star because the delivery was one day late."
+  },
+  {
+    "id": 8,
+    "customerId": 88714,
+    "userName": "Shin A**h",
+    "rating": 5,
+    "date": "2025-10-10",
+    "productId": "D002",
+    "productName": "Tomato Red Juice",
+    "imageLink": "/img/review/drink/88714.jpg",
+    "content": "It's much richer and more delicious than other tomato juices. The best for breakfast substitute! Drink it cold."
+  },
+  {
+    "id": 9,
+    "customerId": 21903,
+    "userName": "Kang C**n",
+    "rating": 4,
+    "date": "2025-10-09",
+    "productId": "D008",
+    "productName": "Green Detox Juice",
+    "imageLink": "/img/review/drink/21903.jpg",
+    "content": "I bought it based on a friend's recommendation and I'm satisfied."
+  },
+  {
+    "id": 10,
+    "customerId": 54769,
+    "userName": "Hwang J**u",
+    "rating": 4,
+    "date": "2025-10-08",
+    "productId": "D004",
+    "productName": "Berry Oat Smoothie",
+    "imageLink": "/img/review/drink/54769.jpg",
+    "content": "It's great for everyday drinking. However, the oat powder tends to clump slightly when mixing."
+  },
+  {
+    "id": 11,
+    "customerId": 99011,
+    "userName": "Oh S**g",
+    "rating": 5,
+    "date": "2025-10-07",
+    "productId": "D009",
+    "productName": "Papaya Tropical Juice",
+    "imageLink": "/img/review/drink/99011.jpg",
+    "content": "I love the exotic taste of papaya. My child prefers this over regular juice. Thank you for making a product I can safely give to my child."
+  },
+  {
+    "id": 12,
+    "customerId": 10245,
+    "userName": "Im H**i",
+    "rating": 5,
+    "date": "2025-10-07",
+    "productId": "D005",
+    "productName": "Avocado Green Smoothie",
+    "imageLink": "/img/review/drink/10245.jpg",
+    "content": "I like that it keeps me feeling full for a long time. It's become easier to wake up in the morning. Perfect for busy days."
+  },
+  {
+    "id": 13,
+    "customerId": 36782,
+    "userName": "Jeon W**u",
+    "rating": 4,
+    "date": "2025-10-06",
+    "productId": "D001",
+    "productName": "Carrot Fresh Juice",
+    "imageLink": "/img/review/drink/36782.jpg",
+    "content": "It's perfect for beginners who are just starting with cold-pressed juice. It's easy to digest and not burdensome."
+  },
+  {
+    "id": 14,
+    "customerId": 70933,
+    "userName": "Ha N**a",
+    "rating": 5,
+    "date": "2025-10-05",
+    "productId": "D002",
+    "productName": "Tomato Red Juice",
+    "imageLink": "/img/review/drink/70933.jpg",
+    "content": "I always keep a stock of this in the refrigerator. I love that the authentic taste of tomato is alive. Highly recommend."
+  },
+  {
+    "id": 15,
+    "customerId": 25804,
+    "userName": "Ko H**n",
+    "rating": 3,
+    "date": "2025-10-04",
+    "productId": "D008",
+    "productName": "Green Detox Juice",
+    "imageLink": "/img/review/drink/25804.jpg",
+    "content": "I'm not sure about the big effects yet. I think I need to consume it consistently for at least a month. The taste is acceptable."
+  },
+  {
+    "id": 16,
+    "customerId": 83491,
+    "userName": "Moon S**k",
+    "rating": 5,
+    "date": "2025-10-03",
+    "productId": "D006",
+    "productName": "Cherry Rich Juice",
+    "imageLink": "/img/review/drink/83491.jpg",
+    "content": "It's delicious when mixed with milk. It's also great as a meal replacement. The color is pretty too."
+  },
+  {
+    "id": 17,
+    "customerId": 60117,
+    "userName": "Yang C**l",
+    "rating": 5,
+    "date": "2025-10-02",
+    "productId": "D010",
+    "productName": "Kiwi Sparkling Juice",
+    "imageLink": "/img/review/drink/60117.jpg",
+    "content": "The sparkling is not too strong, so it goes down smoothly. The taste is rich and refreshing. Highly recommend."
+  },
+  {
+    "id": 18,
+    "customerId": 44320,
+    "userName": "Hong M**i",
+    "rating": 3,
+    "date": "2025-10-01",
+    "productId": "D007",
+    "productName": "Mango Yellow Smoothie",
+    "imageLink": "/img/review/drink/44320.jpg",
+    "content": "It's alright. However, the price is slightly higher compared to the product from another brand I used to take."
+  },
+  {
+    "id": 19,
+    "customerId": 19576,
+    "userName": "Bae J**n",
+    "rating": 5,
+    "date": "2025-09-30",
+    "productId": "D009",
+    "productName": "Papaya Tropical Juice",
+    "imageLink": "/img/review/drink/19576.jpg",
+    "content": "This is the cleanest-tasting tropical fruit juice! I've finally settled on this one. Please sell it in a larger capacity."
+  },
+  {
+    "id": 20,
+    "customerId": 73859,
+    "userName": "Yoo H**i",
+    "rating": 5,
+    "date": "2025-09-29",
+    "productId": "D003",
+    "productName": "Sugarcane Sweet Juice",
+    "imageLink": "/img/review/drink/73859.jpg",
+    "content": "I dislike artificial sweetness, but this has a clean and nutty sweetness. I've repurchased it!"
+  }
+]

@@ -1,15 +1,18 @@
 import styles from "./AboutPage.module.css";
-
+// 
 import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
-
+// 
 import TopNav from "../components/topNav";
-import { getAboutText, getAboutImages } from "../mockData/getData";
 import Footer from "../components/footerSection/Footer";
-
+import aboutPageTextData from "../mockData/aboutPageText";
+import aboutPageImages from "../mockData/aboutPageImg"
+import brandStorySrc from "../assets/page/about/etc/brandStory.jpg"
+// 
 const SCROLL_THRESHOLD = 50;
 const itemWidth = 400; //px로 해야 나머지 계산이 쉬움.
 const DURATION = 100000; // 자동 슬라이드 전체 시간 (밀리초)
 
+// 
 function AboutPage() {
   const trackRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
@@ -30,8 +33,8 @@ function AboutPage() {
 
   //텍스트와 이미지 가져오기
   useEffect(() => {
-    setAboutText(getAboutText);
-    setIngredientsImgSrc(getAboutImages);
+    setAboutText(aboutPageTextData);
+    setIngredientsImgSrc(aboutPageImages);
   }, []);
 
   // 자동 무한 슬라이드
@@ -80,7 +83,7 @@ function AboutPage() {
         <div className={styles.brandStoryImageBox}>
           <img
             className={styles.brandStoryImage}
-            src="../../src/assets/etcImg/brandStory2.jpg"
+            src={brandStorySrc}
           />
         </div>
         <div className={styles.story}>{aboutText.brandStoryTitle}</div>

@@ -131,13 +131,13 @@
   align-items: center;
   padding: 0.5rem;
   cursor: pointer;
-  top: 3.5rem
+  top: 4rem;
 }
 
-.drinkBtn {
+.drinkBtn,
+.packBtn,
+.packageBtn {
   width: 100%;
-  height: 50%;
-  border-radius: 0.5rem 0.5rem 0 0;
   cursor: pointer;
   font-size: 1.2rem;
   display: flex;
@@ -146,24 +146,12 @@
   transition: background-color 0.3s;
   text-decoration: none;
   background-color: rgb(235, 235, 235);
-}
-
-.packBtn {
-  width: 100%;
-  height: 50%;
-  border-radius: 0 0 0.5rem 0.5rem;
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  background-color: rgb(235, 235, 235);
+  padding: 1rem;
 }
 
 .drinkBtn:hover,
-.packBtn:hover {
+.packBtn:hover,
+.packageBtn:hover {
   background-color: black;
   color: whitesmoke;
 }

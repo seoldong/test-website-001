@@ -1,3 +1,4 @@
+// 
 const introductionTitle = `Nature's Vitality, Your Daily Habit.`
 const introductionDescription = `We strip away the artificial and infuse pure natural energy. [Company Name] crafts premium wellness beverages using only carefully selected natural ingredients to restore balance to your body and mind. Complete your healthy lifestyle with a single glass you drink every day.`;
 // 
@@ -17,8 +18,9 @@ const ingredientsDescription = "Health That Starts on the Farm Our beverages beg
 const description_first = "NO Pesticides, YES Natural Cycles : We grow our produce solely through the power of nature, without chemical fertilizers or pesticides. This offers peace of mind beyond organic.";
 const description_second = "The Secret to Taste and Nutrition : The wide temperature variations naturally compel our ingredients to concentrate their sugars and active components. The result is a deep, authentic flavor that is purely natural.";
 const description_third = "Farm-to-Cup : We process the harvest immediately to minimize nutrient loss, capturing the vibrant vitality of the farm directly in your cup.";
+// 
 
-const aboutTextData = {
+const aboutPageTextData = {
     introductionTitle,
     introductionDescription,
     brandStoryTitle,
@@ -30,7 +32,7 @@ const aboutTextData = {
     ingredientsDescription,
     description_first,
     description_second,
-    description_third
+    description_third,
 }
 
-export default aboutTextData;
+export default aboutPageTextData;

@@ -3,7 +3,6 @@ import TopNav from '../components/topNav';
 import styles from './ProductPage.module.css'
 import Footer from '../components/footerSection/Footer';
 import { useEffect, useMemo, useState } from 'react';
-import { searchProduct, searchReview } from '../mockData/getData';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderMinus, orderPlus } from '../redux/slices/order/order';
 

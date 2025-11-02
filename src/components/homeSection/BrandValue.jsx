@@ -1,15 +1,14 @@
 import styles from "./BrandValue.module.css";
-import brandValue from "../../assets/etcImg/brandValue.jpg";
+// 
+import brandValueData from '../../mockData/brandValueData'
 
 //
 function BrandValue() {
 
-  const titleFirstLine = `We Capture the`;
-  const titleSecondLine = `Vitality of Nature :`;
-  const description = `We insist on using only the finest ingredients to deliver the pure energy and health benefits of nature. We support our customers' healthy lifestyles with drinks that add vitality to even the smallest moments of the day, and we strive for a sustainable future.`;
+  const { titleFirstLine, titleSecondLine, description, imgSrc } = brandValueData;
 
   return (
-    <>
+    <section className={styles.brandValue}>
       <div className={styles.titleContainer}>
         <div className={styles.title}>
           <div className={styles.firstLineTitle}>{titleFirstLine}</div>
@@ -42,10 +41,10 @@ function BrandValue() {
 
       <img
         className={styles.valueImg}
-        src={brandValue}
-        alt="Fresh fruits being washed"
+        src={imgSrc}
+        alt=""
       />
-    </>
+    </section>
   );
 }
 

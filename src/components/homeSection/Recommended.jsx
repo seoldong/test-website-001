@@ -1,12 +1,15 @@
 import styles from "./Recommended.module.css";
-
-import { useEffect, useState, useRef } from "react";
+// 
+import { useEffect, useState, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { getRecommendedDrink } from "../../mockData/getData";
-
+import { useSelector } from "react-redux";
 
 //
 const ProductSlider = () => {
+
+    const drinks = useSelector((state) => state.drinks);
+    const maskPacks = useSelector((state) => state.maskPacks);
+
     const trackRef = useRef(null);
     const [products, setProducts] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,11 +19,17 @@ const ProductSlider = () => {
     // 자동 슬라이드 인터벌 ID를 저장할 ref
     const intervalRef = useRef(null);
 
-    // 상품 목록 초기화 (무한 슬라이드를 위한 복제 포함)
+    // recommended 제품 추출 (drink, maskpack 전부) )
+    const selectedRecommendedProducts = useMemo(() => {
+        if (!drinks || !maskPacks) return [];
+        const filterDrink = drinks.filter(product => product.recommended);
+        const filterMaskpack = maskPacks.filter(product => product.recommended);
+        return [...filterDrink, ...filterMaskpack];
+    }, [drinks, maskPacks]);
+
     useEffect(() => {
-        const allDrinks = getRecommendedDrink;
-        setProducts([...allDrinks, ...allDrinks.slice(0, itemsToShow)]);
-    }, []);
+        setProducts([...selectedRecommendedProducts, ...selectedRecommendedProducts.slice(0, itemsToShow)]);
+    }, [selectedRecommendedProducts])
 
     // 💡 자동 슬라이드 로직 분리 및 재시작 함수
     const startAutoSlide = () => {
@@ -76,29 +85,35 @@ const ProductSlider = () => {
 
     // --- 버튼 핸들러 함수 ---
     const handlePrev = () => {
-        clearInterval(intervalRef.current); // 클릭 시 자동 슬라이드 일시 정지
-        if (trackRef.current) {
-            trackRef.current.style.transition = 'transform 0.3s ease-in-out';
-        }
+        clearInterval(intervalRef.current);
 
         setCurrentIndex(prevIndex => {
-
             if (prevIndex === 0) {
-                const lastRealIndex = products.length - itemsToShow;
-                trackRef.current.style.transition = 'none';
-                const tempIndex = lastRealIndex;
+                // 1. 트랜지션 없이 마지막 복제본 시작 위치로 즉시 점프
+                if (trackRef.current) {
+                    trackRef.current.style.transition = 'none';
+                }
+                const lastRealIndex = selectedRecommendedProducts.length; // 실제 상품 리스트의 길이
 
+                // 2. 다음 렌더링 주기에서 (setTimeout 0ms) 트랜지션을 켜고 한 칸 뒤로 이동
                 setTimeout(() => {
                     if (trackRef.current) {
                         trackRef.current.style.transition = 'transform 0.3s ease-in-out';
                         setCurrentIndex(lastRealIndex - 1);
                     }
+                    startAutoSlide(); // 이동 후 자동 슬라이드 재시작
                 }, 0);
-                return tempIndex;
+
+                // 즉시 이동할 위치를 반환 (products 배열의 실제 상품 + 복제본을 합친 길이 - itemsToShow)
+                return lastRealIndex;
             }
+            // 일반적인 뒤로 이동
+            if (trackRef.current) {
+                trackRef.current.style.transition = 'transform 0.3s ease-in-out';
+            }
+            startAutoSlide(); // 이동 후 자동 슬라이드 재시작
             return prevIndex - 1;
         });
-        startAutoSlide(); // 다시 자동 슬라이드 시작
     };
 
     const handleNext = () => {
@@ -109,11 +124,10 @@ const ProductSlider = () => {
         }
 
         setCurrentIndex(prevIndex => {
-            const lastRealIndex = products.length - itemsToShow;
             const nextIndex = prevIndex + 1;
-
-            if (nextIndex > lastRealIndex) {
-                return lastRealIndex;
+            // 마지막 복제본 인덱스까지 이동 허용
+            if (nextIndex >= products.length) {
+                return prevIndex; // 안전장치 (실제로는 마지막 인덱스까지 가게 하고 useEffect가 처리)
             }
             return nextIndex;
         });
@@ -123,9 +137,9 @@ const ProductSlider = () => {
     // -------------------------
 
     return (
-        <>
-            <div className={styles.title}>{'Recommended Juices'}</div>
-            <div className={styles.description}>{'Discover today\'s recommended juice to revitalize your day!'}</div>
+        <div className={styles.recommended}>
+            <div className={styles.title}>{'Recommended product'}</div>
+            <div className={styles.description}>{'Discover today\'s recommended product to revitalize your day!'}</div>
             <div className={styles.slide}>
                 <div className={styles.slideFrame}>
                     <div
@@ -152,8 +166,14 @@ const ProductSlider = () => {
                                 />
                                 <div className={styles.productName}>{product.productName}</div>
                                 <div className={styles.productPriceBox}>
-                                    <div className={styles.productSalePrice}>{`₩ ${Math.round(product.onSale ? product.price_krw * discount : product.price_krw).toLocaleString()}`}</div>
-                                    <div className={styles.productPrice}>{product.onSale ? `₩ ${product.price_krw.toLocaleString()}` : ''}</div>
+                                    <div
+                                        className={styles.productSalePrice}>
+                                        {`₩ ${Math.round(product.onSale ? product.price_krw * discount : product.price_krw).toLocaleString()}`}
+                                    </div>
+                                    <div
+                                        className={styles.productPrice}>
+                                        {product.onSale ? `₩ ${product.priceKrw.toLocaleString()}` : ''}
+                                    </div>
                                 </div>
                                 {product.onSale && <div className={styles.productOnSale}>20% SALE</div>}
                             </Link>
@@ -175,10 +195,7 @@ const ProductSlider = () => {
                     &gt;
                 </button>
             </div>
-            <div className={styles.viewAllProducts}>
-                <button>VIEW ALL PRODUCT</button>
-            </div>
-        </>
+        </div>
     );
 };
 

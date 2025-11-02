@@ -1,19 +1,19 @@
-import styles from './MaskPacKPage.module.css'
-
 import TopNav from '../components/topNav';
-import MaskPackSlide from '../components/maskpackSection/MaskPackSlide';
 import BestMaskPack from '../components/maskPackSection/BestMaskPack';
 import AllProduct from '../components/maskPackSection/AllProduct';
 import Footer from '../components/footerSection/Footer';
 
 // 
-function MaskPacKPage() {
+function ShopMaskPacKPage() {
 
+    const styles = {
+        width: '1800px',
+        margin: 'auto'
+    }
     //
     return (
-        <div className={styles.maskPackPage}>
+        <div style={styles}>
             <TopNav />
-            <MaskPackSlide />
             <BestMaskPack />
             <AllProduct />
             <Footer />
@@ -21,4 +21,4 @@ function MaskPacKPage() {
     )
 }
 
-export default MaskPacKPage;
+export default ShopMaskPacKPage;
