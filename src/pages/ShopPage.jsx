@@ -1,10 +1,6 @@
-import styles from './ShopPage.module.css'
-
-import TopNav from '../components/topNav';
-import Footer from '../components/footerSection/Footer';
-import ShopMainImg from '../components/common/shop/ShopMainImg';
-import ShopBestProduct from '../components/common/shop/ShopBestProduct.jsx';
-
+import ShopMainImg from "../components/shopSection/ShopMainImg";
+import ShopBestProduct from "../components/shopSection/ShopBestProduct";
+import ShopAllProducts from "../components/shopSection/ShopAllProducts";
 // 
 function ShopPage() {
 
@@ -15,10 +11,9 @@ function ShopPage() {
     //
     return (
         <div style={styles}>
-            <TopNav />
             <ShopMainImg />
             <ShopBestProduct />
-            <Footer />
+            <ShopAllProducts />
         </div>
     )
 }

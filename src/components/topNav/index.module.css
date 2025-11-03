@@ -37,7 +37,7 @@
 }
 
 .active {
-  background-color: aliceblue;
+  background-color: rgb(255, 249, 249);
 }
 
 .leftBox {
@@ -98,7 +98,7 @@
 .centerBox,
 .loginBtn {
   font-size: 1.5rem;
-  padding: 1rem 0.5rem;
+  padding: 1.5rem 1rem;
   cursor: pointer;
   background-color: transparent;
 }
@@ -115,7 +115,7 @@
 
 .undersideShopBtn {
   font-size: 1.5rem;
-  padding: 1rem 0.5rem;
+  padding: 1.5rem 1rem;
   background-color: transparent;
   border-bottom: 0.1rem solid black;
   margin-bottom: 1rem;
@@ -135,8 +135,8 @@
 }
 
 .drinkBtn,
-.packBtn,
-.packageBtn {
+.maskPackBtn,
+.maskPackageBtn {
   width: 100%;
   cursor: pointer;
   font-size: 1.2rem;
@@ -150,24 +150,26 @@
 }
 
 .drinkBtn:hover,
-.packBtn:hover,
-.packageBtn:hover {
+.maskPackBtn:hover,
+.maskPackageBtn:hover {
   background-color: black;
   color: whitesmoke;
 }
 
 .logoBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  background-color: transparent;
   width: 10rem;
+  height: 5rem;
+  cursor: pointer;
+  width: 10rem;
+  overflow: hidden;
+  background-color: chocolate;
 }
 
-.logo {
-  display: block;
-  background-color: transparent;
+.logoImg {
+  width: 10rem;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.4);
 }
 
 .logoText {
@@ -344,7 +346,7 @@
 }
 
 .undersideDrinkBtn:hover,
-.undersidePackBtn:hover {
+.undersideMaskPackBtn:hover {
   color: #ff6347;
 }
 

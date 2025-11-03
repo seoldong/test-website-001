@@ -1,5 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+// 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// 
+import Layout from "./Layout/Layout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ShopPage from "./pages/ShopPage";
@@ -13,14 +16,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        {/* <Route path="/shop/:category" element={<ShopPage />} /> */}
-        {/* <Route path="/shop/drink" element={<ShopDrinkPage />} /> */}
-        {/* <Route path="/shop/maskpack" element={<ShopMaskPacKPage />} /> */}
-        {/* <Route path="/shop/package" element={<ShopPackagePage />} /> */}
-        {/* <Route path="/event" element={<EventPage />} /> */}
-        {/* <Route path="/product/:id" element={<ProductPage />} /> */}
+        <Route path="/" element={<Layout />} >
+          <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/shop/:category" element={<ShopPage />} />
+          <Route path="/event" element={<EventPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          {/*  */}
+        </Route>
+        <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </BrowserRouter>
   );

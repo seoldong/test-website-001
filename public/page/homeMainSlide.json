@@ -1,42 +1,42 @@
 [
   {
-    "src": "/img/page/home/img01.jpg",
-    "alt": "Slide 1: First Health Drink Product",
-    "slideText": "Discover Our Best-Selling Health Drink.",
+    "src": "/img/page/home/homeSlide01.png",
+    "alt": "Children enjoying the exciting farm experience",
+    "slideText": "A Healthy Day for the Whole Family in Nature",
     "button": {
-      "text": "Shop Now",
+      "text": "Explore Experiences",
       "class": "btn-center",
-      "link": "/product/1"
+      "link": ""
     }
   },
   {
-    "src": "/img/page/home/img02.jpg",
-    "alt": "Slide 2: Seasonal Event/Promotion",
-    "slideText": "Boost Your Immunity: Special Offer Inside!",
+    "src": "/img/page/home/homeSlide02.png",
+    "alt": "Tranquil countryside scene bringing peace to the mind",
+    "slideText": "Visit Happy Farm, a Haven of Abundance in All Seasons",
     "button": {
-      "text": "Join Event!",
+      "text": "About the Farm",
       "class": "btn-center",
-      "link": "/event/2"
+      "link": ""
     }
   },
   {
-    "src": "/img/page/home/img03.jpg",
-    "alt": "Slide 3: Brand Story/Mission",
-    "slideText": "Our Commitment to Your Wellness Journey.",
+    "src": "/img/page/home/homeSlide03.png",
+    "alt": "Freshly harvested produce market",
+    "slideText": "Meet Produce Harvested Just This Morning",
     "button": {
-      "text": "Read Our Story",
+      "text": "View Products",
       "class": "btn-center",
-      "link": "/about"
+      "link": ""
     }
   },
   {
-    "src": "/img/page/home/img04.jpg",
-    "alt": "Slide 4: Limited Time Sale",
-    "slideText": "Final Call: Up to 20% Off All Drinks.",
+    "src": "/img/page/home/homeSlide04.png",
+    "alt": "Healthy skincare made with natural ingredients",
+    "slideText": "Healing Products Made with Farm-Sourced Ingredients",
     "button": {
-      "text": "View All Sales",
+      "text": "Shop Eco-Friendly",
       "class": "btn-center",
-      "link": "/sale"
+      "link": ""
     }
   }
 ]

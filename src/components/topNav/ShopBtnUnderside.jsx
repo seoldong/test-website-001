@@ -11,7 +11,7 @@ function ShopBtnUnderside() {
       </button>
       <div className={styles.undersideShopMenu} >
         <Link className={styles.undersideDrinkBtn} to={'/shop/drink'}>DRINK</Link>
-        <Link className={styles.undersideMaskPackBtn} to={'/shop/maskpack'}>MASK PACK</Link>
+        <Link className={styles.undersideMaskPackBtn} to={'/shop/maskPack'}>MASK PACK</Link>
       </div>
     </div>
   );

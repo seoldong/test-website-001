@@ -1,16 +1,15 @@
 import styles from "./EventPage.module.css"
-
+// 
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import TopNav from "../components/topNav";
 import Footer from "../components/footerSection/Footer"
 import Modal from "../components/common/Modal";
-import { useDispatch, useSelector } from "react-redux";
-import { openModal } from "../redux/slices/modal/modalState";
 import ModalEventPage from "./ModalEvent";
+import { openModal } from "../redux/slices/modal/modalState";
 
-
-// 이전 답변에서 정의된 compareDates 함수는 파일 상단에 유지되어야 합니다.
+// 
 const compareDates = (a, b) => new Date(a.info.startDate).getTime() - new Date(b.info.startDate).getTime();
 
 // 
@@ -27,6 +26,7 @@ function EventPage() {
     const onPageItemLength = 8;
     const boardPage = Math.max(1, Math.ceil(events.length / onPageItemLength));
 
+    // 
     useEffect(() => {
         const eventTextPath = '/data/eventList.json';
         const fetchEvents = async () => {
@@ -49,6 +49,7 @@ function EventPage() {
         fetchEvents();
     }, [])
 
+    // 
     if (loading) return <main className={styles.eventPage}><div className={styles.loading}>데이터를 불러오는 중입니다...</div></main>
     if (error) return <main className={styles.eventPage}><div className={styles.error}>오류: {error}</div></main>
 
@@ -145,6 +146,7 @@ function PaginationBtn({ data }) {
         setCurrentPage(boardPage);
     }
 
+    // 
     return (
         <div className={styles.boardBtnBox}>
             <button onClick={onClickMoveFirstPage} disabled={currentPage === 1}>«</button>

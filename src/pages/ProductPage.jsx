@@ -1,39 +1,57 @@
-import { useLocation, useParams } from 'react-router-dom';
-import TopNav from '../components/topNav';
 import styles from './ProductPage.module.css'
-import Footer from '../components/footerSection/Footer';
+// 
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useParams } from 'react-router-dom';
 import { orderMinus, orderPlus } from '../redux/slices/order/order';
+import TopNav from '../components/topNav';
 
+// 
 function ProductPage() {
     const { id } = useParams();
+    const drinks = useSelector((state) => state.drinks);
+    const maskPacks = useSelector((state) => state.maskPacks);
+    const productOrder = useSelector((state) => state.productsOrder);
+    console.log(productOrder);
 
-    const productOrder = useSelector((state) => state.productOrder);
+    // 
     const [productData, setProductData] = useState(null);
     const [pageView, setPageView] = useState('details');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     // 
     useEffect(() => {
-        const findProduct = searchProduct(id);
-        setProductData(findProduct)
-    }, [id]);
+        const filterDrink = drinks.find((drink) => drink.productId === id);
+        const filterMaskPack = maskPacks.find((maskPack) => maskPack.productId === id);
+        const findProduct = filterDrink || filterMaskPack;
 
+        if (findProduct) {
+            setProductData(findProduct);
+            setLoading(false);
+        } else {
+            setError('Product not found');
+        }
+    }, [drinks, id, maskPacks]);
+
+    // 
     const totalPrice = useMemo(() => {
-        // productData가 null이 아니고, price_krw가 있을 때만 계산
-        if (productData?.price_krw) {
-            return (productData.price_krw * productOrder).toLocaleString('ko-KR');
+        // productData가 null이 아니고, priceKrw가 있을 때만 계산
+        // console.log(productData);
+
+        if (productData?.priceKrw) {
+            return (productData.priceKrw * productOrder).toLocaleString('ko-KR');
         }
         return '0'; // 로딩 중이거나 데이터가 없을 때
     }, [productData, productOrder]);
 
-    if (!productData) {
-        return <section className={styles.ProductPage}><TopNav /><div>Loading...</div><Footer /></section>;
-    }
+    // 
+    if (loading) return <div className={styles.bestProducts}>Loading...</div>;
+    if (error) return <div className={styles.bestProducts}>Error: {error}</div>;
 
+    // 
     return (
-        <main className={styles.ProductPage}>
-            <TopNav />
+        <section className={styles.ProductPage}>
             <Breadcrumbs productData={productData} />
 
             <div className={styles.productInfoBox}>
@@ -79,9 +97,7 @@ function ProductPage() {
             {pageView === 'details' && <Details />}
             {pageView === 'review' && <ProductReview productData={productData} />}
             {pageView === 'qna' && <QuestionAndAnswer />}
-
-            <Footer />
-        </main>
+        </section>
     )
 }
 
@@ -111,7 +127,7 @@ function Breadcrumbs({ productData }) {
 function OrderQuantity({ productData }) {
 
     const dispatch = useDispatch();
-    const productOrder = useSelector((state) => state.productOrder);
+    const productsOrder = useSelector((state) => state.productsOrder);
 
 
     const onClickMinus = () => {
@@ -129,12 +145,12 @@ function OrderQuantity({ productData }) {
 
             <div className={styles.quantityBox}>
                 <button onClick={onClickMinus}>-</button>
-                <div className={styles.quantity}>{productOrder}</div>
+                <div className={styles.quantity}>{productsOrder}</div>
                 <button onClick={onClickPlus}>+</button>
             </div>
 
             <div className={styles.priceBox}>
-                {productData.price_krw}
+                {productData.priceKrw}
             </div>
         </div>
     )
@@ -174,21 +190,24 @@ Please wait a moment while the full product details are being fetched.`
 
 function ProductReview({ productData }) {
 
+    console.log(productData);
+    
+    const drinkReviews = useSelector((state) => state.drinkReviews);
+    const maskPackReviews = useSelector((state) => state.maskPackReviews);
     // 
     const [reviewData, setReviewData] = useState([]);
 
     // 
     useEffect(() => {
-        const productReviews = searchReview(productData.productId);
-        setReviewData(productReviews);
-    }, [productData.productId])
+        const findDrinkReview = drinkReviews.filter(review => review.productId === productData.productId);
+        const findMaskPackReview = maskPackReviews.filter(review => review.productId === productData.productId);
+        setReviewData([...findDrinkReview, ...findMaskPackReview]);
+
+    }, [drinkReviews, maskPackReviews, productData.productId])
 
     const getStarRating = (rating) => {
-        // Math.round를 사용하여 소수점 평점을 가장 가까운 정수로 반올림합니다.
         const roundedRating = Math.round(rating);
 
-        // ★: 채워진 별 (색상 코드: #FFD700)
-        // ☆: 빈 별 (색상 코드: #ccc)
         switch (roundedRating) {
             case 1:
                 return '★☆☆☆☆';
@@ -201,7 +220,6 @@ function ProductReview({ productData }) {
             case 5:
                 return '★★★★★';
             default:
-                // 0점이나 유효하지 않은 값이 들어왔을 경우
                 return '☆☆☆☆☆';
         }
     }

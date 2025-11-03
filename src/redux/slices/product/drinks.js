@@ -9,14 +9,8 @@ const drinksSlice = createSlice({
         getAllDrinks: (state, action) => {
             return action.payload;
         },
-        getOnsaleDrinks: (state, action) => {
-            return action.payload.filter(product => product.onSale);
-        },
-        getRecommendedDrinks: (state, action) => {
-            return action.payload.filter(product => product.recommended);
-        },
         resetDrinks: (state) => {
-            return initialState; 
+            return initialState;
         },
     }
 });
@@ -24,7 +18,5 @@ const drinksSlice = createSlice({
 export default drinksSlice.reducer;
 export const {
     getAllDrinks,
-    getOnsaleDrinks,
-    getRecommendedDrinks,
     resetDrinks,
 } = drinksSlice.actions;

@@ -21,6 +21,11 @@ function Subscription() {
           throw new Error('Network response was not ok');
         }
         const subscriptionData = await response.json();
+
+        if (!subscriptionData.title || !subscriptionData.imgSrc) {
+          throw new Error('Required data fields (title or imgSrc) are missing.');
+        }
+
         setSubscription(subscriptionData);
       } catch (error) {
         setError('Failed to fetch data: ' + error.message);

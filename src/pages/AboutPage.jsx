@@ -69,7 +69,6 @@ function AboutPage() {
   //
   return (
     <div className={styles.aboutPage}>
-      <TopNav />
       <section className={styles.brandIntroduction}>
         <div className={styles.introductionTitle}>
           {aboutText.introductionTitle}
@@ -138,7 +137,6 @@ function AboutPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

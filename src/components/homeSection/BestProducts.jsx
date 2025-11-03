@@ -1,46 +1,63 @@
 import styles from "./BestProducts.module.css";
 // 
-import { useEffect, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 // 
+import { getAllMaskPacks } from "../../redux/slices/product/maskPacks";
+import { getBestMaskPacks } from "../../redux/slices/product/bestMaskPacks";
 import { getAllDrinks } from "../../redux/slices/product/drinks";
-import { getAllMaskPacks } from "../../redux/slices/product/maskpacks";
+import { getBestDrinks } from "../../redux/slices/product/bestDrinks";
 
 // 
 function BestProducts() {
 
   const dispatch = useDispatch();
-  
-  const drinks = useSelector((state) => state.drinks);
-  const maskPacks = useSelector((state) => state.maskPacks);
-  
+
   const [bestProducts, setBestProducts] = useState([]);
+  const [bestProductsText, setBestProductsText] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // drink, maskpack 전부 받기
+  const topCount = 4;
+
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);
       setError(null);
       const drinkPath = '/data/product-drink.json';
       const maskpackPath = '/data/product-maskPack.json';
+      const homeBestProductsTextPath = '/data/page/home/homeBestProductsText.json';
+
       try {
-        const [drinkResponse, maskpackResponse] = await Promise.all([
+        const [drinkResponse, maskpackResponse, homeBestProductsTextResponse] = await Promise.all([
           fetch(drinkPath),
-          fetch(maskpackPath)
+          fetch(maskpackPath),
+          fetch(homeBestProductsTextPath)
         ]);
-        if (!drinkResponse.ok || !maskpackResponse.ok) {
+        if (!drinkResponse.ok || !maskpackResponse.ok || !homeBestProductsTextResponse.ok) {
           throw new Error('Network response was not ok');
         }
-        const [drinks, maskpacks] = await Promise.all([
+        const [drinks, maskpacks, homeBestProductsText] = await Promise.all([
           drinkResponse.json(),
-          maskpackResponse.json()
+          maskpackResponse.json(),
+          homeBestProductsTextResponse.json(),
         ]);
 
         dispatch(getAllDrinks(drinks));
-        dispatch(getAllMaskPacks(maskpacks))
+        dispatch(getAllMaskPacks(maskpacks));
+        dispatch(getBestDrinks({ productData: drinks, topCount: topCount }));
+        dispatch(getBestMaskPacks({ productData: maskpacks, topCount: topCount }));
+
+        const bestD = [...drinks].sort((a, b) => b.salesCount - a.salesCount).slice(0, topCount);
+        const bestM = [...maskpacks].sort((a, b) => b.salesCount - a.salesCount).slice(0, topCount);
+
+        const calculatedBest = [...bestD, ...bestM]
+          .sort((a, b) => b.salesCount - a.salesCount)
+          .slice(0, 4);
+
+        setBestProducts(calculatedBest);
+        setBestProductsText(homeBestProductsText);
 
       } catch (error) {
         setError('Failed to fetch data: ' + error.message);
@@ -52,40 +69,16 @@ function BestProducts() {
     fetchProduct();
   }, [dispatch])
 
-  // best 제품 추출 ( 세일, 추천, 판매수 2개씩(drink, maskpack) )
-  const selectedBestProducts = useMemo(() => {
-    if (!drinks || !maskPacks) return [];
-
-    const filterDrink = drinks.filter(product => product.onSale && product.recommended);
-    const filterMaskpack = maskPacks.filter(product => product.onSale && product.recommended);
-
-    const sortDrink = filterDrink.sort((a, b) => b.salesCount - a.salesCount);
-    const sortMaskpack = filterMaskpack.sort((a, b) => b.salesCount - a.salesCount);
-
-    const sliceDrink = sortDrink.slice(0, 2);
-    const sliceMaskpack = sortMaskpack.slice(0, 2);
-
-    return [...sliceDrink, ...sliceMaskpack];
-
-  }, [drinks, maskPacks]);
-
-  useEffect(() => {
-    setBestProducts(selectedBestProducts);
-  }, [selectedBestProducts]);
-
   if (loading) return <div className={styles.bestProducts}>Loading...</div>;
   if (error) return <div className={styles.bestProducts}>Error: {error}</div>;
 
-  // 
   return (
     <div className={styles.bestProducts}>
-      <div className={styles.title}>The Best Taste and Nutrition, Already Acknowledged by All.</div>
-      <div className={styles.subtitle}>
-        This one sip, filled with the farm's sincerity, is the best choice proven by those who have experienced it.
+      <div className={styles.title}>{bestProductsText.title}</div>
+      <div className={styles.subtitle}>{bestProductsText.subTitle}
       </div>
       <div className={styles.productContainer}>
         {bestProducts.map((item, index) => {
-
           return (
             <Link
               className={styles.productBox}
