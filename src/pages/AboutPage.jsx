@@ -2,8 +2,6 @@ import styles from "./AboutPage.module.css";
 // 
 import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
 // 
-import TopNav from "../components/topNav";
-import Footer from "../components/footerSection/Footer";
 import aboutPageTextData from "../mockData/aboutPageText";
 import aboutPageImages from "../mockData/aboutPageImg"
 import brandStorySrc from "../assets/page/about/etc/brandStory.jpg"

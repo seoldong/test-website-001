@@ -1,54 +1,51 @@
+import { useSelector } from "react-redux";
 import styles from "./MainSlide.module.css"
 // 
 import { useEffect, useState } from "react";
 
 // 
-function MainSlide() {
-    const [slides, setSlides] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+function MainSlide({ onReload }) {
+    const mainSlide = useSelector((state) => state.mainSlide); 
     const [index, setIndex] = useState(0);
 
-    const currentSlide = slides[index];
+    const dataIsMissing = mainSlide.length === 0; 
 
-    // 
     useEffect(() => {
-        setLoading(true);
-        setError(null);
-        const slidePath = '/page/homeMainSlide.json'
-        const fetchSlides = async () => {
-            try {
-                const response = await fetch(slidePath);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const slideData = await response.json();
-                setSlides(slideData);
-
-            } catch (error) {
-                setError('Failed to fetch data: ' + error.message);
-                console.error("Fetching data failed", error);
-            } finally {
-                setLoading(false);
-            }
+        if (dataIsMissing) return;
+        
+        if (index >= mainSlide.length) {
+            setIndex(0);
         }
-        fetchSlides();
-    }, []);
-
-    // 
-    useEffect(() => {
-        if (slides.length === 0) return;
+        
         const interval = setInterval(() => {
-            setIndex((prevIndex) => (prevIndex + 1) % slides.length);
+            setIndex((prevIndex) => (prevIndex + 1) % mainSlide.length);
         }, 3000);
+        
         return () => clearInterval(interval);
-    }, [index, slides.length]);
+    }, [mainSlide.length, index, dataIsMissing]); // Added dataIsMissing to prevent interval setup when data is missing
 
-    // 
-    if (loading) return <div className={styles.mainSlide}>Loading...</div>;
-    if (error) return <div className={styles.mainSlide}>Error: {error}</div>;
+    const handleReload = () => {
+        if (onReload) {
+            onReload(); 
+            setIndex(0);
+        } else {
+            console.error("The onReload function was not passed to MainSlide.");
+        }
+    };
 
-    // 
+    if (dataIsMissing) {
+        return (
+            <div className={styles.mainSlide} style={{ padding: '50px', textAlign: 'center' }}>
+                <p>Failed to fetch slide data or data is missing.</p>
+                <button onClick={handleReload} className={styles.reloadButton}>
+                    Reload Data
+                </button>
+            </div>
+        );
+    }
+
+    const currentSlide = mainSlide[index];
+
     return (
         <div className={styles.mainSlide}>
             <img
@@ -57,20 +54,23 @@ function MainSlide() {
                 alt={currentSlide.alt}
             />
             <h1 className={styles.slideText}>{currentSlide.slideText}</h1>
+            
             <button
                 className={`${styles.slideBtn} ${styles.prevBtn}`}
-                onClick={() => setIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length)}
+                onClick={() => setIndex((prevIndex) => (prevIndex - 1 + mainSlide.length) % mainSlide.length)} 
             >
-                &lt;
+                ⟨
             </button>
+            
             <button
                 className={`${styles.slideBtn} ${styles.nextBtn}`}
-                onClick={() => setIndex((prevIndex) => (prevIndex + 1) % slides.length)}
+                onClick={() => setIndex((prevIndex) => (prevIndex + 1) % mainSlide.length)}
             >
-                &gt;
+                ⟩
             </button>
+            
             <div className={styles.dots}>
-                {slides.map((_, dotIndex) => (
+                {mainSlide.map((_, dotIndex) => (
                     <button
                         key={dotIndex}
                         className={`${styles.dot} ${dotIndex === index ? `${styles.dotActive}` : ''}`}
@@ -83,5 +83,3 @@ function MainSlide() {
 }
 
 export default MainSlide;
-
-// 

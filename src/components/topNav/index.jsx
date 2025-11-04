@@ -7,15 +7,14 @@ import { useSelector } from "react-redux";
 import BurgerBtn from "./BurgerBtn";
 import ShopBtn from "./ShopBtn";
 import Logo from "./LogoBtn";
-import Login from "./LoginBtn";
 import ShopBtnUnderside from "./ShopBtnUnderside";
 
 //
 function TopNav() {
     const undersidePanel = useSelector((state) => state.undersidePanel);
-
     const [scrolled, setScrolled] = useState(false);
 
+    const SCROLL_THRESHOLD = 50;
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > SCROLL_THRESHOLD;
@@ -26,8 +25,6 @@ function TopNav() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [scrolled]);
-
-    const SCROLL_THRESHOLD = 50;
 
     return (
         <section className={`${styles.nav} ${scrolled && styles.active}`}>
@@ -46,7 +43,15 @@ function TopNav() {
                 <Logo />
             </div>
             <div className={styles.rightBox}>
-                <Login />
+                <button className={styles.cartBtn}>
+                    CART
+                </button>
+                <button className={styles.loginBtn}>
+                    LOGIN
+                </button>
+                <button className={styles.languageBtn}>
+                    LANGUAGE
+                </button>
             </div>
         </section>
     )

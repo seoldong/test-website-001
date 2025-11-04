@@ -1,0 +1,46 @@
+[
+  {
+    "productName": "Watermelon Hydration Juice",
+    "priceKrw": 3600,
+    "productId": "D012",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D012.jpg",
+    "discountRate": 9,
+    "salesCount": 982,
+    "description": "The ultimate hydrator! A cool, pure watermelon juice, perfect for quenching your thirst."
+  },
+  {
+    "productName": "Centella Repair Serum",
+    "priceKrw": 5200,
+    "productId": "M012",
+    "onSale": true,
+    "recommended": false,
+    "imageSrc": "/img/product/maskpack/M012.jpg",
+    "discountRate": 45,
+    "salesCount": 970,
+    "description": "Centella Asiatica (Cica) extract quickly soothes sensitive and damaged skin and aids in recovery."
+  },
+  {
+    "productName": "Lime Mint Cooler",
+    "priceKrw": 3200,
+    "productId": "D019",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/drink/D019.png",
+    "discountRate": 10,
+    "salesCount": 944,
+    "description": "A refreshing cooler with the perfect blend of lime and mint, guaranteed to beat the heat."
+  },
+  {
+    "productName": "Oatmeal Gentle Scrub MaskPack",
+    "priceKrw": 4500,
+    "productId": "M007",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M007.jpg",
+    "discountRate": 40,
+    "salesCount": 918,
+    "description": "Oatmeal particles gently exfoliate and purify the skin with a mild scrubbing effect."
+  }
+]

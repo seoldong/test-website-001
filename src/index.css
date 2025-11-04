@@ -1,16 +1,20 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  /* line-height: 1.5;
-  font-weight: 400;
+  --farmYellow: rgba(248, 182, 25);
+  --farmYellowWhite: rgb(255, 235, 187);
+  --farmWhite: rgb(255, 250, 240);
+  --farmGreen: rgba(55, 151, 71);
+  --farmGreenYellow: rgba(55, 153, 71);
+  --farmOrange: rgba(217, 85, 64);
+  --farmLightBlue: rgba(187, 228, 221);
+  --farmBlack: rgba(40, 38, 34);
+  /*  */
+  --farmBlack-o25: rgba(40, 38, 34, 0.25);
+  --farmBlack-o50: rgba(40, 38, 34, 0.5);
+  --farmBlack-o75: rgba(40, 38, 34, 0.75);
+  --farmBlack-o100: rgba(40, 38, 34, 1);
+  background-color: var(--farmWhite);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
 }
 
 * {

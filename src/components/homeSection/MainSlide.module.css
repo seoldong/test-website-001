@@ -26,20 +26,21 @@
 
 .slideBtn {
     position: absolute;
-    top: 55%;
+    top: 50%;
     transform: translateY(-50%);
     width: 6rem;
     height: 6rem;
-    background-color: transparent;
-    color: white;
+    background-color: var(--farmBlack-o25);
+    color: var(--farmWhite);
     font-size: 3rem;
-    border: none;
+    font-weight: bold;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
     transition: background-color 0.3s;
-    line-height: 50px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slideBtn:hover {

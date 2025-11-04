@@ -21,4 +21,5 @@ const bestDrinksSlice = createSlice({
 export default bestDrinksSlice.reducer;
 export const {
     getBestDrinks,
+    resetBestDrinks
 } = bestDrinksSlice.actions;

@@ -21,4 +21,5 @@ const bestMaskPackSlice = createSlice({
 export default bestMaskPackSlice.reducer;
 export const {
     getBestMaskPacks,
+    resetBestMaskPacks
 } = bestMaskPackSlice.actions;

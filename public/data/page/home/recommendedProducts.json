@@ -11,28 +11,6 @@
     "description": "Freshly squeezed carrot juice, rich in Vitamin A, supporting healthy vision and skin."
   },
   {
-    "productName": "Tomato Red Juice",
-    "priceKrw": 3100,
-    "productId": "D002",
-    "onSale": false,
-    "recommended": true,
-    "imageSrc": "/img/product/drink/D002.jpg",
-    "discountRate": 11,
-    "salesCount": 421,
-    "description": "Packed with lycopene from ripe red tomatoes, this juice is perfect for boosting vitality."
-  },
-  {
-    "productName": "Sugarcane Sweet Juice",
-    "priceKrw": 4200,
-    "productId": "D003",
-    "onSale": false,
-    "recommended": false,
-    "imageSrc": "/img/product/drink/D003.jpg",
-    "discountRate": 10,
-    "salesCount": 593,
-    "description": "Nature's candy! A refreshing and cool sugarcane juice to lift your spirits."
-  },
-  {
     "productName": "Berry Oat Smoothie",
     "priceKrw": 5000,
     "productId": "D004",
@@ -66,28 +44,6 @@
     "description": "A rich juice capturing the deep flavor and aroma of cherries. Perfect for a luxurious treat."
   },
   {
-    "productName": "Mango Yellow Smoothie",
-    "priceKrw": 4500,
-    "productId": "D007",
-    "onSale": true,
-    "recommended": false,
-    "imageSrc": "/img/product/drink/D007.jpg",
-    "discountRate": 11,
-    "salesCount": 632,
-    "description": "A sweet and smooth yellow smoothie, generously made with tropical mango."
-  },
-  {
-    "productName": "Green Detox Juice",
-    "priceKrw": 4900,
-    "productId": "D008",
-    "onSale": false,
-    "recommended": false,
-    "imageSrc": "/img/product/drink/D008.jpg",
-    "discountRate": 8,
-    "salesCount": 204,
-    "description": "A cleansing detox juice blended with various green vegetables and fruits to lighten your body."
-  },
-  {
     "productName": "Papaya Tropical Juice",
     "priceKrw": 3500,
     "productId": "D009",
@@ -110,17 +66,6 @@
     "description": "A refreshing sparkling juice where the tangy taste of kiwi meets maximum carbonation."
   },
   {
-    "productName": "Pineapple Sunshine Juice",
-    "priceKrw": 4100,
-    "productId": "D011",
-    "onSale": false,
-    "recommended": true,
-    "imageSrc": "/img/product/drink/D011.jpg",
-    "discountRate": 12,
-    "salesCount": 135,
-    "description": "Squeezed from sun-drenched pineapples, offering a perfect harmony of sweetness and zest."
-  },
-  {
     "productName": "Watermelon Hydration Juice",
     "priceKrw": 3600,
     "productId": "D012",
@@ -132,39 +77,6 @@
     "description": "The ultimate hydrator! A cool, pure watermelon juice, perfect for quenching your thirst."
   },
   {
-    "productName": "Peach Calm Smoothie",
-    "priceKrw": 4700,
-    "productId": "D013",
-    "onSale": false,
-    "recommended": true,
-    "imageSrc": "/img/product/drink/D013.png",
-    "discountRate": 18,
-    "salesCount": 319,
-    "description": "A sweet smoothie combining soft peaches and milk, bringing calmness and delight."
-  },
-  {
-    "productName": "Purple Grape Delight",
-    "priceKrw": 3300,
-    "productId": "D014",
-    "onSale": true,
-    "recommended": false,
-    "imageSrc": "/img/product/drink/D014.png",
-    "discountRate": 18,
-    "salesCount": 655,
-    "description": "Enjoy the rich flavor and aroma of dark purple grapes in this delightful juice."
-  },
-  {
-    "productName": "Banana Power Smoothie",
-    "priceKrw": 4600,
-    "productId": "D015",
-    "onSale": false,
-    "recommended": true,
-    "imageSrc": "/img/product/drink/D015.jpg",
-    "discountRate": 9,
-    "salesCount": 523,
-    "description": "Packed with banana energy and nutrition, a power smoothie perfect for pre or post-workout fuel."
-  },
-  {
     "productName": "Apple Cinnamon Juice",
     "priceKrw": 4000,
     "productId": "D016",
@@ -174,17 +86,6 @@
     "discountRate": 5,
     "salesCount": 178,
     "description": "The harmonious blend of apple and cinnamon creates a comforting and warm-tasting juice."
-  },
-  {
-    "productName": "Coconut Water Pure",
-    "priceKrw": 3000,
-    "productId": "D017",
-    "onSale": false,
-    "recommended": false,
-    "imageSrc": "/img/product/drink/D017.png",
-    "discountRate": 7,
-    "salesCount": 799,
-    "description": "Pure coconut water, excellent for mineral and hydration replenishment."
   },
   {
     "productName": "Cranberry Zing Juice",
@@ -218,5 +119,115 @@
     "discountRate": 11,
     "salesCount": 680,
     "description": "A premium juice rich in antioxidants from pomegranates, supporting overall wellness."
+  },
+  {
+    "productName": "Green Tea Calming Gel MaskPack",
+    "priceKrw": 3100,
+    "productId": "M002",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M002.jpg",
+    "discountRate": 10,
+    "salesCount": 894,
+    "description": "This gel pack uses green tea ingredients to soothe sensitive skin and provide hydration."
+  },
+  {
+    "productName": "Potato Soothing & Cooling Sheet",
+    "priceKrw": 5000,
+    "productId": "M004",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M004.jpg",
+    "discountRate": 30,
+    "salesCount": 772,
+    "description": "Potato extract quickly soothes sunburnt or irritated skin and provides a cooling effect."
+  },
+  {
+    "productName": "Oatmeal Gentle Scrub MaskPack",
+    "priceKrw": 4500,
+    "productId": "M007",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M007.jpg",
+    "discountRate": 40,
+    "salesCount": 918,
+    "description": "Oatmeal particles gently exfoliate and purify the skin with a mild scrubbing effect."
+  },
+  {
+    "productName": "Honey Deep Moisturizing MaskPack",
+    "priceKrw": 3500,
+    "productId": "M009",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M009.jpg",
+    "discountRate": 10,
+    "salesCount": 709,
+    "description": "The moisturizing power of honey delivers deep and rich hydration to dry and rough skin."
+  },
+  {
+    "productName": "Lemon Vitamin Radiance Mask",
+    "priceKrw": 3700,
+    "productId": "M010",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M010.jpg",
+    "discountRate": 35,
+    "salesCount": 547,
+    "description": "Lemon's Vitamin C revitalizes the skin and provides a clear, radiant glow."
+  },
+  {
+    "productName": "Marine Collagen Eye Patch",
+    "priceKrw": 6800,
+    "productId": "M014",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M014.jpg",
+    "discountRate": 15,
+    "salesCount": 834,
+    "description": "Marine collagen intensively supplies elasticity and moisture to the skin around the eyes."
+  },
+  {
+    "productName": "Snail Mucin Brightening Essence",
+    "priceKrw": 5500,
+    "productId": "M016",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M016.jpg",
+    "discountRate": 25,
+    "salesCount": 642,
+    "description": "Snail Mucin ingredients strengthen the skin barrier and give a clear, transparent radiance."
+  },
+  {
+    "productName": "Daily UV Defense Sunscreen",
+    "priceKrw": 4100,
+    "productId": "M017",
+    "onSale": false,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M017.jpg",
+    "discountRate": 40,
+    "salesCount": 508,
+    "description": "A mild daily sunscreen that safely protects the skin from powerful UV rays."
+  },
+  {
+    "productName": "Peptide Lifting Ampoule",
+    "priceKrw": 7500,
+    "productId": "M019",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M019.jpg",
+    "discountRate": 10,
+    "salesCount": 877,
+    "description": "Peptide ingredients intensively improve skin elasticity, offering a lifting effect with this highly concentrated ampoule."
+  },
+  {
+    "productName": "Tea Tree Spot Corrector",
+    "priceKrw": 3100,
+    "productId": "M020",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M020.jpg",
+    "discountRate": 20,
+    "salesCount": 325,
+    "description": "Tea Tree ingredients intensively care for spots on problematic skin and quickly soothe breakouts."
   }
 ]

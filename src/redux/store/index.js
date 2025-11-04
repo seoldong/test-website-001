@@ -8,6 +8,9 @@ import bestMaskPacksReducer from "../slices/product/bestMaskPacks";
 import drinkReviewsReducer from "../slices/review/drinkRivews"
 import maskPackReviewsReducer from "../slices/review/maskPackRivews"
 import productsOrderReducer from "../slices/order/order"
+import mainSlideReducer from "../slices/mainSlide/mainSlide"
+import bestProductsReducer from "../slices/product/bestProducts"
+import recommendedProductsReducer from "../slices/product/fetchRecommendedProductsThunk"
 
 // 
 export const store = configureStore({
@@ -21,5 +24,8 @@ export const store = configureStore({
         drinkReviews: drinkReviewsReducer,
         maskPackReviews: maskPackReviewsReducer,
         productsOrder: productsOrderReducer,
+        mainSlide: mainSlideReducer,
+        bestProducts: bestProductsReducer,
+        recommendedProducts: recommendedProductsReducer
     }
 })

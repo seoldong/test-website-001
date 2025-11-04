@@ -1,0 +1,46 @@
+[
+  {
+    "productName": "Centella Repair Serum",
+    "priceKrw": 5200,
+    "productId": "M012",
+    "onSale": true,
+    "recommended": false,
+    "imageSrc": "/img/product/maskpack/M012.jpg",
+    "discountRate": 45,
+    "salesCount": 970,
+    "description": "Centella Asiatica (Cica) extract quickly soothes sensitive and damaged skin and aids in recovery."
+  },
+  {
+    "productName": "Oatmeal Gentle Scrub MaskPack",
+    "priceKrw": 4500,
+    "productId": "M007",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M007.jpg",
+    "discountRate": 40,
+    "salesCount": 918,
+    "description": "Oatmeal particles gently exfoliate and purify the skin with a mild scrubbing effect."
+  },
+  {
+    "productName": "Green Tea Calming Gel MaskPack",
+    "priceKrw": 3100,
+    "productId": "M002",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M002.jpg",
+    "discountRate": 10,
+    "salesCount": 894,
+    "description": "This gel pack uses green tea ingredients to soothe sensitive skin and provide hydration."
+  },
+  {
+    "productName": "Peptide Lifting Ampoule",
+    "priceKrw": 7500,
+    "productId": "M019",
+    "onSale": true,
+    "recommended": true,
+    "imageSrc": "/img/product/maskpack/M019.jpg",
+    "discountRate": 10,
+    "salesCount": 877,
+    "description": "Peptide ingredients intensively improve skin elasticity, offering a lifting effect with this highly concentrated ampoule."
+  }
+]

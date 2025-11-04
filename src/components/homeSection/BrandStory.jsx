@@ -8,7 +8,7 @@ function BrandStory() {
     const { storyTitle, storyDescription, visonTitle, visonDescription } = brandStoryData;
 
     return (
-        <div className={styles.brandStory} >
+        <section className={styles.brandStory} >
             <div className={styles.parllax}></div>
             <div className={styles.contents}>
                 <div className={styles.story}>
@@ -21,7 +21,7 @@ function BrandStory() {
                     <div className={styles.visonDescription}>{visonDescription}</div>
                 </div>
             </div>
-        </div >
+        </section >
     )
 }
 

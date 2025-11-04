@@ -9,7 +9,7 @@ function BrandValue() {
 
   return (
     <section className={styles.brandValue}>
-      <div className={styles.titleContainer}>
+      <div className={styles.textContainer}>
         <div className={styles.title}>
           <div className={styles.firstLineTitle}>{titleFirstLine}</div>
           <div className={styles.secondLineTitle}>{titleSecondLine}</div>
