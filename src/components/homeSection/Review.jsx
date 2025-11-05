@@ -4,67 +4,20 @@ import { useEffect, useState, useMemo } from "react"; // useMemo 추가
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // 
-import { getAllDrinkReviews } from "../../redux/slices/review/drinkRivews"
-import { getAllMaskPackReviews } from "../../redux/slices/review/maskPackRivews";
+import { fetchBestReviewsThunk, resetbestReviews } from "../../redux/slices/review/bestReviews";
 
 const compareDates = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 // 
 function Review() {
     const dispatch = useDispatch();
-    const drinkReviews = useSelector((state) => state.drinkReviews);
-    const maskPackReviews = useSelector((state) => state.maskPackReviews);
-    // 
-    const [reviews, setReviews] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { data: reviews, loading, error } = useSelector((state) => state.bestReviews);
     const [currentPage, setCurrentPage] = useState(1);
-    const [activeFilter, setActiveFilter] = useState('Newest'); // 현재 활성화된 필터 상태
+    const [activeFilter, setActiveFilter] = useState('Newest');
 
-    // drink, maskpack 전부 받기
     useEffect(() => {
-        const fetchProduct = async () => {
-            setLoading(true);
-            setError(null);
-            const drinkReviewPath = '/data/review/review-drink.json';
-            const maskpackReviewPath = '/data/review/review-maskPack.json';
-
-            try {
-                const [drinkResponse, maskpackResponse] = await Promise.all([
-                    fetch(drinkReviewPath),
-                    fetch(maskpackReviewPath)
-                ]);
-                if (!drinkResponse.ok || !maskpackResponse.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const [drinks, maskpacks] = await Promise.all([
-                    drinkResponse.json(),
-                    maskpackResponse.json()
-                ]);
-
-                dispatch(getAllDrinkReviews(drinks));
-                dispatch(getAllMaskPackReviews(maskpacks));
-
-            } catch (error) {
-                setError('Failed to fetch data: ' + error.message);
-                console.error("Fetching data failed", error);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchProduct();
+        dispatch(fetchBestReviewsThunk());
     }, [dispatch])
-
-    // 
-    const sortInitReviews = useMemo(() => {
-        const allReviews = [...drinkReviews, ...maskPackReviews];
-        const sortedReviews = allReviews.sort((a, b) => compareDates(b, a));
-        return sortedReviews;
-    }, [drinkReviews, maskPackReviews]);
-
-    useEffect(() => {
-        setReviews(sortInitReviews);
-    }, [sortInitReviews]);
 
     // 
     const onPageItemLength = 8;
@@ -157,7 +110,7 @@ function Review() {
     return (
         <section className={styles.review}>
             <div className={styles.title}>REVIEW OF OUR CUSTOMERS</div>
-            <div className={styles.listFilterBox}>
+            {/* <div className={styles.listFilterBox}>
                 <button
                     className={`${styles.listFilter} ${activeFilter === 'Newest' ? styles.active : ''}`}
                     onClick={onClickNewest}
@@ -182,7 +135,7 @@ function Review() {
                 >
                     Lowest Rating
                 </button>
-            </div>
+            </div> */}
             <div className={styles.listContainer}>
                 <div className={styles.list}>
                     {currentReviews.map((review) => {
@@ -199,12 +152,12 @@ function Review() {
                             >
                                 <img className={styles.image} src={review.imageLink} alt={review.product_name} />
                                 <div className={styles.content}>{review.content}</div>
-                                <div className={styles.ratingBox}>
-                                    <div>{review.user_name}</div>
-                                    <div>
+                                <div className={styles.userBox}>
+                                    <div>{review.userName}</div>
+                                    <div className={styles.ratingBox}>
+                                        <div className={styles.date}>{review.date}</div>
                                         {stars.map((_, index) => {
                                             const starNumber = index + 1;
-
                                             return (
                                                 <span
                                                     key={index}

@@ -1,42 +1,35 @@
 import styles from "./Recommended.module.css";
 // 
-import { useEffect, useState, useRef, useCallback, use } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // 
 import useIntersectionObserver from "../../hooks/useIntersectionObserver"
-import { fetchRecommendedProductsThunk } from "../../redux/slices/product/fetchRecommendedProductsThunk";
+import { fetchRecommendedProductsThunk, resetRecommendedProducts } from "../../redux/slices/product/recommendedProducts";
 //
 const Recommended = () => {
 
     const dispatch = useDispatch();
-    // Redux 상태에서 products, loading, error 모두 가져옴
-    const { products: recommendedProducts, loading, error } = useSelector((state) => state.recommendedProducts);
+    const { data: recommendedProducts, loading, error } = useSelector((state) => state.recommendedProducts);
+
+    const dataIsMissing = recommendedProducts.length === 0;
 
     const trackRef = useRef(null);
     const intervalRef = useRef(null);
     const [targetRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-
     const [currentIndex, setCurrentIndex] = useState(0);
-    // 로딩/에러 상태는 Redux에서 관리하므로 컴포넌트의 useState는 제거
-    // const [loading, setLoading] = useState(true); 
-    // const [error, setError] = useState(null); 
 
     // 
-    const itemsToShow = 3;
     const ITEM_WIDTH_REM = 30;
 
-    // ⚠️ 이전 fetchRecommendedProducts 함수 삭제 (Redux Thunk로 이동됨) 
-
-    // 🚨 데이터 Fetching useEffect 수정: isVisible과 Redux 상태를 기반으로 Thunk 디스패치
+    // 
     useEffect(() => {
-        // isVisible하고, 아직 데이터가 없고, 현재 로딩 중이 아닐 때만 fetch
-        if (isVisible && recommendedProducts.length === 0 && !loading && !error) {
+        if (dataIsMissing && !loading && !error && isVisible) {
             dispatch(fetchRecommendedProductsThunk());
         }
-    }, [isVisible, recommendedProducts.length, loading, error, dispatch]); // 의존성 배열에 loading, error, dispatch 추가
+    }, [dataIsMissing, loading, error, isVisible, dispatch]);
 
-    // 인터벌 시작함수
+    // 
     const startAutoSlide = () => {
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
@@ -53,11 +46,11 @@ const Recommended = () => {
         }, 3000);
     };
 
-    // 초기화 이펙트
+
     useEffect(() => {
         if (recommendedProducts.length === 0) return;
 
-        if (currentIndex === recommendedProducts.length) { // 🚨 마지막 아이템 인덱스 수정 (복제본이 있으므로 products.length와 비교)
+        if (currentIndex === recommendedProducts.length) {
             const timeout = setTimeout(() => {
                 if (trackRef.current) {
                     trackRef.current.style.transition = 'none';
@@ -68,16 +61,26 @@ const Recommended = () => {
         }
     }, [currentIndex, recommendedProducts]);
 
-    // 이벤트 시작 이펙트
-    useEffect(() => {
-        if (recommendedProducts.length > 0) {
-            startAutoSlide();
-        }
-        return () => clearInterval(intervalRef.current);
-    }, [recommendedProducts]);
 
-    // ⚠️ 슬라이드 로직의 복잡성/중복성에 대한 내용은 이전에 논의되었습니다. (handlePrev/handleNext)
-    // 현재 질문의 초점인 Redux 통합에 맞춰 해당 함수는 그대로 유지합니다.
+    useEffect(() => {
+        // 1. 데이터가 없으면 실행할 필요가 없습니다.
+        if (recommendedProducts.length === 0) return;
+
+        // 2. 화면에 보이는 경우 (isVisible === true)
+        if (isVisible) {
+            startAutoSlide(); // 자동 슬라이드 시작
+        } else {
+            // 3. 화면에서 사라진 경우 (isVisible === false)
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current); // 자동 슬라이드 멈춤
+            }
+        }
+
+        // 4. 컴포넌트 정리 또는 의존성 변경 시 인터벌 정리
+        return () => clearInterval(intervalRef.current);
+
+        // 5. ✨ isVisible이 바뀔 때마다 이펙트가 재실행됩니다.
+    }, [recommendedProducts, isVisible]);
 
     // 
     const handlePrev = () => {
@@ -93,14 +96,14 @@ const Recommended = () => {
                         trackRef.current.style.transition = 'transform 0.3s ease-in-out';
                         setCurrentIndex(lastRealIndex - 1);
                     }
-                    startAutoSlide();
+                    if (isVisible) startAutoSlide();
                 }, 0);
                 return lastRealIndex;
             }
             if (trackRef.current) {
                 trackRef.current.style.transition = 'transform 0.3s ease-in-out';
             }
-            startAutoSlide();
+            if (isVisible) startAutoSlide();
             return prevIndex - 1;
         });
     };
@@ -140,9 +143,13 @@ const Recommended = () => {
         startAutoSlide();
     };
 
-    // 로딩/에러 상태를 Redux에서 가져온 상태로 변경
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    const handleReload = () => {
+        dispatch(resetRecommendedProducts());
+        dispatch(fetchRecommendedProductsThunk());
+    }
+
+    if (dataIsMissing) return <div ref={targetRef} style={{ width: '100%', height: '1200px' }}>Loading... <button onClick={handleReload}>reload</button></div>;
+    if (error) return <div ref={targetRef} style={{ width: '100%', height: '1200px' }}>Error: {error}</div>;
 
     // 
     return (
@@ -150,7 +157,6 @@ const Recommended = () => {
             className={styles.recommended}
             ref={targetRef}
         >
-            {/* ... JSX 코드는 동일하게 유지 ... */}
             <div className={styles.title}>{'Recommended product'}</div>
             <div className={styles.description}>{'Discover today\'s recommended product to revitalize your day!'}</div>
             <div className={styles.slide}>
@@ -163,7 +169,6 @@ const Recommended = () => {
                         className={styles.slideTrack}
                         ref={trackRef}
                         style={{
-                            // recommendedProducts.length는 이제 products 배열의 길이
                             width: `${ITEM_WIDTH_REM * recommendedProducts.length * 2}rem`,
                             transform: `translateX(-${currentIndex * ITEM_WIDTH_REM}rem)`,
                         }}

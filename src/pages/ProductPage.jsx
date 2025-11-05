@@ -12,7 +12,6 @@ function ProductPage() {
     const drinks = useSelector((state) => state.drinks);
     const maskPacks = useSelector((state) => state.maskPacks);
     const productOrder = useSelector((state) => state.productsOrder);
-    console.log(productOrder);
 
     // 
     const [productData, setProductData] = useState(null);

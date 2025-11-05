@@ -1,35 +1,27 @@
 import styles from "./BestProducts.module.css";
 // 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // 
 import homeBestProductsText from "../../assets/page/home/bestProductsText";
+import { fetchBestProductsThunk, resetBestProducts } from "../../redux/slices/product/bestProducts";
 
 // 
-function BestProducts({ onReload }) {
-
-  const bestProducts = useSelector((state) => state.bestProducts);
+function BestProducts() {
+  const dispatch = useDispatch();
+  const { data: bestProducts, loading, error } = useSelector((state) => state.bestProducts);
 
   const dataIsMissing = bestProducts.length === 0;
 
+  // 
   const handleReload = () => {
-    if (onReload) {
-      onReload();
-    } else {
-      console.error("The onReload function was not passed to bestProducts.");
-    }
+    dispatch(resetBestProducts());
+    dispatch(fetchBestProductsThunk());
   };
 
-  if (dataIsMissing) {
-    return (
-      <div className={styles.mainSlide} style={{ padding: '50px', textAlign: 'center' }}>
-        <p>Failed to fetch slide data or data is missing.</p>
-        <button onClick={handleReload} className={styles.reloadButton}>
-          Reload Data
-        </button>
-      </div>
-    );
-  }
+  // 
+  if (dataIsMissing ||loading) return <div>Loading... <button onClick={handleReload}>reload</button></div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className={styles.bestProducts}>

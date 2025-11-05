@@ -1,13 +1,11 @@
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// 
-
-export const fetchBestProductsThunk = createAsyncThunk(
-    'bestProducts/fetch',
+export const fetchBestReviewsThunk = createAsyncThunk(
+    'bestReviews/fetch',
     async (_, thunkAPI) => {
-        const path = '/data/page/home/bestProducts.json';
+        const bestReviewsPath = '/data/review/review-best.json';
         try {
-            const response = await fetch(path);
+            const response = await fetch(bestReviewsPath);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -18,34 +16,36 @@ export const fetchBestProductsThunk = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message || 'Failed to fetch recommended products.');
         }
     }
-)
+);
 
 const initialState = {
     data: [],
     loading: false,
     error: null,
 };
-
-const bestProductsSlice = createSlice({
-    name: "bestProducts",
+// 
+const bestReviewsSlice = createSlice({
+    name: "bestReviews",
     initialState,
     reducers: {
-        resetBestProducts: (state) => {
-            return initialState;
+        resetbestReviews: (state) => {
+            state.data = initialState.data;
+            state.loading = initialState.loading;
+            state.error = initialState.error;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchBestProductsThunk.pending, (state) => {
+            .addCase(fetchBestReviewsThunk.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchBestProductsThunk.fulfilled, (state, action) => {
+            .addCase(fetchBestReviewsThunk.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
                 state.error = null;
             })
-            .addCase(fetchBestProductsThunk.rejected, (state, action) => {
+            .addCase(fetchBestReviewsThunk.rejected, (state, action) => {
                 state.loading = false;
                 state.data = [];
                 state.error = action.payload || action.error.message || 'Unknown error occurred.';
@@ -53,5 +53,5 @@ const bestProductsSlice = createSlice({
     },
 });
 
-export default bestProductsSlice.reducer;
-export const { resetBestProducts } = bestProductsSlice.actions;
+export const { resetbestReviews } = bestReviewsSlice.actions;
+export default bestReviewsSlice.reducer;
