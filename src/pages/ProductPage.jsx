@@ -4,13 +4,12 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import { orderMinus, orderPlus } from '../redux/slices/order/order';
-import TopNav from '../components/topNav';
 
 // 
 function ProductPage() {
     const { id } = useParams();
-    const drinks = useSelector((state) => state.drinks);
-    const maskPacks = useSelector((state) => state.maskPacks);
+    const { data: drinks, loading: drinkLoading, error: drinkError } = useSelector((state) => state.drinks);
+    const { data: maskPacks, loading: maskPackLoading, error: maskPackError } = useSelector((state) => state.maskPacks);
     const productOrder = useSelector((state) => state.productsOrder);
 
     // 
@@ -35,13 +34,10 @@ function ProductPage() {
 
     // 
     const totalPrice = useMemo(() => {
-        // productData가 null이 아니고, priceKrw가 있을 때만 계산
-        // console.log(productData);
-
         if (productData?.priceKrw) {
             return (productData.priceKrw * productOrder).toLocaleString('ko-KR');
         }
-        return '0'; // 로딩 중이거나 데이터가 없을 때
+        return '0';
     }, [productData, productOrder]);
 
     // 
@@ -190,7 +186,7 @@ Please wait a moment while the full product details are being fetched.`
 function ProductReview({ productData }) {
 
     console.log(productData);
-    
+
     const drinkReviews = useSelector((state) => state.drinkReviews);
     const maskPackReviews = useSelector((state) => state.maskPackReviews);
     // 

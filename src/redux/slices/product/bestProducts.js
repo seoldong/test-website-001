@@ -1,11 +1,10 @@
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // 
 
 export const fetchBestProductsThunk = createAsyncThunk(
     'bestProducts/fetch',
     async (_, thunkAPI) => {
-        const path = '/data/page/home/bestProducts.json';
+        const path = '/data/product/bestProducts.json';
         try {
             const response = await fetch(path);
             if (!response.ok) {
@@ -20,12 +19,14 @@ export const fetchBestProductsThunk = createAsyncThunk(
     }
 )
 
+// 
 const initialState = {
     data: [],
     loading: false,
     error: null,
 };
 
+// 
 const bestProductsSlice = createSlice({
     name: "bestProducts",
     initialState,

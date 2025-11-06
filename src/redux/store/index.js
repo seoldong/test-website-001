@@ -12,6 +12,7 @@ import mainSlideReducer from "../slices/mainSlide/mainSlide"
 import bestProductsReducer from "../slices/product/bestProducts"
 import recommendedProductsReducer from "../slices/product/recommendedProducts"
 import bestReviewsReducer from "../slices/review/bestReviews"
+import eventsReducer from "../slices/event/events";
 
 // 
 export const store = configureStore({
@@ -29,5 +30,6 @@ export const store = configureStore({
         bestProducts: bestProductsReducer,
         recommendedProducts: recommendedProductsReducer,
         bestReviews: bestReviewsReducer,
+        events: eventsReducer
     }
 })

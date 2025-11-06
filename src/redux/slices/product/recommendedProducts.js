@@ -1,16 +1,29 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 
+const shuffleArray = (array) => {
+    let newArray = [...array];
+
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
+    }
+
+    return newArray;
+};
+
+// 
 export const fetchRecommendedProductsThunk = createAsyncThunk(
     'recommendedProducts/fetch',
     async (_, thunkAPI) => {
-        const recommendedProductsPath = '/data/page/home/recommendedProducts.json';
+        const path = '/data/product/recommendedProducts.json';
         try {
-            const response = await fetch(recommendedProductsPath);
+            const response = await fetch(path);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            return data;
+            const shuffledData = shuffleArray(data);
+            return shuffledData; // 섞인 데이터를 payload로 반환
         } catch (error) {
             console.error("Fetching data failed", error);
             return thunkAPI.rejectWithValue(error.message || 'Failed to fetch recommended products.');

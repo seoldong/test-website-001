@@ -40,3 +40,8 @@ const useIntersectionObserver = (options) => {
 };
 
 export default useIntersectionObserver;
+
+
+// 사용할 페이지에서 호출 후 사용
+// const [targetRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+// <div ref={targetRef}></div>

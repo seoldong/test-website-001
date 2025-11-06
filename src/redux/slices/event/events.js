@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const fetchDrinksThunk = createAsyncThunk(
-    'drinks/fetch',
+// 
+export const fetchEventsThunk = createAsyncThunk(
+    'events/fetch',
     async (_, thunkAPI) => {
-        const path = '/data/product/drink.json';
+        const path = '/data/page/event/events.json';
         try {
             const response = await fetch(path);
             if (!response.ok) {
@@ -16,34 +17,36 @@ export const fetchDrinksThunk = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message || 'Failed to fetch recommended products.');
         }
     }
-)
+);
 
+// 
 const initialState = {
     data: [],
     loading: false,
     error: null,
 };
 
-const drinksSlice = createSlice({
-    name: "drinks",
+//
+const eventsSlice = createSlice({
+    name: "events",
     initialState,
     reducers: {
-        resetDrinks: (state) => {
+        resetEvents: (state) => {
             return initialState;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchDrinksThunk.pending, (state) => {
+            .addCase(fetchEventsThunk.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchDrinksThunk.fulfilled, (state, action) => {
+            .addCase(fetchEventsThunk.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
                 state.error = null;
             })
-            .addCase(fetchDrinksThunk.rejected, (state, action) => {
+            .addCase(fetchEventsThunk.rejected, (state, action) => {
                 state.loading = false;
                 state.data = [];
                 state.error = action.payload || action.error.message || 'Unknown error occurred.';
@@ -51,5 +54,5 @@ const drinksSlice = createSlice({
     },
 });
 
-export default drinksSlice.reducer;
-export const { resetDrinks } = drinksSlice.actions;
+export default eventsSlice.reducer;
+export const { resetEvents } = eventsSlice.actions;

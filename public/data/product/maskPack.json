@@ -176,7 +176,7 @@
     "description": "Snail Mucin ingredients strengthen the skin barrier and give a clear, transparent radiance."
   },
   {
-    "productName": "Daily UV Defense Sunscreen",
+    "productName": "Cypress Forest Soothing Mask",
     "priceKrw": 4100,
     "productId": "M017",
     "onSale": false,
@@ -184,10 +184,10 @@
     "imageSrc": "/img/product/maskpack/M017.jpg",
     "discountRate": 40,
     "salesCount": 508,
-    "description": "A mild daily sunscreen that safely protects the skin from powerful UV rays."
+    "description": "A daily mask that safely soothes skin irritated by strong UV rays with the clear energy of a cypress forest."
   },
   {
-    "productName": "Rosehip Oil Facial Mask",
+    "productName": "Rosehip Berry Radiance Mask",
     "priceKrw": 4900,
     "productId": "M018",
     "onSale": true,
@@ -195,10 +195,10 @@
     "imageSrc": "/img/product/maskpack/M018.jpg",
     "discountRate": 50,
     "salesCount": 199,
-    "description": "Rosehip oil ingredients provide nutrition and vitality to the skin, keeping it healthy."
+    "description": "Rosehip berry oil ingredients provide rich nutrition and vitality to the skin, delivering a healthy and radiant glow."
   },
   {
-    "productName": "Peptide Lifting Ampoule",
+    "productName": "Volcanic Rock Lifting Ampoule Mask",
     "priceKrw": 7500,
     "productId": "M019",
     "onSale": true,
@@ -206,10 +206,10 @@
     "imageSrc": "/img/product/maskpack/M019.jpg",
     "discountRate": 10,
     "salesCount": 877,
-    "description": "Peptide ingredients intensively improve skin elasticity, offering a lifting effect with this highly concentrated ampoule."
+    "description": "Volcanic rock minerals intensively boost skin elasticity, offering a firm lifting effect with this highly concentrated ampoule mask."
   },
   {
-    "productName": "Tea Tree Spot Corrector",
+    "productName": "Pine Needle Calming Spot Mask",
     "priceKrw": 3100,
     "productId": "M020",
     "onSale": true,
@@ -217,6 +217,6 @@
     "imageSrc": "/img/product/maskpack/M020.jpg",
     "discountRate": 20,
     "salesCount": 325,
-    "description": "Tea Tree ingredients intensively care for spots on problematic skin and quickly soothe breakouts."
+    "description": "Pine needle extract intensively cares for spots on problematic skin and quickly calms down red breakouts."
   }
 ]

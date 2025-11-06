@@ -23,6 +23,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(45, 187, 147);
+    margin-bottom: 3rem;
 }
 
 .eventList {
@@ -43,11 +44,7 @@
 }
 
 .box:hover {
-    /* 1. transition 대상 속성을 'transform'으로 변경 */
-    /* 2. 지속 시간 단위를 'ms' 대신 's'로 변경 (0.3초) */
     transition: transform 0.2s ease-in-out;
-
-    /* scale() 함수는 transform 속성의 값입니다. */
     transform: scale(1.1);
 }
 

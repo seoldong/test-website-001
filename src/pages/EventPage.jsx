@@ -3,11 +3,10 @@ import styles from "./EventPage.module.css"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import TopNav from "../components/topNav";
-import Footer from "../components/footerSection/Footer"
 import Modal from "../components/common/Modal";
 import ModalEventPage from "./ModalEvent";
 import { openModal } from "../redux/slices/modal/modalState";
+import { fetchEventsThunk } from "../redux/slices/event/events";
 
 // 
 const compareDates = (a, b) => new Date(a.info.startDate).getTime() - new Date(b.info.startDate).getTime();
@@ -15,48 +14,31 @@ const compareDates = (a, b) => new Date(a.info.startDate).getTime() - new Date(b
 // 
 function EventPage() {
 
-    const modalState = useSelector((state) => state.modalState)
-
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const modalState = useSelector((state) => state.modalState);
+    const { data: events, loading, error } = useSelector((state) => state.events);
 
     const [currentPage, setCurrentPage] = useState(1);
+
+    const dataIsMissing = events.length === 0;
 
     const onPageItemLength = 8;
     const boardPage = Math.max(1, Math.ceil(events.length / onPageItemLength));
 
     // 
     useEffect(() => {
-        const eventTextPath = '/data/eventList.json';
-        const fetchEvents = async () => {
-            try {
-                const response = await fetch(eventTextPath);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const eventData = await response.json();
-                const sortedData = [...eventData].sort((a, b) => compareDates(b, a));
-                setEvents(sortedData);
-
-            } catch (error) {
-                setError('Failed to fetch data: ' + error.message);
-                console.error("Fetching data failed", error);
-            } finally {
-                setLoading(false);
-            }
+        if (dataIsMissing && !loading && !error) {
+            dispatch(fetchEventsThunk());
         }
-        fetchEvents();
-    }, [])
+    }, [dataIsMissing, loading, error, dispatch]);
 
     // 
-    if (loading) return <main className={styles.eventPage}><div className={styles.loading}>데이터를 불러오는 중입니다...</div></main>
-    if (error) return <main className={styles.eventPage}><div className={styles.error}>오류: {error}</div></main>
+    if (dataIsMissing) return <div style={{ width: '100%', height: '1200px' }}>Loading... <button>reload</button></div>;
+    if (error) return <div ref={targetRef} style={{ width: '100%', height: '1200px' }}>Error: {error}</div>;
 
     // 
     return (
         <main className={styles.eventPage}>
-            <TopNav />
             <div className={styles.boardImgBox} />
             <div className={styles.pageTitle}>Join the Happy Farm Events!</div>
 
@@ -64,7 +46,6 @@ function EventPage() {
                 <EventList data={{ onPageItemLength, currentPage, events }} />
                 <PaginationBtn data={{ currentPage, setCurrentPage, boardPage }} />
             </div>
-            <Footer />
             {modalState.isOpen &&
                 <Modal >
                     <ModalEventPage events={events} />

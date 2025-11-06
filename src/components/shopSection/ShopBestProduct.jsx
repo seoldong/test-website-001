@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
 import styles from "./ShopBestProduct.module.css";
 // 
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getAllDrinks } from "../../redux/slices/product/drinks";
-import { getBestDrinks } from "../../redux/slices/product/bestDrinks";
-import { getAllMaskPacks } from "../../redux/slices/product/maskPacks";
-import { getBestMaskPacks } from "../../redux/slices/product/bestMaskPacks";
+// 
+import { fetchBestDrinksThunk } from "../../redux/slices/product/bestDrinks";
+import { fetchBestMaskPacksThunk } from "../../redux/slices/product/bestMaskPacks";
 
 // 
 function ShopBestProduct() {
 
     const { category } = useParams();
     const dispatch = useDispatch();
-    const bestDrinks = useSelector((state) => state.bestDrinks);
-    const bestMaskPacks = useSelector((state) => state.bestMaskPacks);
+    const { data: bestDrinks, loading: bestDrinksLoading, error: bestDrinksError } = useSelector((state) => state.bestDrinks);
+    const { data: bestMaskPacks, loading: bestMaskPacksLoading, error: bestMaskPacksError } = useSelector((state) => state.bestMaskPacks);
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    //
+    const bestDrinksDataIsMissing = bestDrinks.length === 0;
+    const bestMaskPacksDataIsMissing = bestMaskPacks.length === 0;
+    const loading = bestDrinksLoading || bestMaskPacksLoading;
+    const error = bestDrinksError || bestMaskPacksError;
 
+    // 
     const caseOfCategory = (category) => {
         switch (category) {
             case "drink":
@@ -32,65 +35,13 @@ function ShopBestProduct() {
     const bestProducts = caseOfCategory(category);
 
     useEffect(() => {
-        console.log('start data effect');
-        
-        const topCount = 4;
-        if (category === 'drink' && bestDrinks.length === 0) {
-            const fetchDrink = async () => {
-                setLoading(true);
-                setError(null);
-                const drinkPath = '/data/product-drink.json';
-                try {
-                    const response = await fetch(drinkPath);
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    const drinks = await response.json();
-                    console.log('dispatch drink');
-                    
-                    dispatch(getAllDrinks(drinks));
-                    dispatch(getBestDrinks({ productData: drinks, topCount: topCount }));
-                } catch (error) {
-                    setError('Failed to fetch data: ' + error.message);
-                    console.error("Fetching data failed", error);
-                } finally {
-                    setLoading(false);
-                }
-
-            }
-            fetchDrink();
-        } else if (category === 'maskPack' && bestMaskPacks.length === 0) {
-            const fetchMaskPack = async () => {
-                setLoading(true);
-                setError(null);
-                const maskpackPath = '/data/product-maskPack.json';
-                try {
-                    const response = await fetch(maskpackPath);
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    const maskPacks = await response.json();
-                    dispatch(getAllMaskPacks(maskPacks));
-                    dispatch(getBestMaskPacks({ productData: maskPacks, topCount: topCount }));
-                } catch (error) {
-                    setError('Failed to fetch data: ' + error.message);
-                    console.error("Fetching data failed", error);
-                } finally {
-                    setLoading(false);
-                }
-            }
-            fetchMaskPack();
-        } else {
-            setLoading(false);
-            setError(null);
-            return;
+        if (category === 'drink' && bestDrinksDataIsMissing) {
+            dispatch(fetchBestDrinksThunk());
+        } else if (category === 'maskPack' && bestMaskPacksDataIsMissing) {
+            dispatch(fetchBestMaskPacksThunk());
         }
-
     }, [bestDrinks.length, bestMaskPacks.length, category, dispatch])
 
-    // 
-    console.log("loading : ",loading);
-    
     if (loading) return <div className={styles.bestProducts}>Loading...</div>;
     if (error) return <div className={styles.bestProducts}>Error: {error}</div>;
 
@@ -107,7 +58,7 @@ function ShopBestProduct() {
                             key={product.productId + index}
                             to={`/product/${product.productId}`}
                         >
-                            <div>
+                            <div className={styles.imgBox}>
                                 <img className={styles.productImg} src={product.imageSrc} />
                             </div>
                             <div className={styles.productName}>
@@ -115,16 +66,16 @@ function ShopBestProduct() {
                             </div>
                             <div className={styles.priceBox}>
                                 <div className={styles.offProductPrice}>
-                                    ₩ {`${product.priceKrw - discount}`}
+                                    $ {`${product.priceKrw - discount}`}
                                 </div>
                                 <div className={styles.productPrice}>
-                                    ₩ {product.priceKrw}
+                                    $ {product.priceKrw}
                                 </div>
                             </div>
                             <div className={styles.stateBox}>
-                                <div className={styles.discountBox}><p>discount</p><p>{product.discountRate}%</p></div>
-                                <div className={styles.popularityBox}><p>popularity</p><p>✓</p></div>
-                                <div className={styles.recommendedBox}><p>recommended</p><p>✓</p></div>
+                                <div><p>discount</p><p>{product.discountRate}%</p></div>
+                                <div><p>popularity</p><p>✓</p></div>
+                                <div><p>recommended</p><p>✓</p></div>
                             </div>
                         </Link>
                     )

@@ -46,7 +46,6 @@ const Recommended = () => {
         }, 3000);
     };
 
-
     useEffect(() => {
         if (recommendedProducts.length === 0) return;
 
