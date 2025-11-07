@@ -8,7 +8,8 @@
     "imageSrc": "/img/product/drink/D012.jpg",
     "discountRate": 9,
     "salesCount": 982,
-    "description": "The ultimate hydrator! A cool, pure watermelon juice, perfect for quenching your thirst."
+    "description": "The ultimate hydrator! A cool, pure watermelon juice, perfect for quenching your thirst.",
+    "priceUsd": 2.47
   },
   {
     "productName": "Lime Mint Cooler",
@@ -19,7 +20,8 @@
     "imageSrc": "/img/product/drink/D019.png",
     "discountRate": 10,
     "salesCount": 944,
-    "description": "A refreshing cooler with the perfect blend of lime and mint, guaranteed to beat the heat."
+    "description": "A refreshing cooler with the perfect blend of lime and mint, guaranteed to beat the heat.",
+    "priceUsd": 2.2
   },
   {
     "productName": "Berry Oat Smoothie",
@@ -30,7 +32,8 @@
     "imageSrc": "/img/product/drink/D004.jpg",
     "discountRate": 13,
     "salesCount": 910,
-    "description": "A blend of various berries and oats, providing high satiety and nutrition in a hearty smoothie."
+    "description": "A blend of various berries and oats, providing high satiety and nutrition in a hearty smoothie.",
+    "priceUsd": 3.43
   },
   {
     "productName": "Carrot Fresh Juice",
@@ -41,6 +44,7 @@
     "imageSrc": "/img/product/drink/D001.jpg",
     "discountRate": 9,
     "salesCount": 856,
-    "description": "Freshly squeezed carrot juice, rich in Vitamin A, supporting healthy vision and skin."
+    "description": "Freshly squeezed carrot juice, rich in Vitamin A, supporting healthy vision and skin.",
+    "priceUsd": 2.68
   }
 ]

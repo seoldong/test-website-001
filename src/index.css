@@ -3,6 +3,9 @@
   --farmYellow: rgba(248, 182, 25);
   --farmYellowWhite: rgb(255, 235, 187);
   --farmWhite: rgb(255, 250, 240);
+  --farmLightGray: rgb(200, 200, 200);
+  --farmGray: rgb(150, 150, 150);
+  --farmDarkGray: rgb(40, 40, 40);
   --farmGreen: rgba(55, 151, 71);
   --farmGreenYellow: rgba(55, 153, 71);
   --farmOrange: rgba(217, 85, 64);

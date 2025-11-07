@@ -14,7 +14,7 @@ export const fetchBestProductsThunk = createAsyncThunk(
             return data;
         } catch (error) {
             console.error("Fetching data failed", error);
-            return thunkAPI.rejectWithValue(error.message || 'Failed to fetch recommended products.');
+            return thunkAPI.rejectWithValue(error.message || 'Failed to fetch best products.');
         }
     }
 )

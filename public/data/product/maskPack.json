@@ -8,7 +8,8 @@
     "imageSrc": "/img/product/maskpack/M001.jpg",
     "discountRate": 25,
     "salesCount": 451,
-    "description": "This pack uses egg white ingredients to firmly tighten pores and smooth the skin texture."
+    "description": "This pack uses egg white ingredients to firmly tighten pores and smooth the skin texture.",
+    "priceUsd": 2.68
   },
   {
     "productName": "Green Tea Calming Gel MaskPack",
@@ -19,7 +20,8 @@
     "imageSrc": "/img/product/maskpack/M002.jpg",
     "discountRate": 10,
     "salesCount": 894,
-    "description": "This gel pack uses green tea ingredients to soothe sensitive skin and provide hydration."
+    "description": "This gel pack uses green tea ingredients to soothe sensitive skin and provide hydration.",
+    "priceUsd": 2.13
   },
   {
     "productName": "Banana Nutrition Moisturizing MaskPack",
@@ -30,7 +32,8 @@
     "imageSrc": "/img/product/maskpack/M003.jpg",
     "discountRate": 5,
     "salesCount": 167,
-    "description": "Containing the rich nutrition of banana, this pack moisturizes dry and rough skin."
+    "description": "Containing the rich nutrition of banana, this pack moisturizes dry and rough skin.",
+    "priceUsd": 2.88
   },
   {
     "productName": "Potato Soothing & Cooling Sheet",
@@ -41,7 +44,8 @@
     "imageSrc": "/img/product/maskpack/M004.jpg",
     "discountRate": 30,
     "salesCount": 772,
-    "description": "Potato extract quickly soothes sunburnt or irritated skin and provides a cooling effect."
+    "description": "Potato extract quickly soothes sunburnt or irritated skin and provides a cooling effect.",
+    "priceUsd": 3.43
   },
   {
     "productName": "Aloe Vera Moisture Relief MaskPack",
@@ -52,7 +56,8 @@
     "imageSrc": "/img/product/maskpack/M005.jpg",
     "discountRate": 15,
     "salesCount": 239,
-    "description": "Aloe vera ingredients provide deep hydration and a soothing effect to the skin."
+    "description": "Aloe vera ingredients provide deep hydration and a soothing effect to the skin.",
+    "priceUsd": 3.78
   },
   {
     "productName": "Cucumber Fresh Hydration Mask",
@@ -63,7 +68,8 @@
     "imageSrc": "/img/product/maskpack/M006.jpg",
     "discountRate": 20,
     "salesCount": 605,
-    "description": "The freshness of cucumber instantly hydrates the skin, making it moist and vitalized."
+    "description": "The freshness of cucumber instantly hydrates the skin, making it moist and vitalized.",
+    "priceUsd": 3.3
   },
   {
     "productName": "Oatmeal Gentle Scrub MaskPack",
@@ -74,7 +80,8 @@
     "imageSrc": "/img/product/maskpack/M007.jpg",
     "discountRate": 40,
     "salesCount": 918,
-    "description": "Oatmeal particles gently exfoliate and purify the skin with a mild scrubbing effect."
+    "description": "Oatmeal particles gently exfoliate and purify the skin with a mild scrubbing effect.",
+    "priceUsd": 3.09
   },
   {
     "productName": "Yogurt Brightening Cream Mask",
@@ -85,7 +92,8 @@
     "imageSrc": "/img/product/maskpack/M008.jpg",
     "discountRate": 25,
     "salesCount": 353,
-    "description": "Yogurt's fermented ingredients brighten the skin tone and revitalize the skin."
+    "description": "Yogurt's fermented ingredients brighten the skin tone and revitalize the skin.",
+    "priceUsd": 3.36
   },
   {
     "productName": "Honey Deep Moisturizing MaskPack",
@@ -96,7 +104,8 @@
     "imageSrc": "/img/product/maskpack/M009.jpg",
     "discountRate": 10,
     "salesCount": 709,
-    "description": "The moisturizing power of honey delivers deep and rich hydration to dry and rough skin."
+    "description": "The moisturizing power of honey delivers deep and rich hydration to dry and rough skin.",
+    "priceUsd": 2.4
   },
   {
     "productName": "Lemon Vitamin Radiance Mask",
@@ -107,7 +116,8 @@
     "imageSrc": "/img/product/maskpack/M010.jpg",
     "discountRate": 35,
     "salesCount": 547,
-    "description": "Lemon's Vitamin C revitalizes the skin and provides a clear, radiant glow."
+    "description": "Lemon's Vitamin C revitalizes the skin and provides a clear, radiant glow.",
+    "priceUsd": 2.54
   },
   {
     "productName": "Hyaluronic Acid Moisture Cream",
@@ -118,7 +128,8 @@
     "imageSrc": "/img/product/maskpack/M011.jpg",
     "discountRate": 5,
     "salesCount": 296,
-    "description": "Hyaluronic acid deeply replenishes moisture to the skin, keeping it hydrated all day long."
+    "description": "Hyaluronic acid deeply replenishes moisture to the skin, keeping it hydrated all day long.",
+    "priceUsd": 3.09
   },
   {
     "productName": "Centella Repair Serum",
@@ -129,7 +140,8 @@
     "imageSrc": "/img/product/maskpack/M012.jpg",
     "discountRate": 45,
     "salesCount": 970,
-    "description": "Centella Asiatica (Cica) extract quickly soothes sensitive and damaged skin and aids in recovery."
+    "description": "Centella Asiatica (Cica) extract quickly soothes sensitive and damaged skin and aids in recovery.",
+    "priceUsd": 3.57
   },
   {
     "productName": "Green Tea Calming Toner",
@@ -140,7 +152,8 @@
     "imageSrc": "/img/product/maskpack/M013.jpg",
     "discountRate": 20,
     "salesCount": 112,
-    "description": "Green tea ingredients remove residue after cleansing and comfortably soothe the skin."
+    "description": "Green tea ingredients remove residue after cleansing and comfortably soothe the skin.",
+    "priceUsd": 1.99
   },
   {
     "productName": "Marine Collagen Eye Patch",
@@ -151,7 +164,8 @@
     "imageSrc": "/img/product/maskpack/M014.jpg",
     "discountRate": 15,
     "salesCount": 834,
-    "description": "Marine collagen intensively supplies elasticity and moisture to the skin around the eyes."
+    "description": "Marine collagen intensively supplies elasticity and moisture to the skin around the eyes.",
+    "priceUsd": 4.67
   },
   {
     "productName": "Charcoal Detox Cleanser",
@@ -162,7 +176,8 @@
     "imageSrc": "/img/product/maskpack/M015.jpg",
     "discountRate": 30,
     "salesCount": 381,
-    "description": "Charcoal ingredients absorb waste and excessive sebum in the pores, purifying them cleanly."
+    "description": "Charcoal ingredients absorb waste and excessive sebum in the pores, purifying them cleanly.",
+    "priceUsd": 2.27
   },
   {
     "productName": "Snail Mucin Brightening Essence",
@@ -173,7 +188,8 @@
     "imageSrc": "/img/product/maskpack/M016.jpg",
     "discountRate": 25,
     "salesCount": 642,
-    "description": "Snail Mucin ingredients strengthen the skin barrier and give a clear, transparent radiance."
+    "description": "Snail Mucin ingredients strengthen the skin barrier and give a clear, transparent radiance.",
+    "priceUsd": 3.78
   },
   {
     "productName": "Cypress Forest Soothing Mask",
@@ -184,7 +200,8 @@
     "imageSrc": "/img/product/maskpack/M017.jpg",
     "discountRate": 40,
     "salesCount": 508,
-    "description": "A daily mask that safely soothes skin irritated by strong UV rays with the clear energy of a cypress forest."
+    "description": "A daily mask that safely soothes skin irritated by strong UV rays with the clear energy of a cypress forest.",
+    "priceUsd": 2.81
   },
   {
     "productName": "Rosehip Berry Radiance Mask",
@@ -195,7 +212,8 @@
     "imageSrc": "/img/product/maskpack/M018.jpg",
     "discountRate": 50,
     "salesCount": 199,
-    "description": "Rosehip berry oil ingredients provide rich nutrition and vitality to the skin, delivering a healthy and radiant glow."
+    "description": "Rosehip berry oil ingredients provide rich nutrition and vitality to the skin, delivering a healthy and radiant glow.",
+    "priceUsd": 3.36
   },
   {
     "productName": "Volcanic Rock Lifting Ampoule Mask",
@@ -206,7 +224,8 @@
     "imageSrc": "/img/product/maskpack/M019.jpg",
     "discountRate": 10,
     "salesCount": 877,
-    "description": "Volcanic rock minerals intensively boost skin elasticity, offering a firm lifting effect with this highly concentrated ampoule mask."
+    "description": "Volcanic rock minerals intensively boost skin elasticity, offering a firm lifting effect with this highly concentrated ampoule mask.",
+    "priceUsd": 5.15
   },
   {
     "productName": "Pine Needle Calming Spot Mask",
@@ -217,6 +236,7 @@
     "imageSrc": "/img/product/maskpack/M020.jpg",
     "discountRate": 20,
     "salesCount": 325,
-    "description": "Pine needle extract intensively cares for spots on problematic skin and quickly calms down red breakouts."
+    "description": "Pine needle extract intensively cares for spots on problematic skin and quickly calms down red breakouts.",
+    "priceUsd": 2.13
   }
 ]

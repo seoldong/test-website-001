@@ -48,6 +48,7 @@
 
 .rightBtn {
   padding: 1rem;
+  font-weight: bold;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -56,3 +57,4 @@
   color: aliceblue;
   background-color: darkgray;
 }
+

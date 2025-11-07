@@ -1,9 +1,9 @@
-const subscription ={
+const subscription = {
   "title": "Vitality Boost Duo Subscription (Health Drink & Mask Pack)",
   "subtitle": "The Perfect Combination for Daily Energy and Skin Radiance",
   "description": "This regular subscription includes 12 bottles of organic Carrot-Lemon Health Juice and 10 sheets of Carrot & Lemon Glow Mask. Deliver fresh nourishment to both your body and skin, experiencing radiant vitality all day long. Automatically delivered every 4 weeks.",
-  "priceKrw": "49,900 KRW",
-  "priceUsd": "40.00 USD",
+  "priceKrw": "30,000 KRW",
+  "priceUsd": "22.50 USD",
   "imgSrc": "/img/page/home/subscription.png"
 }
 
