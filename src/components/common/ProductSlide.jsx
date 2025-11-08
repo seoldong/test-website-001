@@ -1,8 +1,6 @@
 import styles from "./ProductSlide.module.css"
-
 // 
 import { useEffect, useRef, useState } from "react";
-
 // 
 import Error from "./Error";
 import Loading from "./Loading";
@@ -12,17 +10,17 @@ import { Link } from "react-router-dom";
 // 
 function ProductSlide({ slideData, onRetry, dataName }) {
 
-    // 
+    //
     const trackRef = useRef(null);
     const intervalRef = useRef(null);
     const { data, loading, error } = slideData;
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [intervalTime, setIntervalTime] = useState(3000);
     const dataLength = data.length;
     const dataMissing = dataLength === 0;
-    const itemWidth = 300;
-    const [intervalTime, setIntervalTime] = useState(1000);
+    const itemWidth = 400;
 
-    // 
+    //
     useEffect(() => {
         if (!trackRef.current) return;
         if (intervalRef.current) {
@@ -32,16 +30,16 @@ function ProductSlide({ slideData, onRetry, dataName }) {
         intervalRef.current = setInterval(() => {
             if (currentIndex >= dataLength) {
                 trackRef.current.style.transition = 'none';
-                setIntervalTime(10)
+                setIntervalTime(10);
                 setCurrentIndex(0);
             } else {
                 trackRef.current.style.transition = 'transform 0.3s ease-in-out';
-                setIntervalTime(1000)
+                setIntervalTime(3000);
                 setCurrentIndex(prev => prev + 1);
             }
         }, intervalTime)
 
-        return () => clearInterval(intervalRef.current); // <--- **여기 수정**
+        return () => clearInterval(intervalRef.current);
 
     }, [currentIndex, dataLength, intervalTime])
 
@@ -52,7 +50,7 @@ function ProductSlide({ slideData, onRetry, dataName }) {
 
     // 
     return (
-        <section className={styles.slide}>
+        <div className={styles.slide}>
             <PrevBtn slideData={{ trackRef, dataLength, intervalRef, currentIndex, setCurrentIndex, setIntervalTime }} />
             <div className={styles.slideFrame}>
                 <div
@@ -64,28 +62,32 @@ function ProductSlide({ slideData, onRetry, dataName }) {
                     }}
                 >
                     {[...data, ...data].map((product, index) => {
+
                         return (
                             <Link
                                 className={styles.productBox}
                                 key={product.productId + index}
                                 style={{ width: `${itemWidth}px` }}
+                                to={`/product/${product.productId}`}
                             >
-                                {index}
                                 <img
                                     className={styles.image}
                                     src={product.imageSrc}
                                     alt={product.productName}
                                 />
-                                <div className={styles.productName}>{product.productName}</div>
-                                <div className={styles.productPriceBox}>
+                                <div className={styles.name}>{product.productName}</div>
+                                <div className={styles.priceBox}>
                                     <div
-                                        className={styles.productSalePrice}>
-                                        {`$ ${Math.round(product.onSale ? product.priceKrw * product.discountRate : product.priceKrw).toLocaleString()}`}
+                                        className={styles.salePrice}>
+                                        {`$ ${Math.round(product.onSale ? product.priceUsd * product.discountRate : product.priceKrw).toLocaleString()}`}
                                     </div>
                                     <div
-                                        className={styles.productPrice}>
-                                        {product.onSale ? `$ ${product.priceKrw.toLocaleString()}` : ''}
+                                        className={styles.price}>
+                                        {product.onSale ? `$ ${product.priceUsd.toLocaleString()}` : ''}
                                     </div>
+                                </div>
+                                <div className={styles.stateBox}>
+                                    {product.onSale && <div className={styles.state}>{product.discountRate}% discount</div>}
                                 </div>
                             </Link>
                         )
@@ -93,7 +95,7 @@ function ProductSlide({ slideData, onRetry, dataName }) {
                 </div>
             </div>
             <NextBtn slideData={{ trackRef, dataLength, intervalRef, currentIndex, setCurrentIndex, setIntervalTime }} />
-        </section>
+        </div>
     )
 }
 
@@ -121,7 +123,7 @@ function PrevBtn({ slideData }) {
         <div className={styles.prevBox}>
             <button
                 className={styles.prevBtn}
-                onClick={handlePrev}
+                onMouseDown={handlePrev}
             >{`⟨`}</button>
         </div>
     )
@@ -146,9 +148,10 @@ function NextBtn({ slideData }) {
     };
 
     return (
-        <div className={styles.nextBox}><button
-            className={styles.nextBtn}
-            onClick={handleNext}
-        >{`⟩`}</button></div>
+        <div className={styles.nextBox}>
+            <button
+                className={styles.nextBtn}
+                onMouseDown={handleNext}
+            >{`⟩`}</button></div>
     )
 }

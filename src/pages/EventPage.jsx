@@ -1,40 +1,47 @@
 import styles from "./EventPage.module.css"
 // 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useParams } from "react-router-dom";
+// 
 import Modal from "../components/common/Modal";
 import ModalEventPage from "./ModalEvent";
 import { openModal } from "../redux/slices/modal/modalState";
 import { fetchEventsThunk } from "../redux/slices/event/events";
-
-// 
-const compareDates = (a, b) => new Date(a.info.startDate).getTime() - new Date(b.info.startDate).getTime();
+import Loading from "../components/common/Loading";
+import NoData from "../components/common/NoData";
+import Error from "../components/common/Error";
 
 // 
 function EventPage() {
 
     const dispatch = useDispatch();
+    const { category } = useParams();
     const modalState = useSelector((state) => state.modalState);
-    const { data: events, loading, error } = useSelector((state) => state.events);
+    const { data, loading, error } = useSelector((state) => state.events);
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const dataIsMissing = events.length === 0;
+    const dataMissing = data.length === 0;
 
     const onPageItemLength = 8;
-    const boardPage = Math.max(1, Math.ceil(events.length / onPageItemLength));
+    const boardPage = Math.max(1, Math.ceil(data.length / onPageItemLength));
 
     // 
     useEffect(() => {
-        if (dataIsMissing && !loading && !error) {
+        if (dataMissing && !loading && !error) {
             dispatch(fetchEventsThunk());
         }
-    }, [dataIsMissing, loading, error, dispatch]);
+    }, [dataMissing, loading, error, dispatch]);
+
+    const handleRefetch = useCallback(() => {
+        dispatch(fetchEventsThunk());
+    }, [dispatch]);
 
     // 
-    if (dataIsMissing) return <div style={{ width: '100%', height: '1200px' }}>Loading... <button>reload</button></div>;
-    if (error) return <div ref={targetRef} style={{ width: '100%', height: '1200px' }}>Error: {error}</div>;
+    if (loading) return <Loading />
+    if (dataMissing) return <NoData onRetry={handleRefetch} dataName={category} />
+    if (error) return <Error onRetry={handleRefetch} dataName={category} />;
 
     // 
     return (
@@ -43,12 +50,12 @@ function EventPage() {
             <div className={styles.pageTitle}>Join the Happy Farm Events!</div>
 
             <div className={styles.eventBox}>
-                <EventList data={{ onPageItemLength, currentPage, events }} />
+                <EventList eventData={{ onPageItemLength, currentPage, data }} />
                 <PaginationBtn data={{ currentPage, setCurrentPage, boardPage }} />
             </div>
             {modalState.isOpen &&
                 <Modal >
-                    <ModalEventPage events={events} />
+                    <ModalEventPage events={data} />
                 </Modal>
             }
         </main >
@@ -58,12 +65,12 @@ function EventPage() {
 export default EventPage;
 
 // 
-function EventList({ data }) {
-    const { onPageItemLength, currentPage, events } = data;
+function EventList({ eventData }) {
+    const { onPageItemLength, currentPage, data } = eventData;
     const dispatch = useDispatch();
     const startIndex = (currentPage - 1) * onPageItemLength;
     const endIndex = startIndex + onPageItemLength;
-    const currentEvents = events.slice(startIndex, endIndex);
+    const currentEvents = data.slice(startIndex, endIndex);
 
     return (
         <div className={styles.eventList}>
@@ -86,12 +93,10 @@ function PaginationBtn({ data }) {
 
     const { currentPage, setCurrentPage, boardPage } = data;
 
-    // 💡 새로운: 페이지 버튼 배열을 계산하는 함수 (최대 5개 표시)
     const getPaginationButtons = () => {
         const maxButtons = 5;
         const buttonArray = [];
 
-        // 현재 페이지가 속한 5개 단위의 시작점 계산 (예: 1~5, 6~10, 11~15)
         const startPage = Math.floor((currentPage - 1) / maxButtons) * maxButtons + 1;
         const endPage = Math.min(startPage + maxButtons - 1, boardPage);
 
@@ -103,7 +108,6 @@ function PaginationBtn({ data }) {
     const { buttonArray, startPage, endPage } = getPaginationButtons();
 
 
-    // 💡 새로운: 처음/끝 페이지 이동 및 순차 이동 기능 추가
     const onClickBoardPageBtn = (pageNum) => {
         setCurrentPage(pageNum)
     }
@@ -118,7 +122,6 @@ function PaginationBtn({ data }) {
         setCurrentPage(prev => prev + 1)
     }
 
-    // 💡 새로운: 가장 처음/가장 끝 페이지 이동 함수
     const onClickMoveFirstPage = () => {
         setCurrentPage(1);
     }
@@ -130,8 +133,8 @@ function PaginationBtn({ data }) {
     // 
     return (
         <div className={styles.boardBtnBox}>
-            <button onClick={onClickMoveFirstPage} disabled={currentPage === 1}>«</button>
-            <button onClick={onClickMoveLeftPageBtn} disabled={currentPage === 1}>◀</button>
+            <button className={styles.arrow} onClick={onClickMoveFirstPage} disabled={currentPage === 1}>⟪</button>
+            <button className={styles.boubbleArrow} onClick={onClickMoveLeftPageBtn} disabled={currentPage === 1}>⟨</button>
             {startPage > 1 && <button onClick={() => onClickBoardPageBtn(startPage - 1)}>...</button>}
             {buttonArray.map((pageBtn) => {
                 return <button
@@ -143,8 +146,8 @@ function PaginationBtn({ data }) {
                 </button>
             })}
             {endPage < boardPage && <button onClick={() => onClickBoardPageBtn(endPage + 1)}>...</button>}
-            <button onClick={onClickMoveRightPageBtn} disabled={currentPage === boardPage}>▶</button>
-            <button onClick={onClickMoveLastPage} disabled={currentPage === boardPage}>»</button>
+            <button className={styles.arrow} onClick={onClickMoveRightPageBtn} disabled={currentPage === boardPage}>⟩</button>
+            <button className={styles.boubbleArrow} onClick={onClickMoveLastPage} disabled={currentPage === boardPage}>⟫</button>
         </div>
     )
 }

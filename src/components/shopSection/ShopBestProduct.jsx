@@ -1,85 +1,100 @@
 import styles from "./ShopBestProduct.module.css";
 // 
-import { useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 // 
 import { fetchBestDrinksThunk } from "../../redux/slices/product/bestDrinks";
 import { fetchBestMaskPacksThunk } from "../../redux/slices/product/bestMaskPacks";
+import BestBoard from "../common/BestBoard";
+
+// 
+const getCategoryTexts = (selectedCategory) => {
+    switch (selectedCategory) {
+        case "bestDrinks":
+            return {
+                title: "Daily Vitality Boost",
+                subTitle: "Your balanced choice for a healthier lifestyle"
+            };
+        case "bestMaskPacks":
+            return {
+                title: "Customized Calming Solution",
+                subTitle: "Restore deep skin health with the power of nature"
+            };
+        default:
+            return {
+                title: "",
+                subTitle: ""
+            };
+    }
+};
 
 // 
 function ShopBestProduct() {
-
-    const { category } = useParams();
     const dispatch = useDispatch();
-    const { data: bestDrinks, loading: bestDrinksLoading, error: bestDrinksError } = useSelector((state) => state.bestDrinks);
-    const { data: bestMaskPacks, loading: bestMaskPacksLoading, error: bestMaskPacksError } = useSelector((state) => state.bestMaskPacks);
+    const { category } = useParams();
 
     //
-    const bestDrinksDataIsMissing = bestDrinks.length === 0;
-    const bestMaskPacksDataIsMissing = bestMaskPacks.length === 0;
-    const loading = bestDrinksLoading || bestMaskPacksLoading;
-    const error = bestDrinksError || bestMaskPacksError;
-
-    // 
     const caseOfCategory = (category) => {
         switch (category) {
-            case "drink":
-                return bestDrinks;
-            case "maskPack":
-                return bestMaskPacks;
+            case "drinks":
+                return "bestDrinks";
+            case "maskPacks":
+                return "bestMaskPacks";
             default:
-                return [];
+                return "";
         }
     }
-    const bestProducts = caseOfCategory(category);
+    const selectedCategory = useMemo(() => caseOfCategory(category), [category]);
 
+    const DEFAULT_PRODUCT_STATE = { data: [], loading: false, error: null };
+
+    const selectedProducts = useSelector((state) => {
+        return state[selectedCategory] || DEFAULT_PRODUCT_STATE;
+    });
+
+    const dataMissing = selectedProducts.data.length === 0;
+
+    // 
     useEffect(() => {
-        if (category === 'drink' && bestDrinksDataIsMissing) {
-            dispatch(fetchBestDrinksThunk());
-        } else if (category === 'maskPack' && bestMaskPacksDataIsMissing) {
-            dispatch(fetchBestMaskPacksThunk());
-        }
-    }, [bestDrinks.length, bestMaskPacks.length, category, dispatch])
+        const fetchCategoryData = () => {
+            if (!dataMissing) return;
+            switch (selectedCategory) {
+                case "bestDrinks":
+                    dispatch(fetchBestDrinksThunk());
+                    break;
+                case "bestMaskPacks":
+                    dispatch(fetchBestMaskPacksThunk());
+                    break;
+                default:
+                    break;
+            }
+        };
+        fetchCategoryData();
+    }, [category, dispatch, dataMissing, selectedCategory]);
 
-    if (loading) return <div className={styles.bestProducts}>Loading...</div>;
-    if (error) return <div className={styles.bestProducts}>Error: {error}</div>;
+    // 
+    const handleRefetch = useCallback(() => {
+        switch (selectedCategory) {
+            case "bestDrinks":
+                return dispatch(fetchBestDrinksThunk());
+            case "bestMaskPacks":
+                return dispatch(fetchBestMaskPacksThunk());
+            default:
+                return;
+        }
+    }, [dispatch]);
+
+    const { title, subTitle } = useMemo(() => getCategoryTexts(selectedCategory), [selectedCategory]);
 
     // 
     return (
         <section className={styles.bestProduct} >
             <div className={styles.hook}>The healthy habit chosen by many.</div>
             <div className={styles.bestProductBox}>
-                {bestProducts.map((product, index) => {
-                    const discount = (product.priceKrw * product.discountRate / 100);
-                    return (
-                        <Link
-                            className={styles.productBox}
-                            key={product.productId + index}
-                            to={`/product/${product.productId}`}
-                        >
-                            <div className={styles.imgBox}>
-                                <img className={styles.productImg} src={product.imageSrc} />
-                            </div>
-                            <div className={styles.productName}>
-                                {product.productName}
-                            </div>
-                            <div className={styles.priceBox}>
-                                <div className={styles.offProductPrice}>
-                                    $ {`${product.priceKrw - discount}`}
-                                </div>
-                                <div className={styles.productPrice}>
-                                    $ {product.priceKrw}
-                                </div>
-                            </div>
-                            <div className={styles.stateBox}>
-                                <div><p>discount</p><p>{product.discountRate}%</p></div>
-                                <div><p>popularity</p><p>✓</p></div>
-                                <div><p>recommended</p><p>✓</p></div>
-                            </div>
-                        </Link>
-                    )
-                })}
+                <div className={styles.title}>{title}</div>
+                <div className={styles.subTitle}>{subTitle}</div>
+                <BestBoard boardData={selectedProducts} onRetry={handleRefetch} dataName={selectedCategory} />
             </div>
         </section>
     )

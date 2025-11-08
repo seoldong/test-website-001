@@ -5,42 +5,62 @@
     top: 0;
     left: 0;
     display: flex;
-    align-items: start;
+    align-items: center; /* 모달을 수직 중앙으로 이동 */
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7); /* 배경을 더 어둡게 */
     z-index: 100;
 }
 
 .contentsBox {
-    width: 60%;
-    height: 60%;
+    /* 너비와 높이 비율 조정 */
+    width: 50%; 
+    max-width: 800px; /* 최대 크기 지정 */
+    height: 80vh; /* 화면 높이의 80% 사용 */
     position: relative;
-    margin-top: 10rem;
+    /* margin-top 제거하고 flex로 중앙 정렬 */
+    background-color: white; /* 모달 컨테이너 배경색 추가 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* 내부 내용이 넘칠 때 대비 */
 }
 
 .btnBox {
     width: 100%;
-    height: 10%;
+    height: 50px; /* 고정 높이 */
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end; /* 끝으로 이동 */
+    padding: 0 1rem;
+    background-color: #f7f7f7; /* 버튼 영역 구분 */
+    border-bottom: 1px solid #eee;
 }
 
 .btn {
-    width: 10%;
-    height: 60%;
+    /* 버튼 사이즈 및 스타일 개선 */
+    width: auto;
+    padding: 0.5rem 1rem;
+    height: 80%;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
-    background-color: black;
-    color: whitesmoke;
+    background-color: #e0e0e0; /* 호버 시 회색 배경 */
+    color: #000;
+    border-radius: 4px;
 }
 
 .contents {
     width: 100%;
-    height: 90%;
+    height: calc(100% - 50px); /* btnBox 높이만큼 빼기 */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    overflow-y: auto; /* 내용이 길어지면 스크롤 가능 */
 }

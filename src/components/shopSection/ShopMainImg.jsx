@@ -9,9 +9,9 @@ function ShopMainImg() {
 
     function imgSrc() {
         switch (category) {
-            case 'drink':
+            case 'drinks':
                 return shopDrinkMain;
-            case 'maskPack':
+            case 'maskPacks':
                 return shopMaskPackMain;
         }
     }

@@ -31,7 +31,7 @@ function TopNav() {
             <div className={`${styles.underSide} ${undersidePanel && styles.active}`}>
                 <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
                 <ShopBtnUnderside />
-                <button className={styles.eventBtn} >EVENT</button>
+                <Link to={'/Event'}><button className={styles.eventBtn}>EVENT</button></Link>
             </div>
             <div className={styles.leftBox}>
                 <BurgerBtn />

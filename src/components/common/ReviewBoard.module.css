@@ -1,0 +1,133 @@
+.listContainer {
+    width: 100%;
+    height: 85%;
+}
+
+.listFilterBox {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding: 0 3rem;
+}
+
+.listFilter {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: darkgray;
+    background-color: transparent;
+}
+
+.listFilter::after {
+    content: "|";
+    padding: 1rem;
+    color: darkgray;
+}
+
+.listFilter:last-child::after {
+    content: none;
+}
+
+.listFilter:hover {
+    color: black;
+}
+
+.list {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviewBox {
+    width: 25%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.box:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.5;
+    height: 3em;
+    width: 20rem;
+    margin: 1.5rem 0 2rem 0;
+    font-size: 1.2rem;
+}
+
+.userBox {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ratingBox {
+    display: flex;
+}
+
+.date {
+    margin-right: 1rem;
+}
+
+.board {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.board button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 1rem;
+}
+
+.board button.activePage {
+    background-color: var(--farmYellow);
+    color: var(--farmGreen);
+    font-weight: bold;
+    border-color: var(--farmYellow);
+}
+
+.board button:hover:not(:disabled):not(.activePage) {
+    background-color: var(--farmWhite)
+}
+
+.board button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 💡 추가: 별점 스타일 */
+.filledStar {
+    color: gold;
+}
+
+.emptyStar {
+    color: lightgray;
+}

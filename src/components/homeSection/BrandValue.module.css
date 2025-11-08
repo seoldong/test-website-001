@@ -1,8 +1,8 @@
 .brandValue {
-    width: 100%;
-    height: 1000px;
-    padding: 5rem;
-    background-color: var(--farmYellowWhite)
+  width: 100%;
+  height: 900px;
+  padding: 5rem;
+  background-color: var(--farmYellowWhite)
 }
 
 .textContainer {
@@ -21,18 +21,14 @@
   height: 60%;
 }
 
-.firstLineTitle {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
+.firstLineTitle,
 .secondLineTitle {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 .description {
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1.5;
   margin-top: 2rem;
 }
@@ -55,11 +51,13 @@
 }
 
 .valueName {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .valueIcon {
-  font-size: 2em;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .valueImg {

@@ -1,14 +1,16 @@
-import { useSelector } from "react-redux";
 import styles from "./ModalEvent.module.css"
+// 
+import { useSelector } from "react-redux";
 
+// 
 function ModalEventPage({ events }) {
 
     const selectedEvent = useSelector((state) => state.modalState)
     const eventData = events.find((event) => event.meta.id === selectedEvent.eventId);
-    console.log(eventData);
+    if (!eventData) return null;
 
     const styeleData = {
-        backgroundImage: `url('${eventData.image.mainImgSrc}')`,
+        backgroundImage: `url('${eventData?.image?.mainImgSrc || ''}')`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',

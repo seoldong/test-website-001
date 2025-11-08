@@ -22,8 +22,8 @@ function ShopBtn() {
         onMouseEnter={() => setIsMenuEnter(true)}
         onMouseLeave={() => setIsMenuEnter(false)}
       >
-        <Link className={styles.drinkBtn} to={'/shop/drink'}>DRINK</Link>
-        <Link className={styles.maskPackBtn} to={'/shop/maskPack'}>MASK PACK</Link>
+        <Link className={styles.drinkBtn} to={'/shop/drinks'}>DRINK</Link>
+        <Link className={styles.maskPackBtn} to={'/shop/maskPacks'}>MASK PACK</Link>
       </div>
       }
     </div>

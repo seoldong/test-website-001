@@ -1,12 +1,10 @@
 .bestProduct {
     width: 100%;
-    height: 900px;
-    margin-bottom: 20rem;
 }
 
 .hook {
     width: 100%;
-    height: 16%;
+    height: 10rem;
     font-size: 4rem;
     font-weight: bold;
     display: flex;
@@ -19,77 +17,28 @@
 
 .bestProductBox {
     width: 100%;
-    height: 84%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 0;
-}
-
-.productBox {
-    width: 20%;
-    height: 100%;
-}
-
-.productBox:hover {
-    transform: scale(1.1);
-    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.5);
-}
-
-.imgBox {
-    width: 100%;
-    height: 50%;
-    padding: 1rem;
-}
-
-.productImg {
-    width: 100%;
-    height: 100%;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    cursor: pointer;
-    object-fit: cover;
 }
 
-.productName {
-    width: 100%;
-    height: 15%;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+.title {
+  width: 100%;
+  height: 18%;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 0.5rem;
 }
 
-.priceBox {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.offProductPrice {
-    font-size: 1.5rem;
-    margin-right: 3rem;
-}
-
-.productPrice {
-    opacity: 0.5;
-    text-decoration: line-through;
-}
-
-.stateBox {
-    width: 100%;
-    height: 25%;
-    padding: 2rem;
-}
-
-.stateBox div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+.subTitle {
+  width: 100%;
+  height: 12%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 0.5rem;
 }

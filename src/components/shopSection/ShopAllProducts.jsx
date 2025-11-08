@@ -1,106 +1,63 @@
 import styles from './ShopAllProducts.module.css';
 // 
-import { useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // 
 import { fetchDrinksThunk } from '../../redux/slices/product/drinks';
 import { fetchMaskPacksThunk } from '../../redux/slices/product/maskPacks';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import ProductsBoard from '../common/productsBoard';
 
 // 
 function ShopAllProducts() {
-    const { category } = useParams();
     const dispatch = useDispatch();
-
-    const { data: drinks, loading: drinksLoading, error: drinksError } = useSelector((state) => state.drinks);
-    const { data: maskPacks, loading: maskPacksLoading, error: maskPacksError } = useSelector((state) => state.maskPacks);
-    const [targetRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-
-    //
-    const drinksDataIsMissing = drinks.length === 0;
-    const maskPacksDataIsMissing = maskPacks.length === 0;
-    const loading = drinksLoading || maskPacksLoading;
-    const error = drinksError || maskPacksError;
+    const { category } = useParams();
 
     // 
-    const caseOfCategory = (category) => {
-        switch (category) {
-            case "drink":
-                return drinks;
-            case "maskPack":
-                return maskPacks;
-            default:
-                return [];
-        }
-    }
-    const products = caseOfCategory(category);
+    const DEFAULT_PRODUCT_STATE = { data: [], loading: false, error: null };
 
-    //
+    const selectedProducts = useSelector((state) => {
+        return state[category] || DEFAULT_PRODUCT_STATE;
+    });
+
+    const dataMissing = selectedProducts.data.length === 0;
+
+    // 
     useEffect(() => {
-        if (category === 'drink' && drinksDataIsMissing) {
-            dispatch(fetchDrinksThunk())
-        } else if (category === 'maskPack' && maskPacksDataIsMissing) {
-            dispatch(fetchMaskPacksThunk())
+        const fetchCategoryData = () => {
+            if (!dataMissing) return;
+            switch (category) {
+                case "drinks":
+                    dispatch(fetchDrinksThunk());
+                    break;
+                case "maskPacks":
+                    dispatch(fetchMaskPacksThunk());
+                    break;
+                default:
+                    break;
+            }
+        };
+        fetchCategoryData();
+    }, [category, dispatch, dataMissing]);
+
+    // 
+    const handleRefetch = useCallback(() => {
+        switch (category) {
+            case "drinks":
+                return dispatch(fetchDrinksThunk());
+            case "maskPacks":
+                return dispatch(fetchMaskPacksThunk());
+            default:
+                return;
         }
-    }, [drinks.length, maskPacks.length, category, dispatch])
+    }, [dispatch]);
 
-    // 
-    if (loading) return <div className={styles.bestProducts}>Loading...</div>;
-    if (error) return <div className={styles.bestProducts}>Error: {error}</div>;
-
-    // 
+    //
     return (
-        <section className={styles.allProducts} ref={targetRef}>
+        <section className={styles.allProducts}>
             <div className={styles.hook}>Experience the fresh vitality that fills you from within.</div>
-            <div className={styles.productContainer}>
-                {products.map((product, index) => {
-                    return (
-                        <Link
-                            className={styles.productBox}
-                            key={product.productId}
-                            to={`/product/${product.productId}`}
-                        >
-                            <img className={styles.image} src={product.imageSrc} />
-                            <div className={styles.name}>{product.productName}</div>
-                            <PriceState product={product} />
-                        </Link>
-                    )
-                })}
-            </div>
+            <ProductsBoard boardData={selectedProducts} onRetry={handleRefetch} dataName={category} />
         </section >
     )
 }
 export default ShopAllProducts;
-
-// 
-function PriceState({ product }) {
-
-    const discount = (product.priceKrw * product.discountRate / 100);
-
-    const saleElemetnt = () => {
-        return (
-            <>
-                <div className={styles.sale} >
-                    <p className={styles.discountPrice}>{`$ ${product.priceKrw - discount}`}</p>
-                    <p className={styles.nomalPrice}>$ {product.priceKrw}</p>
-                </div>
-                <div className={styles.discountState}>{product.discountRate}% off</div>
-            </>
-        )
-    }
-
-    const normalElement = () => {
-        return (
-            <div className={styles.price} >
-                <p>$ {product.priceKrw}</p>
-            </div>
-        )
-    }
-
-    return (
-        <div className={styles.priceBox}>
-            {product.onSale ? saleElemetnt() : normalElement()}
-        </div>
-    )
-}
