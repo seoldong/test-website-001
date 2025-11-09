@@ -1,5 +1,6 @@
-import brandValueImg from '../assets/page/home/brandValue.jpg'
+import brandValueImg from '../../assets/page/home/brandValue.jpg'
 
+// 
 const brandValueData = {
     titleFirstLine: `We Capture the`,
     titleSecondLine: `Vitality of Nature :`,

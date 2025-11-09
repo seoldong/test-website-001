@@ -20,7 +20,14 @@ function Footer() {
                 <div className={styles.companyName}>- Wellness Juice Company -</div>
             </div>
             <div className={styles.connect}>
-                <div className={styles.instargram}>[ INSTARGRAM ]</div>
+                <a
+                    href={'https://www.instagram.com/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.instargram} // 기존 스타일은 유지
+                >
+                    [ INSTARGRAM ]
+                </a>
                 <div className={styles.email}>
                     <div className={styles.emailAdd}>{emailAddress}</div>
                     <div className={styles.eamilCopy}>
@@ -29,8 +36,8 @@ function Footer() {
                         </button>
                     </div>
                 </div>
-                <div className={styles.number}>+82 (0)2-1234-5678</div>
-                <div className={styles.adress}>[04321] 4F, 123, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea</div>
+                <div className={styles.number}>+82 (00)00-1234-5678</div>
+                <div className={styles.adress}>[00000] 0F, 123, myAddress-ro, myAddress-gu, Seoul, Republic of Korea</div>
             </div>
             <div className={styles.copyright}>
                 Copyright © 2025 wellbeingJuice All rights reserved.
@@ -40,3 +47,5 @@ function Footer() {
 }
 
 export default Footer;
+
+

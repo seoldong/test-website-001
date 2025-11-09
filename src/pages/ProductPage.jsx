@@ -11,6 +11,9 @@ import { fetchDrinksThunk } from '../redux/slices/product/drinks';
 import { fetchMaskPacksThunk } from '../redux/slices/product/maskPacks';
 import { fetchDrinkReviewsThunk } from '../redux/slices/review/drinkRevews';
 import { fetchMaskPackReviewsThunk } from '../redux/slices/review/maskPackRivews';
+import productDetails from '../mockData/productDetails/productDetails';
+import questionAndAnswer from '../mockData/productDetails/questionAndAnswer';
+
 
 // ====================================================================
 // 💡 컴포넌트 외부 정의: 재사용 및 불필요한 재생성 방지
@@ -167,7 +170,7 @@ function ProductPage() {
             </div>
 
             {pageView === 'details' && <Details />}
-            {pageView === 'review' && <ProductReview productData={productData} onRetry={handleRefetch}/>}
+            {pageView === 'review' && <ProductReview productData={productData} onRetry={handleRefetch} />}
             {pageView === 'qna' && <QuestionAndAnswer />}
         </section>
     )
@@ -242,30 +245,14 @@ function OrderQuantity({ productData }) {
 function Details() {
     const [isExpand, setIsExpand] = useState(false);
 
-    const detailsTitle = 'Product Details & Key Features'
-    const detailsDescription = `This section serves as a placeholder for the detailed description of the product, showcasing its unique benefits, specifications, and usage instructions.
-
-When the live product data is loaded, this area will be replaced with comprehensive information, including:
-
-Core Specifications: Dimensions, materials, and ingredients.
-
-Benefits & Effectiveness: How the product helps the user.
-
-How to Use: Recommended application methods or instructions.
-
-Delivery & Return Policy Highlights.
-
-Please wait a moment while the full product details are being fetched.`
-
-
     return (
         <section>
             <div className={`
             ${styles.productDetails} 
             ${isExpand ? styles.active : ''} /* 🌟 클래스 토글 */
         `}>
-                <div className={styles.detailTitle}>{detailsTitle}</div>
-                <div className={styles.detailsDescription}>{detailsDescription}</div>
+                <div className={styles.detailTitle}>{productDetails.title}</div>
+                <div className={styles.detailsDescription}>{productDetails.description}</div>
             </div>
             <div className={styles.expandPageBox}>
                 <button className={styles.expandPageBtn} onClick={() => setIsExpand(!isExpand)}>
@@ -335,12 +322,6 @@ function ProductReview({ productData, onRetry }) {
         }
     }
 
-    console.log(data);
-    console.log(loading);
-    console.log(error);
-    console.log(reviewData);
-    
-
     if (loading) return <Loading />
     if (error) return <Error onRetry={onRetry} dataName={'product details review'} />;
     if (dataMissing) return <NoData onRetry={onRetry} dataName={'product details review'} />
@@ -354,7 +335,7 @@ function ProductReview({ productData, onRetry }) {
                 return (
                     <div className={styles.reveiw} key={review.productId + index}>
                         <div className={styles.reveiwTop}>
-                            <img className={styles.userPhoto} src={review.imageLink} alt={`${review.userName}'s review photo`} />
+                            <img className={styles.userPhoto} src={review.userImageLink} alt={`${review.userName}'s review photo`} />
                             <div className={styles.userReview}>{review.content}</div>
                         </div>
                         <div className={styles.reviewBottom}>
@@ -385,11 +366,11 @@ function QuestionAndAnswer() {
     return (
         <section className={styles.qna}>
             <div className={styles.qnaTitle}>Question and Answer</div>
-            <div className={styles.questionBox} onClick={() => setIsOpen({ ...isOpen, Question01: !isOpen.Question01 })}>Q. What are the most important ingredients to look for when choosing a wellness drink?
-                {isOpen.Question01 && <div className={styles.answerBox}>A. It is crucial to check the content of added sugars and artificial sweeteners. It's best to choose products flavored with natural ingredients whenever possible.</div>}
+            <div className={styles.questionBox} onClick={() => setIsOpen({ ...isOpen, Question01: !isOpen.Question01 })}>Q. {questionAndAnswer.question_01}
+                {isOpen.Question01 && <div className={styles.answerBox}>A. {questionAndAnswer.answer_01}</div>}
             </div>
-            <div className={styles.questionBox} onClick={() => setIsOpen({ ...isOpen, Question02: !isOpen.Question02 })}>Q. What wellness drinks can replace sports drinks for electrolyte replenishment after exercise?
-                {isOpen.Question02 && <div className={styles.answerBox}>A. Coconut water or water mixed with a little lemon juice and salt are excellent alternatives. They provide natural electrolytes without artificial components.</div>}
+            <div className={styles.questionBox} onClick={() => setIsOpen({ ...isOpen, Question02: !isOpen.Question02 })}>Q. {questionAndAnswer.question_02}
+                {isOpen.Question02 && <div className={styles.answerBox}>A. {questionAndAnswer.answer_02}</div>}
             </div>
         </section>
     )

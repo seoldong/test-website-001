@@ -14,8 +14,7 @@
     background-color: var(--farmYellowWhite);
     color: var(--farmDarkGray);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* 폰트 변경 */
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
 /* -------------------- 2. 회사 슬로건 섹션 -------------------- */

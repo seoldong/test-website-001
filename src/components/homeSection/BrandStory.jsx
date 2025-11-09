@@ -1,6 +1,6 @@
 import styles from "./BrandStory.module.css"
 // 
-import brandStoryData from "../../mockData/brandStoryData";
+import brandStoryData from "../../mockData/home/brandStoryData";
 
 // 
 function BrandStory() {

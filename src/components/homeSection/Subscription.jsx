@@ -1,6 +1,6 @@
 import styles from "./Subscription.module.css";
 //
-import subscription from "../../assets/page/home/subcription";
+import subscription from "../../mockData/home/subcription";
 
 //
 function Subscription() {

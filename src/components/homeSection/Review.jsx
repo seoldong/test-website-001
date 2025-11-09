@@ -11,10 +11,12 @@ function Review() {
     const dispatch = useDispatch();
     const bestReviews = useSelector((state) => state.bestReviews);
 
+    // 
     useEffect(() => {
         dispatch(fetchBestReviewsThunk());
     }, [dispatch])
 
+    //
     const handleRefetch = useCallback(() => {
         dispatch(fetchBestReviewsThunk());
     }, [dispatch]);

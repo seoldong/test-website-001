@@ -29,6 +29,7 @@ function TopNav() {
     return (
         <section className={`${styles.nav} ${scrolled && styles.active}`}>
             <div className={`${styles.underSide} ${undersidePanel && styles.active}`}>
+                <Link to={'/Home'}><button className={styles.aboutBtn}>HOME</button></Link>
                 <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
                 <ShopBtnUnderside />
                 <Link to={'/Event'}><button className={styles.eventBtn}>EVENT</button></Link>
@@ -58,6 +59,3 @@ function TopNav() {
 }
 
 export default TopNav;
-
-
-

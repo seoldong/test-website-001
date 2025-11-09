@@ -3,7 +3,7 @@ import styles from "./BestProducts.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect } from "react";
 // 
-import homeBestProductsText from "../../assets/page/home/bestProductsText";
+import homeBestProductsText from "../../mockData/home/bestProductsText";
 import { fetchBestProductsThunk } from "../../redux/slices/product/bestProducts";
 import BestBoard from "../common/BestBoard";
 

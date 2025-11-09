@@ -7,7 +7,8 @@
     "date": "2025-10-01",
     "productId": "M015",
     "productName": "Organic Whole Grain Bread",
-    "imageLink": "/img/review/maskpack/81023.jpg",
+    "userImageLink": "/img/user/81023.jpg",
+    "reviewImageLink": "/img/review/maskpack/81023-M015.jpg",
     "content": "Very hearty and filling! It's slightly dense but has a great texture. Will buy again."
   },
   {
@@ -18,7 +19,8 @@
     "date": "2025-10-05",
     "productId": "M007",
     "productName": "Premium Blend Coffee Beans",
-    "imageLink": "/img/review/maskpack/95412.jpg",
+    "userImageLink": "/img/user/95412.jpg",
+    "reviewImageLink": "/img/review/maskpack/95412-M007.jpg",
     "content": "Fantastic aroma and a smooth finish. Perfect for my morning routine. Highly recommended."
   },
   {
@@ -29,7 +31,8 @@
     "date": "2025-10-10",
     "productId": "M003",
     "productName": "Spicy Instant Noodle Pack",
-    "imageLink": "/img/review/maskpack/14785.jpg",
+    "userImageLink": "/img/user/14785.jpg",
+    "reviewImageLink": "/img/review/maskpack/14785-M003.jpg",
     "content": "Good flavor, but a bit too spicy for my taste. Next time I'll try the mild version."
   },
   {
@@ -40,7 +43,8 @@
     "date": "2025-10-14",
     "productId": "M011",
     "productName": "Natural Berry Yogurt",
-    "imageLink": "/img/review/maskpack/23690.jpg",
+    "userImageLink": "/img/user/23690.jpg",
+    "reviewImageLink": "/img/review/maskpack/23690-M011.jpg",
     "content": "The best yogurt I've ever had! Not too sour and packed with real fruit pieces. A daily must-have."
   },
   {
@@ -51,7 +55,8 @@
     "date": "2025-10-18",
     "productId": "M019",
     "productName": "Almond & Cashew Mix (Roasted)",
-    "imageLink": "/img/review/maskpack/78901.jpg",
+    "userImageLink": "/img/user/78901.jpg",
+    "reviewImageLink": "/img/review/maskpack/78901-M019.jpg",
     "content": "Perfectly roasted, very crunchy. Great snack for work, though the price is a little high."
   },
   {
@@ -62,7 +67,8 @@
     "date": "2025-10-22",
     "productId": "M005",
     "productName": "Fresh Orange Juice (No Pulp)",
-    "imageLink": "/img/review/maskpack/34567.jpg",
+    "userImageLink": "/img/user/34567.jpg",
+    "reviewImageLink": "/img/review/maskpack/34567-M005.jpg",
     "content": "Tastes like freshly squeezed oranges. Extremely refreshing. My kids absolutely love it."
   },
   {
@@ -73,7 +79,8 @@
     "date": "2025-10-25",
     "productId": "M001",
     "productName": "Gluten-Free Pasta (Penne)",
-    "imageLink": "/img/review/maskpack/90123.jpg",
+    "userImageLink": "/img/user/90123.jpg",
+    "reviewImageLink": "/img/review/maskpack/90123-M001.jpg",
     "content": "Excellent substitute for regular pasta. Holds up well to sauce and doesn't get mushy."
   },
   {
@@ -84,7 +91,8 @@
     "date": "2025-10-28",
     "productId": "M013",
     "productName": "Dark Chocolate Sea Salt Bar",
-    "imageLink": "/img/review/maskpack/45678.jpg",
+    "userImageLink": "/img/user/45678.jpg",
+    "reviewImageLink": "/img/review/maskpack/45678-M013.jpg",
     "content": "The perfect balance of bitterness and sea salt. A truly gourmet chocolate experience. Will buy every time."
   },
   {
@@ -95,7 +103,8 @@
     "date": "2025-10-30",
     "productId": "M009",
     "productName": "Frozen Shrimp Dumplings",
-    "imageLink": "/img/review/maskpack/67890.jpg",
+    "userImageLink": "/img/user/67890.jpg",
+    "reviewImageLink": "/img/review/maskpack/67890-M009.jpg",
     "content": "Convenient for a quick meal, but the shrimp taste isn't as pronounced as I hoped. Decent overall."
   },
   {
@@ -106,7 +115,8 @@
     "date": "2025-10-31",
     "productId": "M017",
     "productName": "Herbal Green Tea Bags",
-    "imageLink": "/img/review/maskpack/12345.jpg",
+    "userImageLink": "/img/user/12345.jpg",
+    "reviewImageLink": "/img/review/maskpack/12345-M017.jpg",
     "content": "A very refreshing and calming tea. The subtle herbal notes make it unique. Great quality for the price."
   },
   {
@@ -117,7 +127,8 @@
     "date": "2025-11-03",
     "productId": "M002",
     "productName": "Premium Jasmine Green Tea",
-    "imageLink": "/img/review/maskpack/43210.jpg",
+    "userImageLink": "/img/user/43210.jpg",
+    "reviewImageLink": "/img/review/maskpack/43210-M002.jpg",
     "content": "The best jasmine tea I've found. Subtle floral notes and very clean finish. Excellent quality."
   },
   {
@@ -128,7 +139,8 @@
     "date": "2025-11-07",
     "productId": "M010",
     "productName": "Frozen Organic Broccoli Florets",
-    "imageLink": "/img/review/maskpack/56789.jpg",
+    "userImageLink": "/img/user/56789.jpg",
+    "reviewImageLink": "/img/review/maskpack/56789-M010.jpg",
     "content": "Convenient and maintains color well when cooked. Good for quick side dishes."
   },
   {
@@ -139,7 +151,8 @@
     "date": "2025-11-11",
     "productId": "M018",
     "productName": "Aged Balsamic Vinegar",
-    "imageLink": "/img/review/maskpack/10987.jpg",
+    "userImageLink": "/img/user/10987.jpg",
+    "reviewImageLink": "/img/review/maskpack/10987-M018.jpg",
     "content": "Thick and rich with a complex, sweet-sour flavor. Worth the price for salads and dipping bread."
   },
   {
@@ -150,7 +163,8 @@
     "date": "2025-11-15",
     "productId": "M006",
     "productName": "Whole Wheat Pita Bread",
-    "imageLink": "/img/review/maskpack/30214.jpg",
+    "userImageLink": "/img/user/30214.jpg",
+    "reviewImageLink": "/img/review/maskpack/30214-M006.jpg",
     "content": "A bit too dry, even when warmed up. Good size for sandwiches, but the texture could be better."
   },
   {
@@ -161,7 +175,8 @@
     "date": "2025-11-19",
     "productId": "M014",
     "productName": "Spicy Kimchi Jar (Traditional)",
-    "imageLink": "/img/review/maskpack/87654.jpg",
+    "userImageLink": "/img/user/87654.jpg",
+    "reviewImageLink": "/img/review/maskpack/87654-M014.jpg",
     "content": "Authentic and perfectly fermented. The spicy kick is just right. Will definitely repurchase this kimchi."
   },
   {
@@ -172,7 +187,8 @@
     "date": "2025-11-23",
     "productId": "M020",
     "productName": "Mixed Grain Cereal (High Fiber)",
-    "imageLink": "/img/review/maskpack/21435.jpg",
+    "userImageLink": "/img/user/21435.jpg",
+    "reviewImageLink": "/img/review/maskpack/21435-M020.jpg",
     "content": "Great source of fiber, not too sweet. Stays crunchy in milk for a decent amount of time."
   },
   {
@@ -183,7 +199,8 @@
     "date": "2025-11-25",
     "productId": "M004",
     "productName": "Artisanal Strawberry Jam",
-    "imageLink": "/img/review/maskpack/65432.jpg",
+    "userImageLink": "/img/user/65432.jpg",
+    "reviewImageLink": "/img/review/maskpack/65432-M004.jpg",
     "content": "Tastes homemade! Large chunks of real strawberries and not overly sugary. Perfect on toast."
   },
   {
@@ -194,7 +211,8 @@
     "date": "2025-11-27",
     "productId": "M008",
     "productName": "Unsalted Butter Sticks (European Style)",
-    "imageLink": "/img/review/maskpack/98765.jpg",
+    "userImageLink": "/img/user/98765.jpg",
+    "reviewImageLink": "/img/review/maskpack/98765-M008.jpg",
     "content": "Richer flavor than regular butter. Excellent for baking, gives pastries a great texture."
   },
   {
@@ -205,7 +223,8 @@
     "date": "2025-11-29",
     "productId": "M016",
     "productName": "Instant Miso Soup Pack",
-    "imageLink": "/img/review/maskpack/23456.jpg",
+    "userImageLink": "/img/user/23456.jpg",
+    "reviewImageLink": "/img/review/maskpack/23456-M016.jpg",
     "content": "Very quick and easy, but the flavor is a little weak. Needs more tofu and seaweed for my liking."
   },
   {
@@ -213,10 +232,11 @@
     "customerId": 76543,
     "userName": "Kwon D**n",
     "rating": 5,
-    "date": "2025-11-30",
+    "date": "2025-02-30",
     "productId": "M012",
     "productName": "Virgin Olive Oil (Cold Pressed)",
-    "imageLink": "/img/review/maskpack/76543.jpg",
+    "userImageLink": "/img/user/76543.jpg",
+    "reviewImageLink": "/img/review/maskpack/76543-M012.jpg",
     "content": "Fruity and slightly peppery. High-quality oil perfect for finishing dishes and dipping."
   }
 ]

@@ -6,15 +6,15 @@
 
 .title {
     width: 100%;
-    height: 10%;
+    height: 15%;
     font-size: 2.5rem;
     font-weight: bold;
     display: flex;
     align-items: end;
-    padding-left: 3rem;
+    padding: 2rem;
 }
 
 .ReviewBoard {
     width: 100%;
-    height: 90%;
+    height: 85%;
 }

@@ -9,7 +9,6 @@ import ShopPage from "./pages/ShopPage";
 import EventPage from "./pages/EventPage";
 import ProductPage from "./pages/ProductPage";
 
-
 // 
 function App() {
 

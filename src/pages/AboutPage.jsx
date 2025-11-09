@@ -1,9 +1,9 @@
 import styles from "./AboutPage.module.css";
 // 
 import { useEffect, useRef, useState } from "react"; // useRef, currentIndex, scrolled 관련 제거
-// 
-import aboutPageTextData from "../mockData/aboutPageText";
-import aboutPageImages from "../mockData/aboutPageImg"
+//
+import aboutPageTextData from "../mockData/about/aboutPageText"
+import aboutPageImages from "../mockData/about/aboutPageImg"
 import brandStorySrc from "../assets/page/about/etc/brandStory.jpg"
 // 
 const SCROLL_THRESHOLD = 50;
@@ -32,7 +32,7 @@ function AboutPage() {
   //텍스트와 이미지 가져오기
   useEffect(() => {
     setAboutText(aboutPageTextData);
-    setIngredientsImgSrc(aboutPageImages);
+    setIngredientsImgSrc(aboutPageImages());
   }, []);
 
   // 자동 무한 슬라이드

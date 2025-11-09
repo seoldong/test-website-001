@@ -70,6 +70,7 @@ function ReviewBoard({ reviewData, onRetry, dataName }) {
                     const rating = review.rating;
                     const maxRating = 5;
                     const stars = Array.from({ length: maxRating });
+                    
                     // 
                     return (
                         <Link
@@ -77,10 +78,13 @@ function ReviewBoard({ reviewData, onRetry, dataName }) {
                             key={review.id}
                             to={'/product/' + id}
                         >
-                            <img className={styles.image} src={review.imageLink} alt={review.product_name} />
+                            <img className={styles.reviewImage} src={review.reviewImageLink} alt={review.product_name} />
                             <div className={styles.content}>{review.content}</div>
                             <div className={styles.userBox}>
-                                <div>{review.userName}</div>
+                                <div className={styles.userProfile}>
+                                    <img className={styles.userImg} src={review.userImageLink} />
+                                    <div>{review.userName}</div>
+                                </div>
                                 <div className={styles.ratingBox}>
                                     <div className={styles.date}>{review.date}</div>
                                     {stars.map((_, index) => {
