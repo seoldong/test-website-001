@@ -1,5 +1,7 @@
 .aboutPage {
-    width: 1800px;
+    /* width: 1800px; */ /* <-- 이 부분을 제거하거나 주석 처리 */
+    max-width: 1800px; /* 최대 너비 설정 */
+    width: 90%; /* 화면의 90%를 사용 (좌우 여백 확보) */
     margin: auto;
 }
 
@@ -202,3 +204,5 @@
     background-color: moccasin;
     transform: translateX()
 }
+
+

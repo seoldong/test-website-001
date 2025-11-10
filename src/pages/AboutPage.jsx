@@ -6,36 +6,20 @@ import aboutPageTextData from "../mockData/about/aboutPageText"
 import aboutPageImages from "../mockData/about/aboutPageImg"
 import brandStorySrc from "../assets/page/about/etc/brandStory.jpg"
 // 
-const SCROLL_THRESHOLD = 50;
-const itemWidth = 400; //px로 해야 나머지 계산이 쉬움.
-const DURATION = 100000; // 자동 슬라이드 전체 시간 (밀리초)
+const itemWidth = 400;
+const DURATION = 100000;
 
 // 
 function AboutPage() {
   const trackRef = useRef(null);
-  const [scrolled, setScrolled] = useState(false);
   const [aboutText, setAboutText] = useState({});
   const [ingredientsImgSrc, setIngredientsImgSrc] = useState([]);
-
-  // 스크롤 시 topNav 배경 투명도 변경
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > SCROLL_THRESHOLD;
-      setScrolled(isScrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrolled]);
-
-  //텍스트와 이미지 가져오기
+  
   useEffect(() => {
     setAboutText(aboutPageTextData);
     setIngredientsImgSrc(aboutPageImages());
   }, []);
 
-  // 자동 무한 슬라이드
   useEffect(() => {
     if (ingredientsImgSrc.length === 0 || !trackRef.current) return;
 
