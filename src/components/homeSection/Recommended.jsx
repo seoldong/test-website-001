@@ -1,6 +1,6 @@
 import styles from "./Recommended.module.css";
 // 
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback, useState, Activity } from "react";
 // import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // 
@@ -41,7 +41,11 @@ const Recommended = () => {
         >
             <div className={styles.title}>{'Recommended product'}</div>
             <div className={styles.description}>{'Discover today\'s recommended product to revitalize your day!'}</div>
-            <div className={styles.slide}>{isSlideOpen && <ProductSlide slideData={slideData} onRetry={handleRefetch} dataName={'recommended product'} />}</div>
+            <div className={styles.slide}>
+                <Activity mode={isSlideOpen ? 'visible' : 'hidden'} >
+                    <ProductSlide slideData={slideData} onRetry={handleRefetch} dataName={'recommended product'} />
+                </Activity>
+            </div>
         </section>
     );
 };

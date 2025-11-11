@@ -1,11 +1,15 @@
 .nav {
-  width: 1800px;
+  min-width: 576px;
+  max-width: 1800px;
+  width: 100%;
   height: 5rem;
   position: fixed;
   top: 0;
   left: 50%;
+  margin: auto;
   transform: translate(-50%);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   z-index: 100;
   transition: 300ms;
@@ -19,22 +23,22 @@
 
 .underSide {
   width: 100%;
-  height: 0rem;
+  height: 0;
   overflow: hidden;
   position: fixed;
   top: 5rem;
   left: 50%;
   transform: translate(-50%);
   display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 5rem;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   background-color: var(--farmWhite);
   transition: height 0.4s ease-out, padding 0.4s ease-out;
 }
 
 .underSide.active {
-  height: 16rem;
+  height: 100vh;
   padding-top: 1.5rem;
   background-color: var(--farmWhite);
 }
@@ -44,30 +48,29 @@
 }
 
 .leftBox {
+  flex: 1;
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 3rem;
-  gap: 2rem;
+  padding-left: 2rem;
 }
 
 .centerBox {
+  /* width: 20rem; */
   height: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .rightBox {
+  flex: 1;
   height: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 2rem;
-  padding-right: 3rem;
+  /* gap: 2rem; */
+  padding-right: 2rem;
 }
 
 .burgerBtn {
@@ -75,7 +78,8 @@
   height: 2rem;
   cursor: pointer;
   background-color: transparent;
-  /* 배경 투명 */
+  margin-right: 2rem;
+  display: none;
 }
 
 .burgerBar {
@@ -97,15 +101,18 @@
 .shopBtn,
 .eventBtn,
 .reviewBtn,
-.centerBox,
 .loginBtn,
 .cartBtn,
-.languageBtn {
+.languageBtn,
+.blogBtn,
+.drinkBtn,
+.maskPackBtn {
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1.5rem;
   cursor: pointer;
   background-color: transparent;
+  position: relative;
 }
 
 .aboutBtn:hover,
@@ -114,17 +121,9 @@
 .reviewBtn:hover,
 .loginBtn:hover,
 .cartBtn:hover,
-.languageBtn:hover {
+.languageBtn:hover,
+.blogBtn:hover {
   color: var(--farmYellow)
-}
-
-.undersideShopBtn {
-  font-size: 1.5rem;
-  padding: 1.5rem 1rem;
-  background-color: transparent;
-  border-bottom: 0.1rem solid black;
-  margin-bottom: 1rem;
-  font-weight: bold;
 }
 
 .shopMenu {
@@ -139,23 +138,8 @@
   background-color: var(--farmYellow);
 }
 
-.drinkBtn,
-.maskPackBtn {
-  width: 100%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  padding: 1rem;
-}
-
 .drinkBtn:hover,
-.maskPackBtn:hover,
-.maskPackageBtn:hover {
+.maskPackBtn:hover {
   color: var(--farmGreenYellow);
 }
 
@@ -199,24 +183,6 @@
 
 .logoTspanLogo {
   font-family: Cambria;
-}
-
-.undersideShopMenu {
-  display: flex;
-  flex-direction: column;
-}
-
-
-
-.undersideShopMenu button {
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-.undersideShopMenu button:hover {
-  color: #ff6347;
 }
 
 /*  */
@@ -327,27 +293,57 @@
   margin-bottom: 1rem;
 }
 
-.undersideDrinkBtn,
-.undersideMaskPackBtn {
-  font-size: 1.5rem;
-  padding: 0.5rem 0 1rem 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
+/* --------------------- */
+
+.blogBtn:after,
+.cartBtn:after,
+.loginBtn:after,
+.languageBtn:after {
+  content: "comming soon";
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  /* opacity: 0; */
+  visibility: hidden;
+  transition: opacity 0.3s;
+
+  pointer-events: none;
 }
 
-.undersideDrinkBtn:hover,
-.undersideMaskPackBtn:hover {
-  color: var(--farmYellow)
+.blogBtn:hover::after,
+.cartBtn:hover::after,
+.loginBtn:hover::after,
+.languageBtn:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
-.undersideShop {
-  display: flex;
-  flex-direction: column;
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+  .nav {
+    width: 576px;
+    left: 0;
+    transform: translate(0%);
+
+  }
+
+  .leftBox,
+  .rightBox {
+    display: none;
+  }
+
+  .burgerBtn {
+    display: block;
+  }
+
+
 }

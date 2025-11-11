@@ -63,14 +63,21 @@
 }
 
 .content {
+    /* 텍스트 줄임표를 위한 필수 속성 (WebKit 호환) */
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    
+    /* 🛠️ 최신 표준 line-clamp (점진적 적용) */
+    line-clamp: 3; 
+
+    /* 높이 계산: 3줄 * 1.5(line-height) = 4.5em */
+    height: 4.5em; 
+    
     line-height: 1.5;
     width: 100%;
-    height: 35%;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .userBox {

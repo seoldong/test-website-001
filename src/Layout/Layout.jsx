@@ -1,3 +1,5 @@
+import styles from "./Layout.module.css"
+// 
 import { Outlet } from "react-router-dom";
 // 
 import TopNav from "../components/topNav/index"
@@ -8,13 +10,8 @@ function Layout() {
 
     useScrollToTop();
 
-    const styles = {
-        width: '1800px',
-        margin: 'auto',
-    }
-
     return (
-        <div style={styles}>
+        <div className={styles.layout}>
             <TopNav />
             <main>
                 <Outlet />

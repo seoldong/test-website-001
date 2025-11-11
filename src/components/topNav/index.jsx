@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import BurgerBtn from "./BurgerBtn";
 import ShopBtn from "./ShopBtn";
 import Logo from "./LogoBtn";
-import ShopBtnUnderside from "./ShopBtnUnderside";
 
 //
 function TopNav() {
@@ -29,31 +28,44 @@ function TopNav() {
     return (
         <section className={`${styles.nav} ${scrolled && styles.active}`}>
             <div className={`${styles.underSide} ${undersidePanel && styles.active}`}>
-                <Link to={'/Home'}><button className={styles.aboutBtn}>HOME</button></Link>
+                <Link to={'/'}><button className={styles.aboutBtn}>HOME</button></Link>
                 <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
-                <ShopBtnUnderside />
+                <Link to={'/shop/drinks'}><button className={styles.drinkBtn}>SHOP : DRINK</button></Link>
+                <Link to={'/shop/maskPacks'}><button className={styles.maskPackBtn}>SHOP : MASK PACK</button></Link>
                 <Link to={'/Event'}><button className={styles.eventBtn}>EVENT</button></Link>
+                <Link to={'/Blog'} ><button className={styles.blogBtn} disabled={true} >BLOG</button></Link>
+                <button className={styles.cartBtn} disabled={true}>
+                    CART
+                </button>
+                <button className={styles.loginBtn} disabled={true}>
+                    LOGIN
+                </button>
+                <button className={styles.languageBtn} disabled={true}>
+                    <p>EN</p>
+                </button>
             </div>
             <div className={styles.leftBox}>
-                <BurgerBtn />
                 <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
                 <ShopBtn />
                 <Link to={'/Event'}><button className={styles.eventBtn}>EVENT</button></Link>
+                <Link to={'/Blog'}><button className={styles.blogBtn} disabled={true} >BLOG</button></Link>
             </div>
             <div className={styles.centerBox}>
                 <Logo />
+
             </div>
             <div className={styles.rightBox}>
-                <button className={styles.cartBtn}>
+                <button className={styles.cartBtn} disabled={true}>
                     CART
                 </button>
-                <button className={styles.loginBtn}>
+                <button className={styles.loginBtn} disabled={true}>
                     LOGIN
                 </button>
-                <button className={styles.languageBtn}>
-                    LANGUAGE
+                <button className={styles.languageBtn} disabled={true}>
+                    <p>EN</p>
                 </button>
             </div>
+            <BurgerBtn />
         </section>
     )
 }

@@ -1,8 +1,8 @@
 .subscription {
-    width: 100%;
-    height: 1000px;
-    display: flex;
-    background-color: var(--farmYellowWhite)
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  background-color: var(--farmYellowWhite)
 }
 
 .leftBox {
@@ -58,3 +58,52 @@
   background-color: darkgray;
 }
 
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+  .subscription {
+    /* height: auto; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leftBox {
+    width: 100%;
+    height: 50%;
+  }
+
+  .rightBox {
+    width: 100%;
+    height: 50%;
+    padding: 1rem;
+  }
+
+  .rightTitle {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .rightSubTitle {
+    font-size: 0rem;
+    margin: 1.5rem;
+  }
+
+  .rightDescription {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .rightPrice {
+    font-size: 1.3rem;
+    margin: 3rem 0 2rem 0;
+  }
+
+  .rightBtn {
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+
+}

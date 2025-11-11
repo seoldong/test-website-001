@@ -1,0 +1,14 @@
+.layout {
+    min-width: 576px;
+    max-width: 1800px;
+    width: 100%;
+    margin: auto;
+    background-color: var(--farmWhite);
+}
+
+@media screen and (max-width: 576px) {
+  .layout {
+    width: 576px;
+  }
+
+}

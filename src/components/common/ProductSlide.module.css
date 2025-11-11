@@ -6,17 +6,7 @@
     justify-content: space-between;
 }
 
-.leftBox,
-.rightBox {
-    width: 10%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .slideFrame {
-    width: 1200px;
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -146,4 +136,146 @@
 .state {
     padding: 0.5rem 1rem;
     border: 0.1rem solid black;
+}
+
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+
+    .slide {
+        width: 100%;
+        height: 30rem;
+        /*  */
+        justify-content: center;
+
+    }
+
+    .slideFrame {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        background-color: cornflowerblue;
+        /*  */
+    }
+
+    .track {
+        height: 40rem;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .productBox {
+        justify-content: center;
+        padding: 0rem;
+    }
+
+    .productBox::before {
+        content: "VIEW";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        pointer-events: none;
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 5;
+        /*  */
+
+    }
+
+    .productBox:hover::before {
+        opacity: 1;
+        /*  */
+    }
+
+    .image {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+    }
+
+    .name {
+        width: 100%;
+        height: 20%;
+        font-size: 1.3rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .priceBox {
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .salePrice {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .price {
+        font-size: 1.1rem;
+        text-decoration: line-through;
+        color: rgb(90, 90, 90);
+    }
+
+    .prevBox,
+    .nextBox {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: blueviolet;
+        /*  */
+    }
+
+    .prevBtn,
+    .nextBtn {
+        height: 6rem;
+        cursor: pointer;
+        font-size: 2rem;
+        z-index: 20;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .prevBtn:hover,
+    .nextBtn:hover {
+        background-color: var(--farmYellow);
+        color: var(--farmDarkGray);
+    }
+
+    .stateBox {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .state {
+        padding: 0.5rem 1rem;
+        border: 0.1rem solid black;
+    }
 }

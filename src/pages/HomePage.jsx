@@ -1,3 +1,4 @@
+import styles from './HomePage.module.css';
 // 
 import MainSlide from "../components/homeSection/MainSlide";
 import BestProducts from "../components/homeSection/BestProducts";
@@ -10,14 +11,8 @@ import Review from "../components/homeSection/Review"
 // 
 function HomePage() {
 
-  const styles = {
-    width: '1800px',
-    margin: 'auto',
-    backgroundColor: 'var(--farmWhite)',
-  };
-
   return (
-    <div style={styles}>
+    <div className={styles.homePage}>
       <MainSlide />
       <BestProducts />
       <Subscription />

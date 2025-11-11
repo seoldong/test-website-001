@@ -1,6 +1,7 @@
 /* -------------------- 1. 전체 푸터 컨테이너 -------------------- */
 .footer {
-    width: 100%;
+    min-width: 576px;
+    max-width: 100%;
     /* 높이(height) 고정 대신 최소 높이(min-height)와 여백(padding) 사용 */
     min-height: 450px;
     padding: 4rem 3rem;
@@ -140,4 +141,15 @@
     /* 저작권 텍스트 색상을 연하게 */
     border-top: 1px solid #3f51b5;
     /* 얇은 구분선 추가 */
+}
+
+
+/* mobile 0px ~ 576px */
+
+@media screen and (min-width: 576px) {
+  .footer {
+    width: 576px;
+    left: 0;
+    transform: translate(0%);
+  }
 }

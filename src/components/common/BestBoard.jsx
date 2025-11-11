@@ -23,9 +23,7 @@ function BestBoard({ boardData, onRetry, dataName }) {
                         key={item.productId}
                         to={`/product/${item.productId}`}
                     >
-                        <div className={styles.imgBox}>
-                            <img className={styles.image} src={item.imageSrc} />
-                        </div>
+                        <img className={styles.image} src={item.imageSrc} />
                         <div className={styles.name}>{item.productName}</div>
                         <div className={styles.price}>{`$ ${item.priceUsd}`}</div>
                         <div className={styles.stateBox}>

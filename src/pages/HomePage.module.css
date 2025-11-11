@@ -1,0 +1,14 @@
+.homePage {
+    min-width: 576px;
+    max-width: 1800px;
+    margin: 'auto';
+    background-color: 'var(--farmWhite)';
+}
+
+/* mobild 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+    .homePage {
+        width: 576px;
+    }
+}
