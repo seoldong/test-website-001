@@ -13,7 +13,7 @@ function ShopAllProducts() {
     const dispatch = useDispatch();
     const { category } = useParams();
 
-    // 
+    //
     const DEFAULT_PRODUCT_STATE = { data: [], loading: false, error: null };
 
     const selectedProducts = useSelector((state) => {
@@ -22,7 +22,7 @@ function ShopAllProducts() {
 
     const dataMissing = selectedProducts.data.length === 0;
 
-    // 
+    //
     useEffect(() => {
         const fetchCategoryData = () => {
             if (!dataMissing) return;
@@ -40,7 +40,7 @@ function ShopAllProducts() {
         fetchCategoryData();
     }, [category, dispatch, dataMissing]);
 
-    // 
+    //
     const handleRefetch = useCallback(() => {
         switch (category) {
             case "drinks":

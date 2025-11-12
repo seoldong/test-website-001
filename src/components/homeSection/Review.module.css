@@ -18,3 +18,15 @@
     width: 100%;
     height: 85%;
 }
+
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+    .review {
+        width: 100%;
+        height: auto;
+        /*  */
+        padding: 1rem;
+    }
+
+}

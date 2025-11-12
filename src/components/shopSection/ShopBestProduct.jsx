@@ -2,7 +2,7 @@ import styles from "./ShopBestProduct.module.css";
 // 
 import { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // 
 import { fetchBestDrinksThunk } from "../../redux/slices/product/bestDrinks";
 import { fetchBestMaskPacksThunk } from "../../redux/slices/product/bestMaskPacks";

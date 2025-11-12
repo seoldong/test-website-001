@@ -7,14 +7,16 @@
   --farmGray: rgb(150, 150, 150);
   --farmDarkGray: rgb(40, 40, 40);
   --farmGreen: rgba(55, 151, 71);
-  --farmGreenYellow: rgba(55, 153, 71);
+  --farmGreenYellow: rgb(133, 153, 55);
+  --farmGreenYellowWhite: rgb(190, 200, 100);
+  --farmBrown: rgb(230, 120, 50);
   --farmOrange: rgba(217, 85, 64);
   --farmLightBlue: rgba(187, 228, 221);
   --farmBlack: rgba(40, 38, 34);
   /*  */
-  --farmBlack-o25: rgba(40, 38, 34, 0.25);
-  --farmBlack-o50: rgba(40, 38, 34, 0.5);
-  --farmBlack-o75: rgba(40, 38, 34, 0.75);
+  --farmBlack-o25: rgba(0, 0, 0, 0.25);
+  --farmBlack-o50: rgba(0, 0, 0, 0.5);
+  --farmBlack-o75: rgba(0, 0, 0, 0.75);
   --farmBlack-o100: rgba(40, 38, 34, 1);
   background-color: var(--farmWhite);
 

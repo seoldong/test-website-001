@@ -10,6 +10,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: aliceblue;
-    background-color: rgb(179, 193, 108);
+    color: var(--farmWhite);
+    margin-bottom: 5rem;
+    background-color: var(--farmGreenYellowWhite);
+}
+
+
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+    .hook {
+        /*  */
+        height: auto;
+        font-size: 3rem;
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 3rem;
+    }
 }

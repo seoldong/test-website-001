@@ -1,0 +1,29 @@
+.mainImg {
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    background-color: darkgrey;
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+
+    .mainImg {
+        height: 500px;
+        /*  */
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}

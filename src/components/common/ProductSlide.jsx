@@ -79,7 +79,7 @@ function ProductSlide({ slideData, onRetry, dataName }) {
                                 <div className={styles.priceBox}>
                                     <div
                                         className={styles.salePrice}>
-                                        {`$ ${Math.round(product.onSale ? product.priceUsd * product.discountRate : product.priceKrw).toLocaleString()}`}
+                                        {`$ ${Math.round(product.onSale ? product.priceUsd * product.discountRate : product.priceUsd).toLocaleString()}`}
                                     </div>
                                     <div
                                         className={styles.price}>

@@ -3,11 +3,13 @@ import Error from './Error';
 import Loading from './Loading';
 import NoData from './NoData';
 import styles from './ProductsBoard.module.css';
+import { useState } from 'react';
 //
 
 // 
 function ProductsBoard({ boardData, onRetry, dataName }) {
     const { data, loading, error } = boardData;
+    const [isShow, setIsShow] = useState(false);
 
     const dataMissing = data.length === 0;
 
@@ -16,21 +18,26 @@ function ProductsBoard({ boardData, onRetry, dataName }) {
     if (dataMissing) return <NoData onRetry={onRetry} dataName={dataName} />
 
     return (
-        <div className={styles.productContainer}>
-            {data.map((product, index) => {
-                return (
-                    <Link
-                        className={styles.productBox}
-                        key={product.productId}
-                        to={`/product/${product.productId}`}
-                    >
-                        <img className={styles.image} src={product.imageSrc} />
-                        <div className={styles.name}>{product.productName}</div>
-                        <PriceState product={product} />
-                    </Link>
-                )
-            })}
-        </div>
+        <>
+            <div className={`${styles.productContainer} ${isShow && styles.isShow}`}>
+                {data.map((product, index) => {
+                    return (
+                        <Link
+                            className={styles.productBox}
+                            key={product.productId}
+                            to={`/product/${product.productId}`}
+                        >
+                            <img className={styles.image} src={product.imageSrc} />
+                            <div className={styles.name}>{product.productName}</div>
+                            <PriceState product={product} />
+                        </Link>
+                    )
+                })}
+            </div>
+            <div className={styles.showBtnBox}>
+                <button onClick={() => setIsShow(!isShow)}>{isShow ? 'HIDE' : 'SHOW ALL'}</button>
+            </div>
+        </>
     )
 }
 

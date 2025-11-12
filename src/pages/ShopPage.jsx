@@ -1,6 +1,9 @@
+import styles from "./ShopPage.module.css"
+// 
 import ShopMainImg from "../components/shopSection/ShopMainImg";
 import ShopBestProduct from "../components/shopSection/ShopBestProduct";
 import ShopAllProducts from "../components/shopSection/ShopAllProducts";
+
 // 
 function ShopPage() {
 
@@ -10,7 +13,7 @@ function ShopPage() {
     }
     //
     return (
-        <div style={styles}>
+        <div className={styles.shopPage}>
             <ShopMainImg />
             <ShopBestProduct />
             <ShopAllProducts />

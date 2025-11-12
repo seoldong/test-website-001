@@ -14,7 +14,6 @@ function ModalEventPage({ events }) {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-
     }
 
     return (
