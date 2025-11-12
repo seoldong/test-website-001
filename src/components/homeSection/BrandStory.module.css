@@ -1,20 +1,94 @@
 .brandStory {
-    width: 100%;
-    height: 900px;
-    position: relative;
+  width: 100%;
+  height: 900px;
+  position: relative;
 }
 
 .parllax {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/etcImg/brandStory.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(50%);
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.story {
+  width: 42%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-right: 5rem;
+}
+
+.centerLine {
+  position: absolute;
+  width: 0.5rem;
+  height: 80%;
+  background-color: white;
+}
+
+.vison {
+  width: 42%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-left: 5rem;
+}
+
+.storyTitle,
+.visonTitle {
+  font-size: 3rem;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  color: aliceblue;
+}
+
+.storyDescription,
+.visonDescription {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  color: aliceblue;
+}
+
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+  .brandStory {
+    width: 100%;
+    height: 900px;
+    position: relative;
+    /*  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .parllax {
     width: 100%;
     height: 100%;
-    background-image: url('../../assets/etcImg/brandStory.jpg');
+    background-image: url("../../assets/etcImg/brandStory.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     filter: brightness(50%);
-}
+  }
 
-.contents {
+  .contents {
     width: 100%;
     height: 100%;
     display: flex;
@@ -23,44 +97,54 @@
     position: absolute;
     top: 0;
     left: 0;
-}
+    /*  */
+    flex-direction: column;
+  }
 
-.story {
-    width: 42%;
-    height: 80%;
+  .story {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    padding-right: 5rem;
-}
+    /*  */
+    width: 100%;
+    height: 40%;
+    padding: 0 2rem;
+  }
 
-.centerLine {
-    position: absolute;
-    width: 0.5rem;
-    height: 80%;
+  .centerLine {
     background-color: white;
-}
+    /*  */
+    width: 80%;
+    height: 0.5rem;
+    position: relative;
+  }
 
-.vison {
-    width: 42%;
-    height: 80%;
+  .vison {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    padding-left: 5rem;
-}
+    /*  */
+    width: 100%;
+    height: 40%;
+    padding: 0 2rem;
+  }
 
-.storyTitle,
-.visonTitle {
+  .storyTitle,
+  .visonTitle {
     font-size: 3rem;
     text-decoration: underline;
     text-underline-offset: 0.5rem;
     color: aliceblue;
-}
+    /*  */
+    font-size: 2rem;
+    text-align: center;
+  }
 
-.storyDescription,
-.visonDescription {
-    font-size: 1.5rem;
+  .storyDescription,
+  .visonDescription {
     margin-top: 3rem;
     color: aliceblue;
+    /*  */
+    font-size: 1.3rem;
+  }
 }
