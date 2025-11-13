@@ -11,9 +11,7 @@ function Subscription() {
 
   return (
     <section className={styles.subscription}>
-      <div className={styles.leftBox}>
-        <img className={styles.leftImg} src={subscription.imgSrc} />
-      </div>
+      <img className={styles.leftImg} src={subscription.imgSrc} />
       <div className={styles.rightBox}>
         <div className={styles.rightTitle}>{subscription.title}</div>
         <div className={styles.rightSubTitle}>{subscription.subTitle}</div>

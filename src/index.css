@@ -19,7 +19,6 @@
   --farmBlack-o75: rgba(0, 0, 0, 0.75);
   --farmBlack-o100: rgba(40, 38, 34, 1);
   background-color: var(--farmWhite);
-
 }
 
 * {

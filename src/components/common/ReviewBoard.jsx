@@ -1,6 +1,6 @@
 import styles from "./ReviewBoard.module.css"
 // 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 // 
 import Loading from "./Loading";
 import Error from "./Error";
@@ -10,13 +10,30 @@ import { Link } from "react-router-dom";
 // 
 function ReviewBoard({ reviewData, onRetry, dataName }) {
     const { data, loading, error } = reviewData;
-
     const [currentPage, setCurrentPage] = useState(1);
+    const [onPageItemLength, setOnPageItemLength] = useState(8);
 
     const dataMissing = data.length === 0;
     const totalItems = data.length;
-    const onPageItemLength = 8;
     const boardPage = Math.max(1, Math.ceil(totalItems / onPageItemLength));
+
+    const updateItemLength = () => {
+        const width = window.innerWidth;
+        if (width <= 576) {
+            setOnPageItemLength(4); // 576px 미만 (모바일)
+        } else {
+            setOnPageItemLength(8); // 576px 이상 (태블릿/데스크톱)
+        }
+    };
+
+    useEffect(() => {
+        updateItemLength();
+        window.addEventListener('resize', updateItemLength);
+
+        return () => {
+            window.removeEventListener('resize', updateItemLength);
+        };
+    }, []);
 
     const getPaginationButtons = useMemo(() => {
         const maxButtons = 5;
@@ -70,7 +87,7 @@ function ReviewBoard({ reviewData, onRetry, dataName }) {
                     const rating = review.rating;
                     const maxRating = 5;
                     const stars = Array.from({ length: maxRating });
-                    
+
                     // 
                     return (
                         <Link
@@ -87,24 +104,25 @@ function ReviewBoard({ reviewData, onRetry, dataName }) {
                                 </div>
                                 <div className={styles.ratingBox}>
                                     <div className={styles.date}>{review.date}</div>
-                                    {stars.map((_, index) => {
-                                        const starNumber = index + 1;
-                                        return (
-                                            <span
-                                                key={index}
-                                                className={starNumber <= rating ? styles.filledStar : styles.emptyStar}
-                                            >
-                                                {starNumber <= rating ? '★' : '☆'}
-                                            </span>
-                                        );
-                                    })}
+                                    <div className={styles.startBox}>
+                                        {stars.map((_, index) => {
+                                            const starNumber = index + 1;
+                                            return (
+                                                <span
+                                                    key={index}
+                                                    className={starNumber <= rating ? styles.filledStar : styles.emptyStar}
+                                                >
+                                                    {starNumber <= rating ? '★' : '☆'}
+                                                </span>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
                         </Link>
                     )
                 })}
             </div>
-
             <div className={styles.board}>
                 <button className={styles.arrow} onClick={onClickMoveFirstPage} disabled={currentPage === 1}>«</button>
                 <button className={styles.boubbleArrow} onClick={onClickMoveLeftPageBtn} disabled={currentPage === 1}>◀</button>

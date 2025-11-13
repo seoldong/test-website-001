@@ -1,14 +1,17 @@
 .homePage {
-    min-width: 576px;
+    min-width: 575px;
     max-width: 1800px;
-    margin: 'auto';
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
     background-color: 'var(--farmWhite)';
 }
 
 /* mobild 0px ~ 576px */
 
-@media screen and (max-width: 576px) {
-    .homePage {
-        width: 576px;
-    }
-}
+@media screen and (max-width: 576px) {}
+
+/* tablet 0px ~ 768px */
+
+@media screen and (max-width: 768px) {}
+

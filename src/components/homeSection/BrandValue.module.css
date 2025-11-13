@@ -62,70 +62,64 @@
   object-fit: cover;
 }
 
-/* mobile 0px ~ 576px */
 
-@media screen and (max-width: 576px) {
+
+
+
+
+
+
+
+/* xtra xtra large 1200 ~  */
+
+@media screen and (max-width: 1400px) {}
+
+/* xtra large 993px ~ 1200px */
+
+@media screen and (max-width: 1200px) {
   .brandValue {
-    /*  */
+    padding: 3rem;
+  }
+}
+
+/* large 769px ~ 992px */
+
+@media screen and (max-width: 992px) {}
+
+/* medium 577px ~ 768px */
+
+@media screen and (max-width: 768px) {
+  .brandValue {
     height: auto;
-    padding: 2rem;
-  }
-
-  .valueImg {
-    /*  */
-    height: 20rem;
-  }
-
-  .textContainer {
-    /*  */
-    flex-direction: column;
   }
 
   .title {
-    /*  */
     width: 100%;
-    height: 20rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
-  .ImgContainer {
-    width: 100%;
-    height: 60%;
+  .textContainer {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .firstLineTitle,
-  .secondLineTitle {
-    /*  */
-    font-size: 1.8rem;
-  }
-
-  .secondLineTitle {
-    margin-bottom: 2rem;
-  }
-
-  .description {
-    /*  */
-    font-size: 1.5rem;
-    margin-top: 0rem;
+  .firstLineTitle {
+    margin-top: 5rem;
   }
 
   .valueListContainer {
-    /*  */
     width: 100%;
-    height: 20rem;
-    align-items: normal;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
   }
 
   .valueBox {
-    /*  */
     width: 100%;
-    margin-top: 1rem;
-    border-bottom: 0.1rem solid black;
   }
 
-  .valueName,
-  .valueIcon {
-    /*  */
-    font-size: 1.2rem;
-  }
 }
+
+/* mobile 0px ~ 576px */
+
+@media screen and (max-width: 576px) {}

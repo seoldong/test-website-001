@@ -2,6 +2,7 @@
   width: 100%;
   height: 900px;
   position: relative;
+  margin-bottom: 5rem;
 }
 
 .parllax {
@@ -65,86 +66,79 @@
   color: aliceblue;
 }
 
-/* mobile 0px ~ 576px */
 
-@media screen and (max-width: 576px) {
-  .brandStory {
-    width: 100%;
-    height: 900px;
-    position: relative;
-    /*  */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* xtra xtra large 1200 ~  */
 
-  .parllax {
-    width: 100%;
-    height: 100%;
-    background-image: url("../../assets/etcImg/brandStory.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(50%);
-  }
+@media screen and (max-width: 1400px) {}
 
-  .contents {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /*  */
-    flex-direction: column;
-  }
+/* xtra large 993px ~ 1200px */
 
+@media screen and (max-width: 1200px) {}
+
+/* large 769px ~ 992px */
+
+@media screen and (max-width: 992px) {
   .story {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    /*  */
-    width: 100%;
-    height: 40%;
-    padding: 0 2rem;
-  }
-
-  .centerLine {
-    background-color: white;
-    /*  */
-    width: 80%;
-    height: 0.5rem;
-    position: relative;
+    justify-content: center;
   }
 
   .vison {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    /*  */
-    width: 100%;
-    height: 40%;
-    padding: 0 2rem;
+    justify-content: center;
   }
 
-  .storyTitle,
+  .storyTitle {
+    font-size: 2.5rem;
+  }
+
+  .storyDescription {
+    font-size: 1.8rem;
+  }
+
   .visonTitle {
-    font-size: 3rem;
-    text-decoration: underline;
-    text-underline-offset: 0.5rem;
-    color: aliceblue;
-    /*  */
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .visonDescription {
+    font-size: 1.8rem;
+  }
+
+}
+
+/* medium 577px ~ 768px */
+
+@media screen and (max-width: 768px) {
+  .brandStory {
+    height: 1100px;
+  }
+
+  .contents {
+    flex-direction: column;
+  }
+
+  .story,
+  .vison {
+    width: 100%;
+    padding: 5rem;
+  }
+
+  .storyTitle {
     text-align: center;
   }
 
-  .storyDescription,
-  .visonDescription {
-    margin-top: 3rem;
-    color: aliceblue;
-    /*  */
-    font-size: 1.3rem;
+  .centerLine {
+    width: 100%;
+    height: 0.5rem;
+  }
+
+  .visonTitle {
+    text-align: center;
+  }
+}
+
+/* small 0px ~ 576px */
+
+@media screen and (max-width: 576px) {
+  .brandStory {
+    height: 1400px;
   }
 }
