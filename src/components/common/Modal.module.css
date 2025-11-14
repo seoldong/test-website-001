@@ -6,29 +6,21 @@
     left: 0;
     display: flex;
     align-items: center;
-    /* 모달을 수직 중앙으로 이동 */
     justify-content: center;
     background-color: var(--farmBlack-o75);
-    /* 배경을 더 어둡게 */
     z-index: 100;
 }
 
 .contentsBox {
-    /* 너비와 높이 비율 조정 */
-    width: 50%;
-    max-width: 800px;
-    /* 최대 크기 지정 */
+    width: 80%;
+    min-width: 576px;
+    max-width: 1600px;
     height: 80vh;
-    /* 화면 높이의 80% 사용 */
     position: relative;
-    /* margin-top 제거하고 flex로 중앙 정렬 */
     background-color: var(--farmWhite);
-    /* 모달 컨테이너 배경색 추가 */
     border-radius: 8px;
-    /* 모서리 둥글게 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    /* 내부 내용이 넘칠 때 대비 */
 }
 
 .btnBox {
@@ -50,7 +42,7 @@
     width: auto;
     padding: 0.5rem 1rem;
     height: 80%;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     cursor: pointer;
     border: none;
@@ -78,17 +70,34 @@
     /* 내용이 길어지면 스크롤 가능 */
 }
 
-/* mobile 0px ~ 576px */
+/* xtra xtra large 1200 ~  */
 
-@media screen and (max-width: 576px) {
-    .background {
-        /*  */
-        background-color: var(--farmBlack-o75);
-    }
-
+@media screen and (max-width: 1400px) {
     .contentsBox {
-        /*  */
-        width: 90%;
-        height: 90%;
+        height: 70vh;
     }
 }
+
+/* xtra large 993px ~ 1200px */
+
+@media screen and (max-width: 1200px) {
+    .contentsBox {
+        height: 90vh;
+    }
+}
+
+/* large 769px ~ 992px */
+
+@media screen and (max-width: 992px) {
+    .contentsBox {
+        height: 90vh;
+    }
+}
+
+/* medium 577px ~ 768px */
+
+@media screen and (max-width: 768px) {}
+
+/* small 0px ~ 576px */
+
+@media screen and (max-width: 576px) {}

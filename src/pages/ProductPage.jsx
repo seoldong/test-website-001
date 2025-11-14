@@ -214,6 +214,26 @@ function Breadcrumbs({ productData }) {
 function OrderQuantity({ productData }) {
     const dispatch = useDispatch();
     const productsOrder = useSelector((state) => state.productsOrder);
+    const [breakPoint, setBreakPoint] = useState(false);
+
+    const updateItemLength = () => {
+        const width = window.innerWidth;
+
+        if (width <= 992) {
+            setBreakPoint(true);
+        } else {
+            setBreakPoint(false);
+        }
+    };
+
+    useEffect(() => {
+        updateItemLength();
+        window.addEventListener('resize', updateItemLength);
+
+        return () => {
+            window.removeEventListener('resize', updateItemLength);
+        };
+    }, []);
 
     const onClickMinus = () => {
         dispatch(orderMinus());
@@ -225,7 +245,7 @@ function OrderQuantity({ productData }) {
 
     return (
         <div className={styles.orderBox}>
-            <div className={styles.orderTitle}>order</div>
+            <div className={styles.orderTitle}>order {breakPoint && ' : ' + ' $ ' + productData.priceUsd}</div>
             <div className={styles.quantityBox}>
                 <button onClick={onClickMinus} disabled={productsOrder <= 1}>-</button> {/* 최소 수량 1 제한 */}
                 <div className={styles.quantity}>{productsOrder}</div>

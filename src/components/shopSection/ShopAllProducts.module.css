@@ -4,7 +4,6 @@
 
 .hook {
     width: 100%;
-    height: 10rem;
     font-size: 4rem;
     font-weight: bold;
     display: flex;
@@ -13,18 +12,6 @@
     color: var(--farmWhite);
     margin-bottom: 5rem;
     background-color: var(--farmGreenYellowWhite);
-}
-
-
-/* mobile 0px ~ 576px */
-
-@media screen and (max-width: 576px) {
-    .hook {
-        /*  */
-        height: auto;
-        font-size: 3rem;
-        text-align: center;
-        padding: 1rem;
-        margin-bottom: 3rem;
-    }
+    text-align: center;
+    padding: 3rem;
 }

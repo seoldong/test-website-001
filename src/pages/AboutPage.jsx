@@ -14,7 +14,7 @@ function AboutPage() {
   const trackRef = useRef(null);
   const [aboutText, setAboutText] = useState({});
   const [ingredientsImgSrc, setIngredientsImgSrc] = useState([]);
-  
+
   useEffect(() => {
     setAboutText(aboutPageTextData);
     setIngredientsImgSrc(aboutPageImages());
@@ -72,12 +72,12 @@ function AboutPage() {
           {aboutText.brandStoryDescription}
         </div>
       </section>
-      <div className={styles.philosophy}>
+      <section className={styles.philosophy}>
         <div className={styles.value}>{aboutText.value}</div>
         <div className={styles.explain}>{aboutText.explain}</div>
         <div className={styles.promise}>{aboutText.promise}</div>
         <div className={styles.philosophyImage}></div>
-      </div>
+      </section>
       <section className={styles.ingredients}>
         <div className={styles.ingredientsTitle}>
           {aboutText.ingredientsTitle}

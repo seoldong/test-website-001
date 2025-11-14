@@ -18,9 +18,11 @@ function ModalEventPage({ events }) {
 
     return (
         <section className={styles.modalEventPage} style={styeleData}>
-            <div className={styles.title}><p>{eventData.main.title}</p></div>
-            <div className={styles.subTitle}><p>{eventData.main.subTitle}</p></div>
-            <div className={styles.description}><p>{eventData.main.description}</p></div>
+            <div className={styles.titleBox}>
+                <div className={styles.title}>{eventData.main.title}</div>
+                <div className={styles.subTitle}>{eventData.main.subTitle}</div>
+                <div className={styles.description}>{eventData.main.description}</div>
+            </div>
             <div className={styles.info}>
                 <div className={styles.time}>
                     <p>{eventData.info.startDate}</p>

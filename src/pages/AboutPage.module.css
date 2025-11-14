@@ -67,7 +67,7 @@
 .story {
     grid-area: title;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: end;
     font-size: 3rem;
 }
@@ -79,7 +79,8 @@
     align-items: start;
     font-size: 1.5rem;
     line-height: 1.5;
-    padding: 3rem;
+    padding: 3rem 3rem 3rem 0;
+
 }
 
 /* -------------------- Philosophy -------------------- */
@@ -202,161 +203,160 @@
 
 
 
+/* xtra xtra large 1400 ~  */
 
-/* mobile 0px ~ 576px */
+@media screen and (max-width: 1400px) {
 
-@media screen and (max-width: 576px) {
-    .aboutPage {
-        max-width: 1800px;
-        width: 90%;
-        margin: auto;
-        /*  */
+    .ingredients {
         width: 100%;
-    }
-
-    .aboutPage {
-        /*  */
         height: auto;
-    }
-
-    /* -------------------- Brand Introduction -------------------- */
-
-    .brandIntroduction {
-        /*  */
-        height: auto;
-    }
-
-    .introductionTitle {
-        /*  */
-        padding: 10rem 2rem 1rem 2rem;
-        font-size: 3rem;
-        height: auto;
-        text-align: center;
-    }
-
-    .introductionDescription {
-        /*  */
-        padding: 2rem 2rem 5rem 2rem;
-        height: auto;
-        font-size: 1.5rem;
-    }
-
-    .introductionImage {
-        height: 30rem;
-    }
-
-    /* -------------------- Brand Story -------------------- */
-    .brandStory {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 0.4fr 1fr;
-        grid-template-areas:
-            "image title"
-            "image description";
-        height: auto;
-        /*  */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .brandStoryImageBox {
-        /*  */
-        padding: 5rem 0rem;
-    }
-
-    .brandStoryImage {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .story {
-        /*  */
-        font-size: 2rem;
-        font-weight: bold;
-        padding: 0 2rem;
-    }
-
-    .description {
-        /*  */
-        padding: 2rem 2rem 5rem 2rem;
-    }
-
-    /* -------------------- Philosophy -------------------- */
-    .philosophy {
-        /*  */
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        padding-top: 5rem;
-        background-color: var(--farmBrown);
-    }
-
-    .value {
-        /*  */
-        font-size: 2rem;
-        padding: 0 2rem 2rem 2rem;
-    }
-
-    .explain {
-        /*  */
-        padding: 2rem 2rem 0 2rem;
-        text-align: start;
-        justify-content: start;
-        align-items: start;
+        margin-bottom: 10rem;
     }
 
     .promise {
         /*  */
-        justify-content: start;
-        padding: 2rem 2rem 5rem 2rem;
-
-    }
-
-    .philosophyImage {
-        /*  */
-        width: 100%;
-        height: 20rem;
-    }
-
-    /* -------------------- Ingredients (무한 슬라이드) -------------------- */
-    .ingredients {
-        width: 100%;
-        /*  */
-        height: auto;
-        padding: 5rem 2rem 2rem 2rem;
+        padding: 0 10rem
     }
 
     .ingredientsTitle {
-        /*  */
         height: auto;
-        font-size: 2rem;
-        padding-bottom: 0;
-        margin-bottom: 2rem;
+        font-size: 3rem;
+        padding: 10rem 10rem 3rem 10rem;
+        text-align: center;
     }
 
     .ingredientsDescription {
-        /*  */
         height: auto;
-        padding: 1rem;
-        margin-bottom: 2rem;
+        padding: 1rem 10rem 5rem 10rem;
     }
 
     .ingredientsDescriptionList {
-        /*  */
+        width: 100%;
         height: auto;
-        padding: 1rem;
-        gap: 0;
-        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 10rem 10rem 10rem;
+    }
+}
+
+/* xtra large 993px ~ 1200px */
+
+@media screen and (max-width: 1200px) {}
+
+/* large 769px ~ 992px */
+
+@media screen and (max-width: 992px) {
+    .aboutPage {
+        height: auto;
     }
 
-    .ingredientsDescriptionList li {
+    .brandIntroduction {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10rem;
+    }
+
+    .introductionTitle {
         /*  */
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
+        height: auto;
+        margin-top: 5rem;
+        padding: 10rem 5rem 5rem 5rem;
+        text-align: center;
+    }
+
+    .introductionDescription {
+        height: auto;
+        align-items: center;
+        padding: 0 5rem 5rem 5rem;
+    }
+
+    .introductionImage {
+        width: 90%;
+        height: 30rem;
+        margin: 0 auto;
+    }
+
+    /*  */
+
+    .brandStory {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .story {
+        width: 100%;
+        height: 100%;
+        align-items: start;
+        align-items: center;
+        /*  */
+        font-weight: bold;
+        font-size: 3rem;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .brandStoryImageBox {
+        padding: 0;
+        order: 1;
+    }
+
+    .description {
+        height: auto;
+        padding: 5rem 6rem;
+        line-height: 2;
     }
 
 }
+
+/* medium 577px ~ 768px */
+
+@media screen and (max-width: 768px) {
+    .brandStory {
+        margin-bottom: 5rem;
+    }
+
+    .value {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        /*  */
+        padding: 2rem 5rem;
+        margin-bottom: 5rem;
+    }
+
+    .explain {
+        padding: 2rem;
+    }
+
+    .promise {
+        padding: 2rem 5rem;
+    }
+
+    .ingredientsTitle {
+        padding: 2rem 5rem;
+    }
+
+    .philosophy {
+        margin-bottom: 5rem;
+    }
+
+    .ingredientsDescription {
+        padding: 2rem 5rem;
+    }
+
+    .ingredientsDescriptionList {
+        padding: 2rem 5rem;
+        margin-bottom: 5rem;
+        font-size: 1.5rem;
+    }
+
+
+
+
+}
+
+/* small 0px ~ 576px */
+
+@media screen and (max-width: 576px) {}

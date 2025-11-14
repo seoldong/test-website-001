@@ -1,29 +1,35 @@
 .mainImg {
     width: 100%;
-    height: 800px;
+    height: 50vh;
     overflow: hidden;
     background-color: darkgrey;
 }
 
 .img {
+    height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
 
-/* mobile 0px ~ 576px */
+/* xtra xtra large 1200 ~  */
 
-@media screen and (max-width: 576px) {
-
-    .mainImg {
-        height: 500px;
-        /*  */
-    }
-
-    .img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+@media screen and (max-width: 1400px) {
 
 }
+
+/* xtra large 993px ~ 1200px */
+
+@media screen and (max-width: 1200px) {}
+
+/* large 769px ~ 992px */
+
+@media screen and (max-width: 992px) {}
+
+/* medium 577px ~ 768px */
+
+@media screen and (max-width: 768px) {}
+
+/* small 0px ~ 576px */
+
+@media screen and (max-width: 576px) {}
