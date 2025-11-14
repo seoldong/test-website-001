@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Waking Up with Herbs: 7 Wellness Benefits of Lavender",
+    "summary": "Discover the amazing benefits of lavender for stress relief and sleep, and our farm's growing know-how. The perfect natural cure for peace of mind.",
+    "date": "2025-11-01",
+    "contentPath": "/data/blog/content/20251101.md",
+    "imagePath": "/img/blog/id01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Life Outside the City: Finding a Minimalist Life on the Farm",
+    "summary": "The charm of farm life—reducing the unnecessary and living according to nature's rhythm. We talk about the true happiness and serenity hidden in simplicity.",
+    "date": "2025-11-05",
+    "contentPath": "/data/blog/content/20251105.md",
+    "imagePath": "/img/blog/id02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Homemade Natural Cosmetics: A Moisturizing Mask with Honey and Oats",
+    "summary": "An ultra-simple natural mask recipe using only farm-harvested ingredients. Share a natural beauty routine that hydrates the skin without irritation.",
+    "date": "2025-11-10",
+    "contentPath": "/data/blog/content/20251110.md",
+    "imagePath": "/img/blog/id03.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Walking Slowly, Nature Meditation: Experiencing Rest for the Mind on a Forest Path",
+    "summary": "How to shed stress by walking along the forest path near our farm, escaping the busy daily life. We provide a natural meditation guide anyone can follow.",
+    "date": "2025-11-14",
+    "contentPath": "/data/blog/content/20251114.md",
+    "imagePath": "/img/blog/id04.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The Secret to a Healthy Table: Detox Juice Recipes with Seasonal Vegetables",
+    "summary": "Three revitalizing detox juice recipes made with our farm's seasonal organic vegetables. Revealing the health secrets to cleanse the body and recharge energy.",
+    "date": "2025-11-18",
+    "contentPath": "/data/blog/content/20251118.md",
+    "imagePath": "/img/blog/id05.jpg"
+  }
+]

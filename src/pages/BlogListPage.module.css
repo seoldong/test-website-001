@@ -1,0 +1,76 @@
+/* BlogPage.module.css */
+
+.blogPage {
+    max-width: 900px;
+    margin: 10rem auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    margin-bottom: 3rem;
+}
+
+.blogList {
+    list-style: none;
+    padding: 0;
+}
+
+.blogItem {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.blogHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.blogTitle {
+    font-size: 1.5em;
+    color: #38761d;
+    /* 농장 컨셉에 맞는 색상 */
+    margin: 0;
+}
+
+.blogDate {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.blogSummary {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.readMoreButton {
+    background-color: #709420;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.readMoreButton:hover {
+    background-color: #5b791a;
+}
+
+.readMoreBtn {
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+}
+
+.readMoreBtn:hover {
+    background-color: var(--farmYellow);
+    color: var(--farmGreen);
+}

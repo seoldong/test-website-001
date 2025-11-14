@@ -50,7 +50,7 @@ function TopNav() {
                 <Link to={'/About'}><button className={styles.aboutBtn}>ABOUT</button></Link>
                 <ShopBtn />
                 <Link to={'/Event'}><button className={styles.eventBtn}>EVENT</button></Link>
-                <Link to={'/Blog'}><button className={styles.blogBtn} disabled={true} >BLOG</button></Link>
+                <Link to={'/Blog'}><button className={styles.blogBtn} >BLOG</button></Link>
             </div>
             <div className={styles.centerBox}>
                 <Logo />

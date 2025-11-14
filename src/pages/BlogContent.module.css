@@ -1,0 +1,52 @@
+.blogPost {
+    margin: 10rem auto;
+    padding: 0 5rem;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.date {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 5rem;
+}
+
+.contentWrapper h1 {
+    font-size: 2rem;
+    margin: 3rem auto;
+}
+
+.contentWrapper p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.contentWrapper h2 {
+    font-size: 1.5rem;
+    margin: 5rem 0 2rem;
+}
+
+.contentWrapper ol,
+.contentWrapper ul {
+    padding: 0 2rem;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.contentWrapper li {
+    margin-bottom: 1rem;
+}
+
+.contentWrapper img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+

@@ -8,6 +8,8 @@ import AboutPage from "./pages/AboutPage";
 import ShopPage from "./pages/ShopPage";
 import EventPage from "./pages/EventPage";
 import ProductPage from "./pages/ProductPage";
+import BlogListPage from "./pages/BlogListPage";
+import BlogContent from "./pages/BlogContent";
 
 // 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/shop/:category" element={<ShopPage />} />
           <Route path="/event" element={<EventPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/blog" element={<BlogListPage />} />
+          <Route path="/blog/:id" element={<BlogContent />} />
           {/*  */}
         </Route>
         <Route path="*" element={<div>404 Not Found</div>} />
